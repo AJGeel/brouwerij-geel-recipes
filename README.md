@@ -1,4 +1,14 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Brouwerij Geel's Beer-Based Recipes
+
+Ever encounter the problem of wanting to cook, then refusing to because you can't think of a recipe that revolves around beer? Look no further; all of your problems may be solved. Well... maybe one of them.
+
+This is a markdown-based recipe web-app.
+
+![](/public/promo.png)
+
+Built with [Next.js](https://nextjs.org/) and [Tailwind CSS 3.0](https://tailwindcss.com/).
+
+____
 
 ## Getting Started
 
@@ -25,10 +35,4 @@ To learn more about Next.js, take a look at the following resources:
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/)
