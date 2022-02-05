@@ -6,12 +6,21 @@ import {ShareIcon, ChevronLeftIcon} from '@heroicons/react/outline'
 
 function Ingredient(props) {
     return (
-        <div className="rounded-md flex items-center justify-between space-x-3 flex-shrink-0 cursor-pointer transform active:scale-90 duration-150">
+        <div className="rounded-md flex items-center justify-between space-x-3 flex-shrink-0">
             <div className="w-8 h-8 bg-gray-100 rounded-md">
                 <img src={'ingredienten/' + props.image + '.png'} />
             </div>
             <p className="flex-grow">{props.name}</p>
             <p className="text-gray-400 font-thin">{props.amount}</p>
+        </div>
+    )
+}
+
+function RecipeImage(props) {
+    return (
+        <div className="w-full mb-8 md:rounded-md bg-center bg-cover flex flex-col h-64 sm:h-80 md:h-96 relative overflow-hidden" style={{ backgroundImage: 'url(' + props.image + ')'}}>
+            <h1 className="md:hidden text-white font-bold text-2xl p-5 mt-auto z-10">{props.recipeTitle}</h1>
+            <div className="absolute bg-gradient-to-b from-transparent to-black opacity-60 md:opacity-0 w-full h-1/2 mt-auto inset-0"></div>
         </div>
     )
 }
@@ -50,7 +59,7 @@ function PostTemplate({content, data}) {
             <RecipeHeader name={data.recipeTitle} />
 
             <div className="max-w-3xl mx-auto">
-                <img className="w-full mb-8 md:rounded-md" src={data.image}/>
+                <RecipeImage image={data.image} recipeTitle={data.recipeTitle} />
                 <div className="flex flex-col-reverse md:flex-row md:space-x-12 px-6">
                     <div>
                         <h2 className="font-medium text-lg">Instructies</h2>
