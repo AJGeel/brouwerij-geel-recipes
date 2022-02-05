@@ -27,17 +27,19 @@ function RecipeImage(props) {
 
 function RecipeHeader(props) {
     return (
-        <div className="w-full flex items-center justify-between border-t-4 border-amber-100 select-none">
-            <div className="w-16 h-16 flex items-center justify-center cursor-pointer active:scale-90 duration-150 group">
+        <div className="w-full flex items-center justify-between border-t-4 border-amber-100">
+            <button className="w-16 h-16 flex items-center justify-center cursor-pointer active:scale-90 duration-150 group"
+                    alt="Back to homepage">
                 <ChevronLeftIcon className="w-6 h-6 text-gray-400 flex-shrink-0 group-hover:text-gray-900 duration-150"/>
-            </div>
+            </button>
             <h1 className="font-bold text-2xl text-gray-900">
                 Recept
                 <span className="hidden md:inline-block">: {props.name}</span>
             </h1>
-            <div className="w-16 h-16 flex items-center justify-center cursor-pointer active:scale-90 duration-150 group">
+            <button className="w-16 h-16 flex items-center justify-center cursor-pointer active:scale-90 duration-150 group"
+                    alt="Share this recipe">
                 <ShareIcon className="w-6 h-6 text-gray-400 flex-shrink-0 group-hover:text-gray-900 duration-150"/>
-            </div>
+            </button>
         </div>
     )
 }
