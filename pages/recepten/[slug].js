@@ -1,7 +1,7 @@
-// @dev slug md parsing based on https://www.pullrequest.com/blog/build-a-blog-with-nextjs-and-markdown/
-
+import fs from 'fs'
 import React from 'react'
 import matter from 'gray-matter'
+import md from 'markdown-it'
 import { ShareIcon, ChevronLeftIcon } from '@heroicons/react/outline'
 import Link from 'next/link'
 import Footer from '../../components/Footer'
@@ -51,22 +51,46 @@ function RecipeHeader(props) {
     )
 }
 
-function PostTemplate({content, data}) {
-    // This holds the data between `---` from the .md file
-    const frontmatter = data
+export async function getStaticPaths() {
+    // Retrieve all our slugs
+    const files = fs.readdirSync('content')
 
+    const paths = files.map((fileName) => ({
+        params: {
+            slug: fileName.replace('.md', ''),
+        },
+    }))
+
+    return {
+        paths,
+        fallback: false,
+    }
+}
+
+export async function getStaticProps({ params: { slug } }) {
+    const fileName = fs.readFileSync(`content/${slug}.md`, 'utf-8');
+    const { data: frontmatter, content } = matter(fileName);
+    return {
+        props: {
+            frontmatter,
+            content,
+        },
+    };
+}
+
+export default function RecipePage({ frontmatter, content }) {
     return (
-        <>
-        <div className="min-h-screen flex flex-col">
+        <div className="min-h-screen flex flex-col text-gray-900">
 
-            <RecipeHeader name={data.recipeTitle} />
+            <RecipeHeader name={frontmatter.recipeTitle} />
 
             <div className="max-w-3xl mx-auto">
-                <RecipeImage image={data.image} recipeTitle={data.recipeTitle} />
+                <RecipeImage image={frontmatter.image} recipeTitle={frontmatter.recipeTitle} />
                 <div className="flex flex-col-reverse md:flex-row md:space-x-12 px-6">
                     <div>
                         <h2 className="font-medium text-lg">Instructies</h2>
-                        <div className="mt-4 whitespace-pre-line text-gray-600">{content}</div>
+                        <div className="mt-4 text-gray-600 prose" dangerouslySetInnerHTML={{ __html: md().render(content) }} />
+                        {/* <div className="mt-4 whitespace-pre-line text-gray-600 prose">{content}</div> */}
                     </div>
                     <div className="md:w-64 mb-16 md:mb-0 flex-shrink-0">
                         <h2 className="font-medium text-lg">Ingrediënten</h2>
@@ -85,21 +109,5 @@ function PostTemplate({content, data}) {
 
             <Footer />
         </div>
-        </>
     )
 }
-
-PostTemplate.getInitialProps = async (context) => {
-    const { slug } = context.query
-    
-    // Import our .md file using the `slug` from the URL
-    const content = await import(`../../content/${slug}.md`)
-    
-    // Parse .md data through `matter`
-    const data = matter(content.default)
-    
-    // Pass data to our component props
-    return { ...data }
-  }
-
-export default PostTemplate
