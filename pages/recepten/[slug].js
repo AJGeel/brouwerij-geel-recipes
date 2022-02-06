@@ -4,6 +4,7 @@ import React from 'react'
 import matter from 'gray-matter'
 import { ShareIcon, ChevronLeftIcon } from '@heroicons/react/outline'
 import Link from 'next/link'
+import Footer from '../../components/Footer'
 
 function Ingredient(props) {
     return (
@@ -28,7 +29,7 @@ function RecipeImage(props) {
 
 function RecipeHeader(props) {
     return (
-        <div className="w-full flex items-center justify-between border-t-4 border-amber-100">
+        <div className="w-full flex items-center justify-between md:border-t-4 border-amber-100">
             <Link href="/">
                 <button 
                     className="w-16 h-16 flex items-center justify-center cursor-pointer active:scale-90 duration-150 group"
@@ -47,12 +48,6 @@ function RecipeHeader(props) {
                 <ShareIcon className="w-6 h-6 text-gray-400 flex-shrink-0 group-hover:text-gray-900 duration-150"/>
             </button>
         </div>
-    )
-}
-
-function Footer() {
-    return (
-        <div className="w-full bg-gradient-to-b from-transparent to-amber-100 flex-grow mt-16 min-h-[120px]"></div>
     )
 }
 
