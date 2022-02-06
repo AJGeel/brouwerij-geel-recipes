@@ -49,6 +49,7 @@ function RecipeCard (props) {
 
 export default function Home({ recepten }) {
   return (
+    <>
     <div className="min-h-screen flex flex-col md:border-t-4 border-amber-100">
       <div className="max-w-7xl w-full mx-auto p-8">
         <h1 className="text-3xl md:text-4xl md:mt-8 font-bold text-gray-900 max-w-lg"> Waar ga je je bier vandaag aan verkwisten?</h1>
@@ -62,5 +63,7 @@ export default function Home({ recepten }) {
 
       <Footer />
     </div>
+    
+    </>
   )
 }
