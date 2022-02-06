@@ -2,7 +2,9 @@
 
 Ever encounter the problem of wanting to cook, then refusing to because you can't think of a recipe that revolves around beer? Look no further; all of your problems may be solved. Well... maybe one of them.
 
-This is a markdown-based recipe web-app.
+This is a web-app that lets you publish recipes using markdown.
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b443bc8f-94f4-4575-95be-e4ef217d539d/deploy-status)](https://app.netlify.com/sites/brouwerij-geel-recipes/deploys)
 
 ![](/public/promo.png)
 
