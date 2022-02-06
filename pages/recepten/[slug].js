@@ -5,12 +5,13 @@ import md from 'markdown-it'
 import { ShareIcon, ChevronLeftIcon } from '@heroicons/react/outline'
 import Link from 'next/link'
 import Footer from '../../components/Footer'
+import Image from 'next/image'
 
 function Ingredient(props) {
     return (
         <div className="rounded-md flex items-center justify-between space-x-3 flex-shrink-0">
             <div className="w-8 h-8 bg-gray-100 rounded-md">
-                <img src={'ingredienten/' + props.image + '.png'} />
+                <Image src={'/recepten/ingredienten/' + props.image + '.png'} width="32" height="32" />
             </div>
             <p className="flex-grow">{props.name}</p>
             <p className="text-gray-400 font-thin">{props.amount}</p>
@@ -32,8 +33,8 @@ function RecipeHeader(props) {
         <div className="w-full flex items-center justify-between md:border-t-4 border-amber-100">
             <Link href="/">
                 <button 
-                    className="w-16 h-16 flex items-center justify-center cursor-pointer active:scale-90 duration-150 group"
-                    alt="Back to homepage">
+                    className="w-16 h-16 flex items-center justify-center hover:bg-gray-100 cursor-pointer active:scale-90 duration-150 group"
+                    alt="Terug naar de homepage">
                     <ChevronLeftIcon className="w-6 h-6 text-gray-400 flex-shrink-0 group-hover:text-gray-900 duration-150"/>
                 </button>
             </Link>
@@ -42,8 +43,8 @@ function RecipeHeader(props) {
                 <span className="hidden md:inline-block">: {props.name}</span>
             </h1>
             <button 
-                className="w-16 h-16 flex items-center justify-center cursor-pointer active:scale-90 duration-150 group"
-                alt="Share this recipe"
+                className="w-16 h-16 flex items-center justify-center hover:bg-gray-100 cursor-pointer active:scale-90 duration-150 group"
+                alt="Deel dit recept"
                 onClick={() => alert('Geduld, jonge padawan... ⏳ \n\nSpoedig zult gij deze recepten met uw mede-padawans kunnen delen. Maar alleen als gij er klaar voor zijt...')}>
                 <ShareIcon className="w-6 h-6 text-gray-400 flex-shrink-0 group-hover:text-gray-900 duration-150"/>
             </button>
