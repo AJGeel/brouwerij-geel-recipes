@@ -3,7 +3,7 @@ recipeTitle: Omelet met bruin bier, champignons en spek
 image: bruin-bier-omelet.jpeg
 ingredients:
   - name: Bruin bier
-    amount: 330ml
+    amount: 330 ml
     image: bruin-bier
   - name: Eieren
     amount: 2×
