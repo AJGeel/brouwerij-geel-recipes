@@ -30,12 +30,12 @@ export async function getStaticProps() {
 export default function Home({ recepten }) {
   return (
     <div className="min-h-screen flex flex-col md:border-t-4 border-amber-100">
-      <div className="max-w-7xl w-full mx-auto border p-8">
-        <h1 className="text-3xl font-bold text-gray-900">
+      <div className="max-w-7xl w-full mx-auto p-8">
+        <h1 className="text-3xl md:text-4xl md:mt-8 font-bold text-gray-900 max-w-lg">
           Waar ga je je bier vandaag aan verkwisten?
         </h1>
 
-        <div className="w-full grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="w-full grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-12">
           {recepten.map(({ slug, frontmatter }) => (
             <Link key={slug} href={`recepten/${slug}`}>
               <a alt={frontmatter.recipeTitle}>
@@ -51,7 +51,7 @@ export default function Home({ recepten }) {
                     </div>
                   </div>
                   <div className="absolute w-full h-full bg-cover bg-center  transform group-hover:scale-105 duration-1000" style={{ backgroundImage: 'url(recepten/' + frontmatter.image + ')'}}></div>
-                  <div className="absolute bg-gradient-to-b from-transparent to-black opacity-60 w-full h-1/2 mt-auto inset-0"></div>
+                  <div className="absolute bg-gradient-to-b from-transparent to-black opacity-60 w-full h-2/3 mt-auto inset-0"></div>
               </div>
                 
               </a>
