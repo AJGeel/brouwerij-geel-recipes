@@ -35,7 +35,7 @@ function RecipeCard (props) {
           <div className="mt-auto z-10 p-5">
             <h1 className="font-medium text-xl leading-6">{props.recipeTitle}</h1>
             <div className="flex items-center space-x-1.5 mt-2">
-              <ClockIcon className="h-5 w-5"/>
+              <ClockIcon className="h-5 w-5 transform group-hover:rotate-[50deg] duration-1000"/>
               <span className="font-light">{props.time}</span>
             </div>
           </div>

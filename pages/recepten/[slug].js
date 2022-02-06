@@ -90,7 +90,6 @@ export default function RecipePage({ frontmatter, content }) {
                     <div>
                         <h2 className="font-medium text-lg">Instructies</h2>
                         <div className="mt-4 text-gray-600 prose" dangerouslySetInnerHTML={{ __html: md().render(content) }} />
-                        {/* <div className="mt-4 whitespace-pre-line text-gray-600 prose">{content}</div> */}
                     </div>
                     <div className="md:w-64 mb-16 md:mb-0 flex-shrink-0">
                         <h2 className="font-medium text-lg">Ingrediënten</h2>
