@@ -4,6 +4,7 @@ import matter from 'gray-matter'
 import Link from 'next/link'
 import { ClockIcon } from '@heroicons/react/outline'
 import Footer from '../components/Footer'
+import Head from 'next/head'
 
 export async function getStaticProps() {
   // Get all our posts
@@ -50,19 +51,25 @@ function RecipeCard (props) {
 export default function Home({ recepten }) {
   return (
     <>
-    <div className="min-h-screen flex flex-col md:border-t-4 border-amber-100">
-      <div className="max-w-7xl w-full mx-auto p-8">
-        <h1 className="text-3xl md:text-4xl md:mt-8 font-bold text-gray-900 max-w-lg"> Waar ga je je bier vandaag aan verkwisten?</h1>
+      <Head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+      </Head>
+      
+      <div className="min-h-screen flex flex-col md:border-t-4 border-amber-100">
+        <div className="max-w-7xl w-full mx-auto p-8">
+          <h1 className="text-3xl md:text-4xl md:mt-8 font-bold text-gray-900 max-w-lg"> Waar ga je je bier vandaag aan verkwisten?</h1>
 
-        <div className="w-full grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-12">
-          {recepten.map(({ slug, frontmatter }) => (
-            <RecipeCard key={slug} slug={slug} recipeTitle={frontmatter.recipeTitle} time={frontmatter.time} image={frontmatter.image} />
-          ))}
+          <div className="w-full grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-12">
+            {recepten.map(({ slug, frontmatter }) => (
+              <RecipeCard key={slug} slug={slug} recipeTitle={frontmatter.recipeTitle} time={frontmatter.time} image={frontmatter.image} />
+            ))}
+          </div>
         </div>
-      </div>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
     
     </>
   )
