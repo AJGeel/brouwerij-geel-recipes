@@ -1,7 +1,16 @@
 ---
-recipeTitle: "Witbier-cocktail met gin & grapefruit"
-image: "grapefruit-witbier-cocktail.jpeg"
-ingredients: "Witbier, Gin, Grapefruit"
+recipeTitle: Witbier-cocktail met gin & grapefruit
+image: grapefruit-witbier-cocktail.jpeg
+ingredients:
+  - name: Witbier
+    amount: 330 ml
+    image: witbier
+  - name: Gin
+    amount: 40 ml
+    image: gin
+  - name: Grapefruit
+    amount: 1×
+    image: grapefruit
 time: 5 minuten
 tags: 
   - cocktails

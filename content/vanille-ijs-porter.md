@@ -1,7 +1,22 @@
 ---
-recipeTitle: "Vanille-ijs met porterbier"
-image: "vanille-bier-porter.jpeg"
-ingredients: "Porter Eierdooiers Slagroom Vanillepeul Suiker"
+recipeTitle: Vanille-ijs met porterbier
+image: vanille-bier-porter.jpeg
+ingredients:
+  - name: Porter
+    amount: 100 ml
+    image: porter
+  - name: Eieren
+    amount: 5×
+    image: ei
+  - name: Slagroom
+    amount: 500 ml
+    image: slagroom
+  - name: Vanillepeul
+    amount: 1/2×
+    image: vanillepeul
+  - name: Suiker
+    amount: 150 g
+    image: suiker
 time: 4 uur
 tags: 
   - eten

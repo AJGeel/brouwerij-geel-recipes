@@ -93,11 +93,9 @@ export default function RecipePage({ frontmatter, content }) {
                     <div className="md:w-64 mb-16 md:mb-0 flex-shrink-0">
                         <h2 className="font-medium text-lg">Ingrediënten</h2>
                         <div className="mt-4 space-y-1.5">
-                            <Ingredient name="Porter" image="porter" amount="100 ml"/>
-                            <Ingredient name="Eieren" image="ei" amount="5×"/>
-                            <Ingredient name="Slagroom" image="slagroom" amount="500 ml"/>
-                            <Ingredient name="Vanillepeul" image="vanillepeul" amount="1/2×"/>
-                            <Ingredient name="Suiker" image="suiker" amount="150 g"/>
+                            {frontmatter.ingredients.map((i) => (
+                                <Ingredient key={i.name} name={i.name} image={i.image} amount={i.amount} />
+                            ))}
                         </div>
                     </div>
                 </div>
