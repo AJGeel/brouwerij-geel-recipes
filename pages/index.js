@@ -51,12 +51,6 @@ function RecipeCard (props) {
 export default function Home({ recepten }) {
   return (
     <>
-      <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
-        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-      </Head>
-      
       <div className="min-h-screen flex flex-col md:border-t-4 border-amber-100">
         <div className="max-w-7xl w-full mx-auto p-8">
           <h1 className="text-3xl md:text-4xl md:mt-8 font-bold text-gray-900 max-w-lg"> Waar ga je je bier vandaag aan verkwisten?</h1>
@@ -70,7 +64,6 @@ export default function Home({ recepten }) {
 
         <Footer />
       </div>
-    
     </>
   )
 }

@@ -80,36 +80,28 @@ export async function getStaticProps({ params: { slug } }) {
 
 export default function RecipePage({ frontmatter, content }) {
     return (
-        <>
-            <Head>
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
-                <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-            </Head>
-
-            <div className="min-h-screen flex flex-col text-gray-900">
-                <RecipeHeader name={frontmatter.recipeTitle} />
-                <div className="max-w-3xl mx-auto">
-                    <RecipeImage image={frontmatter.image} recipeTitle={frontmatter.recipeTitle} />
-                    <div className="flex flex-col-reverse md:flex-row md:space-x-12 px-6">
-                        <div>
-                            <h2 className="font-medium text-lg">Instructies</h2>
-                            <div className="mt-4 text-gray-600 prose" dangerouslySetInnerHTML={{ __html: md().render(content) }} />
-                        </div>
-                        <div className="md:w-64 mb-16 md:mb-0 flex-shrink-0">
-                            <h2 className="font-medium text-lg">Ingrediënten</h2>
-                            <div className="mt-4 space-y-1.5">
-                                <Ingredient name="Porter" image="porter" amount="100 ml"/>
-                                <Ingredient name="Eieren" image="ei" amount="5×"/>
-                                <Ingredient name="Slagroom" image="slagroom" amount="500 ml"/>
-                                <Ingredient name="Vanillepeul" image="vanillepeul" amount="1/2×"/>
-                                <Ingredient name="Suiker" image="suiker" amount="150 g"/>
-                            </div>
+        <div className="min-h-screen flex flex-col text-gray-900">
+            <RecipeHeader name={frontmatter.recipeTitle} />
+            <div className="max-w-3xl mx-auto">
+                <RecipeImage image={frontmatter.image} recipeTitle={frontmatter.recipeTitle} />
+                <div className="flex flex-col-reverse md:flex-row md:space-x-12 px-6">
+                    <div>
+                        <h2 className="font-medium text-lg">Instructies</h2>
+                        <div className="mt-4 text-gray-600 prose" dangerouslySetInnerHTML={{ __html: md().render(content) }} />
+                    </div>
+                    <div className="md:w-64 mb-16 md:mb-0 flex-shrink-0">
+                        <h2 className="font-medium text-lg">Ingrediënten</h2>
+                        <div className="mt-4 space-y-1.5">
+                            <Ingredient name="Porter" image="porter" amount="100 ml"/>
+                            <Ingredient name="Eieren" image="ei" amount="5×"/>
+                            <Ingredient name="Slagroom" image="slagroom" amount="500 ml"/>
+                            <Ingredient name="Vanillepeul" image="vanillepeul" amount="1/2×"/>
+                            <Ingredient name="Suiker" image="suiker" amount="150 g"/>
                         </div>
                     </div>
                 </div>
-                <Footer />
             </div>
-        </>
+            <Footer />
+        </div>
     )
 }
