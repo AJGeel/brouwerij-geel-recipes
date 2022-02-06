@@ -2,6 +2,9 @@
 recipeTitle: "Omelet met bruin bier, champignons en spek"
 image: "bruin-bier-omelet.jpeg"
 ingredients: "Bruin bier Eieren Spek Champignons Brood (snee)"
+time: 15 minuten
+tags: 
+  - eten
 ---
 1. Klop in een kom de eideren los met een scheutje bier. De rest van het flesje schenk je in een glas, en mag je straks bij de omelet drinken. 🍻
 
