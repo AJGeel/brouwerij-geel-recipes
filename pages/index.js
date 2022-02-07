@@ -2,6 +2,7 @@ import React from 'react'
 import fs from 'fs'
 import matter from 'gray-matter'
 import Link from 'next/link'
+import Head from 'next/head'
 import { ClockIcon } from '@heroicons/react/outline'
 import Footer from '../components/Footer'
 
@@ -47,9 +48,33 @@ function RecipeCard (props) {
   )
 }
 
+function MetaTags () {
+  return (
+    <Head>
+      {/* Primary Meta Tags */}
+      <title>Brouwerij Geel — Recepten om te maken met je bier! 🍻</title>
+      <meta name="title" content="Brouwerij Geel — Recepten om te maken met je bier! 🍻"/>
+      <meta name="description" content="Elke dag vraag je het je weer af: waar ga ik mijn bier vandaag aan verkwisten? Wij hebben het antwoord: deze recepten! Van omelet tot cocktail tot ijs, Brouwerij Geel neemt je mee op reis."/>
+      {/* Open Graph */}
+      <meta property="og:type" content="website"/>
+      <meta property="og:url" content="https://brouwerij-geel-recipes.netlify.app"/>
+      <meta property="og:title" content="Brouwerij Geel — Recepten om te maken met je bier! 🍻"/>
+      <meta property="og:description" content="Elke dag vraag je het je weer af: waar ga ik mijn bier vandaag aan verkwisten? Wij hebben het antwoord: deze recepten! Van omelet tot cocktail tot ijs, Brouwerij Geel neemt je mee op reis. "/>
+      <meta property="og:image" content="https://brouwerij-geel-recipes.netlify.app/bg-social-share.png"/>
+      {/* Twitter */}
+      <meta property="twitter:card" content="summary_large_image"/>
+      <meta property="twitter:url" content="https://brouwerij-geel-recipes.netlify.app"/>
+      <meta property="twitter:title" content="Brouwerij Geel — Recepten om te maken met je bier! 🍻"/>
+      <meta property="twitter:description" content="Elke dag vraag je het je weer af: waar ga ik mijn bier vandaag aan verkwisten? Wij hebben het antwoord: deze recepten! Van omelet tot cocktail tot ijs, Brouwerij Geel neemt je mee op reis. "/>
+      <meta property="twitter:image" content="https://brouwerij-geel-recipes.netlify.app/bg-social-share.png"/>
+    </Head>
+  )
+}
+
 export default function Home({ recepten }) {
   return (
     <>
+      <MetaTags />
       <div className="min-h-screen flex flex-col md:border-t-4 border-amber-100">
         <div className="max-w-7xl w-full mx-auto p-5 sm:p-8">
           <h1 className="text-3xl md:text-4xl mt-8 font-bold text-gray-900 max-w-lg"> Waar ga je je bier vandaag aan verkwisten?</h1>

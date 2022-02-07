@@ -21,7 +21,7 @@ time: 15 minuten
 tags: 
   - eten
 ---
-**1.** Klop in een kom de eideren los met een scheutje bier. De rest van het flesje schenk je in een glas, en mag je straks bij de omelet drinken. 🍻
+**1.** Klop in een kom de eieren los met een scheutje bier. De rest van het flesje schenk je in een glas, en mag je straks bij de omelet drinken. 🍻
 
 **2.** Bak in een kleine koekenpan de spekjes, de gesnipperde ui en de in plakjes gesneden champignons.
 
