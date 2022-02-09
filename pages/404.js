@@ -10,7 +10,7 @@ export default function Custom404() {
 
                 <Link href="/">
                     <div className="flex flex-col rounded-md overflow-hidden mt-12 cursor-pointer group hover:shadow-lg duration-1000">
-                        <Image className="transform group-hover:scale-105 duration-1000" src="/oh-jee.gif" width="498" height="280" />
+                        <img className="transform group-hover:scale-105 duration-1000" src="/oh-jee.gif" width="498" height="280" />
                         <button className="w-full bg-amber-500 group-hover:bg-gray-900 duration-1000 text-white text-lg px-4 py-3 z-10">
                             Doe mij dan maar de homepagina 🤷
                         </button>
