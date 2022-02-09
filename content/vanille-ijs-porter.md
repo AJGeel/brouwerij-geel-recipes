@@ -13,7 +13,7 @@ ingredients:
     image: slagroom
   - name: Vanillepeul
     amount: 1/2×
-    image: vanillepeul
+    image: vanille
   - name: Suiker
     amount: 150 g
     image: suiker

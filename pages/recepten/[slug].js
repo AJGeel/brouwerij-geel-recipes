@@ -44,7 +44,7 @@ function removeAsterisks (s) {
     s = s.replaceAll('*', '').replaceAll('1.', '').replaceAll('2.', '').replaceAll(/(\r\n|\n|\r)/gm, '')
     
     // Add introducing text
-    s = 'Instructies:' + s
+    s = 'Bereiding:' + s
 
     return s
 }
@@ -138,8 +138,6 @@ function MetaTags (props) {
 /* View */
 
 export default function RecipePage({ frontmatter, content, slug }) {
-    console.log('Slug: ' + slug)
-
     return (
         <>
             <MetaTags recipeTitle={frontmatter.recipeTitle} content={content} image={frontmatter.image} slug={slug}/>
@@ -149,7 +147,7 @@ export default function RecipePage({ frontmatter, content, slug }) {
                     <RecipeImage image={frontmatter.image} recipeTitle={frontmatter.recipeTitle} />
                     <div className="flex flex-col-reverse md:flex-row md:space-x-12 px-6">
                         <div>
-                            <h2 className="font-medium text-lg">Instructies</h2>
+                            <h2 className="font-medium text-lg">Bereiding</h2>
                             <div className="mt-4 text-gray-600 prose" dangerouslySetInnerHTML={{ __html: md().render(content) }} />
                         </div>
                         <div className="md:w-64 mb-16 md:mb-0 flex-shrink-0">
