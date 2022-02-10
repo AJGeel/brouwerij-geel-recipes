@@ -36,14 +36,12 @@ export async function getStaticProps({ params: { slug } }) {
             content,
             slug
         },
-    };
+    }
 }
 
 function removeAsterisks (s) {
     // Remove unwanted characters from description blurb: asterisks, numericals, line breaks in various OSes
     s = s.replaceAll('*', '').replaceAll('1.', '').replaceAll('2.', '').replaceAll(/(\r\n|\n|\r)/gm, '')
-    
-    // Add introducing text
     s = 'Bereiding:' + s
 
     return s

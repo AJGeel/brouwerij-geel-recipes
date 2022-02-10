@@ -1,7 +1,7 @@
 import Footer from '../components/Footer'
 import Link from 'next/link'
 
-export default function Custom404() {
+export default function Custom500() {
     return (
         <div className="min-h-screen flex flex-col md:border-t-4 border-amber-100">
             <div className="max-w-7xl w-full mx-auto p-5 sm:p-8 flex-grow flex flex-col items-center justify-center">
