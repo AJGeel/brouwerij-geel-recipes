@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import fs from 'fs'
 import matter from 'gray-matter'
 import Link from 'next/link'
@@ -74,13 +74,58 @@ function MetaTags () {
   )
 }
 
+function shuffle(array) {
+  let currentIndex = array.length,  randomIndex;
+
+  // While there remain elements to shuffle...
+  while (currentIndex != 0) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+
+  return array;
+}
+
+
+function Example() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    document.title = `You clicked ${count} times`;
+  });
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+
 export default function Home({ recepten }) {
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    document.title= `You clicked ${count} times`
+  })
+
   return (
     <>
       <MetaTags />
       <div className="min-h-screen flex flex-col md:border-t-4 border-amber-100">
         <div className="max-w-7xl w-full mx-auto p-5 sm:p-8">
           <h1 className="text-3xl md:text-4xl mt-8 font-bold text-gray-900 max-w-lg"> Waar ga je je bier vandaag aan verkwisten?</h1>
+          
+          <button className="px-3 py-1 rounded-md shadow-md text-gray-900 border-2 border-gray-100 my-8 hover:bg-gray-900 hover:text-white duration-150 ease-in-out" onClick={() => setCount(count + 1)}>Je hebt {count} keer geklikt.</button>
+
           <div className="w-full grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-12">
             {recepten.map(({ slug, frontmatter }) => (
               <RecipeCard key={slug} slug={slug} recipeTitle={frontmatter.recipeTitle} time={frontmatter.time} image={frontmatter.image} />
