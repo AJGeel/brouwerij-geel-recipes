@@ -3,7 +3,7 @@ recipeTitle: Trappisten-wentelteefjes van suikerbrood
 image: trappisten-wentelteefjes.jpeg
 ingredients:
   - name: Trappistenbier
-    amount: 330 ml
+    amount: 150 ml
     image: trappist
   - name: Eieren
     amount: 2×

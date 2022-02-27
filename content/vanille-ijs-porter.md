@@ -12,7 +12,7 @@ ingredients:
     amount: 500 ml
     image: slagroom
   - name: Vanillepeul
-    amount: 1/2×
+    amount: ½×
     image: vanille
   - name: Suiker
     amount: 150 g
