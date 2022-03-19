@@ -40,7 +40,10 @@ function RecipeCard (props) {
               <span className="font-light">{props.time}</span>
             </div>
           </div>
-          <div className="absolute w-full h-full bg-cover bg-center transform group-hover:scale-105 duration-1000" style={{ backgroundImage: 'url(recepten/' + props.image + ')'}}></div>
+          <div className="absolute w-full h-full bg-cover bg-center transform group-hover:scale-105 duration-1000" 
+          style={{ 
+            backgroundColor: '#ede8e1',
+            backgroundImage: 'url(recepten/' + props.image + ')'}}></div>
           <div className="absolute bg-gradient-to-b from-transparent to-black opacity-60 w-full h-2/3 mt-auto inset-0"></div>
       </div>
       </a>

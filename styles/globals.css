@@ -2,8 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Tailwind default overrides */
+
 .prose :where(strong):not(:where([class~="not-prose"] *)) {
     color: inherit;
+}
+
+/* RWebShare style overrides */
+
+.web-share-fade {
+    background: hsl(302deg 40% 5% / 50%) !important;
 }
 
 .web-share-fade-in-up > button {
