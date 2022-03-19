@@ -76,7 +76,7 @@ function Ingredient(props) {
                 {props.image === 'placeholder' ? <LoadingIndicator className="animate-spin m-1.5 h-5 w-5 text-gray-400"/> : <Image src={'/recepten/ingredienten/' + props.image + '.png'} width="32" height="32" />}
             </div>
             <p className="flex-grow">{props.name}</p>
-            <p className="text-gray-400 font-thin">{props.amount}</p>
+            <p className="text-gray-400 font-thin text-right">{props.amount}</p>
         </div>
     )
 }

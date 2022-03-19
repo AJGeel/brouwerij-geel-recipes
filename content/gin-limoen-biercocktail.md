@@ -10,13 +10,13 @@ ingredients:
     image: gin
   - name: Limoen
     amount: 1×
-    image: placeholder
+    image: limoen
   - name: Grenadine
     amount: 1 tl
-    image: placeholder
+    image: grenadine
   - name: IJsklontjes
     amount: 5×
-    image: placeholder
+    image: ijsklontjes
 time: 5 minuten
 tags: 
   - cocktails

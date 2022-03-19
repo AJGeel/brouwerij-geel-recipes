@@ -4,19 +4,19 @@ image: kriek-mojito.jpeg
 ingredients:
   - name: Kriek
     amount: 150 ml
-    image: placeholder
+    image: kriek
   - name: Limoen
     amount: 1×
-    image: placeholder
-  - name: Witte Rum
+    image: limoen
+  - name: (Witte) Rum
     amount: 20 ml
-    image: placeholder
+    image: rum
   - name: IJsklontjes
     amount: 5×
-    image: placeholder
+    image: ijsklontjes
   - name: Munt
     amount: 5 g
-    image: placeholder
+    image: munt
 time: 5 minuten
 tags: 
   - cocktails

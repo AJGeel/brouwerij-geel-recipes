@@ -2,21 +2,21 @@
 recipeTitle: Mexicaanse biercocktail met tequila
 image: mexicaanse-biercocktail.jpeg
 ingredients:
-  - name: Cornet, oaked blond
+  - name: Cornet (blond)
     amount: 250 ml
     image: witbier
   - name: Tequila
     amount: 15 ml
-    image: placeholder
+    image: tequila
   - name: Limoen
     amount: ½×
-    image: placeholder
+    image: limoen
   - name: Munt
     amount: 10 g
-    image: placeholder
+    image: munt
   - name: IJsklontjes
     amount: 5×
-    image: placeholder
+    image: ijsklontjes
 time: 5 minuten
 tags: 
   - cocktails
