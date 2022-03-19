@@ -92,6 +92,7 @@ function RecipeImage(props) {
 
 function RecipeHeader(props) {
     const preparedURL = 'https://brouwerij-geel-recipes.netlify.app/recepten/' + props.slug;
+    const preparedTitle = 'Bekijk de ' + props.name + ' op'
 
     return (
         <div className="w-full flex items-center justify-between md:border-t-4 border-amber-100">
@@ -108,7 +109,7 @@ function RecipeHeader(props) {
             </h1>
             <RWebShare 
                 data={{
-                    text: "Web Share - Testje",
+                    text: preparedTitle,
                     url: preparedURL,
                     title: "Deel dit recept met je makkers 👨‍👩‍👧‍👦",
                 }}
