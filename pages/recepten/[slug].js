@@ -59,11 +59,20 @@ function contentToSEO (content) {
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* Partial components */
 
+function LoadingIndicator(props) {
+    return (
+        <svg className={props.className} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+    )
+}
+
 function Ingredient(props) {
     return (
         <div className="rounded-md flex items-center justify-between space-x-3 flex-shrink-0">
             <div className="w-8 h-8 bg-gray-100 rounded-md">
-                <Image src={'/recepten/ingredienten/' + props.image + '.png'} width="32" height="32" />
+                {props.image === 'placeholder' ? <LoadingIndicator className="animate-spin m-1.5 h-5 w-5 text-gray-400"/> : <Image src={'/recepten/ingredienten/' + props.image + '.png'} width="32" height="32" />}
             </div>
             <p className="flex-grow">{props.name}</p>
             <p className="text-gray-400 font-thin">{props.amount}</p>
