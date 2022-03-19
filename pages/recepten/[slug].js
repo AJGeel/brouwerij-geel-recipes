@@ -2,6 +2,7 @@ import fs from 'fs'
 import React from 'react'
 import matter from 'gray-matter'
 import md from 'markdown-it'
+import { RWebShare } from 'react-web-share'
 import { ShareIcon, ChevronLeftIcon } from '@heroicons/react/outline'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -90,6 +91,8 @@ function RecipeImage(props) {
 }
 
 function RecipeHeader(props) {
+    const preparedURL = 'https://brouwerij-geel-recipes.netlify.app/recepten/' + props.slug;
+
     return (
         <div className="w-full flex items-center justify-between md:border-t-4 border-amber-100">
             <Link href="/">
@@ -103,12 +106,24 @@ function RecipeHeader(props) {
                 Recept
                 <span className="hidden md:inline-block">: {props.name}</span>
             </h1>
-            <button 
-                className="w-16 h-16 flex items-center justify-center hover:bg-gray-100 cursor-pointer active:scale-90 duration-150 group"
-                alt="Deel dit recept"
-                onClick={() => alert('Geduld, jonge padawan... ⏳ \n\nSpoedig zult gij deze recepten met uw mede-padawans kunnen delen. Maar alleen als gij er klaar voor zijt...')}>
-                <ShareIcon className="w-6 h-6 text-gray-400 flex-shrink-0 group-hover:text-gray-900 duration-150"/>
-            </button>
+            <RWebShare 
+                data={{
+                    text: "Web Share - Testje",
+                    url: preparedURL,
+                    title: "Deel dit recept met je makkers 👨‍👩‍👧‍👦",
+                }}
+                sites={["whatsapp", "mail", "facebook", "copy"]}
+                closeText={"Sluiten"}
+                // Hieronder zou een callback gezet kunnen worden.
+                // onClick={() => console.log("Shared successfully!")}
+            >
+                <button 
+                    className="w-16 h-16 flex items-center justify-center hover:bg-gray-100 cursor-pointer active:scale-90 duration-150 group"
+                    alt="Deel dit recept"
+                    >
+                    <ShareIcon className="w-6 h-6 text-gray-400 flex-shrink-0 group-hover:text-gray-900 duration-150"/>
+                </button>
+            </RWebShare>
         </div>
     )
 }
@@ -149,7 +164,7 @@ export default function RecipePage({ frontmatter, content, slug }) {
         <>
             <MetaTags recipeTitle={frontmatter.recipeTitle} content={content} image={frontmatter.image} slug={slug}/>
             <div className="min-h-screen flex flex-col text-gray-900">
-                <RecipeHeader name={frontmatter.recipeTitle} />
+                <RecipeHeader name={frontmatter.recipeTitle} slug={slug}/>
                 <div className="max-w-3xl mx-auto">
                     <RecipeImage image={frontmatter.image} recipeTitle={frontmatter.recipeTitle} />
                     <div className="flex flex-col-reverse md:flex-row md:space-x-12 px-6">

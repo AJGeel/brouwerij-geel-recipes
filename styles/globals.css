@@ -5,3 +5,7 @@
 .prose :where(strong):not(:where([class~="not-prose"] *)) {
     color: inherit;
 }
+
+.web-share-fade-in-up > button {
+    background: #F4F4F4 !important;
+}
