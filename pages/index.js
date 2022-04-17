@@ -79,41 +79,41 @@ function MetaTags () {
   )
 }
 
-function shuffle(array) {
-  let currentIndex = array.length,  randomIndex;
+// function shuffle(array) {
+//   let currentIndex = array.length,  randomIndex;
 
-  // While there remain elements to shuffle...
-  while (currentIndex != 0) {
+//   // While there remain elements to shuffle...
+//   while (currentIndex != 0) {
 
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
+//     // Pick a remaining element...
+//     randomIndex = Math.floor(Math.random() * currentIndex);
+//     currentIndex--;
 
-    // And swap it with the current element.
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex], array[currentIndex]];
-  }
+//     // And swap it with the current element.
+//     [array[currentIndex], array[randomIndex]] = [
+//       array[randomIndex], array[currentIndex]];
+//   }
 
-  return array;
-}
+//   return array;
+// }
 
 
-function Example() {
-  const [count, setCount] = useState(0);
+// function Example() {
+//   const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    document.title = `You clicked ${count} times`;
-  });
+//   useEffect(() => {
+//     document.title = `You clicked ${count} times`;
+//   });
 
-  return (
-    <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
-    </div>
-  );
-}
+//   return (
+//     <div>
+//       <p>You clicked {count} times</p>
+//       <button onClick={() => setCount(count + 1)}>
+//         Click me
+//       </button>
+//     </div>
+//   );
+// }
 
 function GeefRandom(props) {
   const router = useRouter()
@@ -135,11 +135,11 @@ function GeefRandom(props) {
 }
 
 export default function Home({ recepten }) {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
-  useEffect(() => {
-    document.title= `You clicked ${count} times`
-  })
+  // useEffect(() => {
+  //   document.title= `You clicked ${count} times`
+  // })
 
   return (
     <>
@@ -149,7 +149,7 @@ export default function Home({ recepten }) {
           <h1 className="text-3xl md:text-4xl mt-8 font-bold text-gray-900 max-w-lg"> Waar ga je je bier vandaag aan verkwisten?</h1>
 
           <div className="flex space-x-2 items-center mt-8 overflow-x-auto">
-            <button className="px-4 py-3 rounded-md text-gray-900 bg-gray-100 hover:bg-amber-500 hover:text-white duration-150 ease-in-out flex-shrink-0" onClick={() => setCount(count + 1)}>Je hebt {count} keer geklikt.</button>
+            {/* <button className="px-4 py-3 rounded-md text-gray-900 bg-gray-100 hover:bg-amber-500 hover:text-white duration-150 ease-in-out flex-shrink-0" onClick={() => setCount(count + 1)}>Je hebt {count} keer geklikt.</button> */}
 
             <GeefRandom recepten={recepten}/>
           </div>
