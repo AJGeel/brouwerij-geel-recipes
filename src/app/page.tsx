@@ -1,6 +1,7 @@
+import RandomWord from "@/components/RandomWord";
 import RecipeCard from "@/components/RecipeCard";
 import { scanAllRecipes } from "@/services/markdown";
-import { randomWaste } from "@/services/ui/randomWaste";
+import { getRandomWord } from "@/services/ui/getRandomWord";
 
 const getRecipes = async () => {
   const allRecipes = scanAllRecipes();
@@ -15,14 +16,13 @@ const getRecipes = async () => {
 
 const Page = async () => {
   const recipes = await getRecipes();
-  const randomWord = randomWaste();
-
-  console.log(recipes);
+  const initialRandomWord = getRandomWord();
 
   return (
     <div className="max-w-7xl w-full mx-auto p-5 sm:p-8">
       <h1 className="text-3xl md:text-4xl mt-8 font-bold text-gray-900 max-w-lg">
-        Waar ga je je bier vandaag aan {randomWord}?
+        Waar ga je je bier vandaag aan{" "}
+        <RandomWord initialWord={initialRandomWord} />?
       </h1>
       <div className="w-full grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-12">
         {recipes.map(({ slug, metadata }) => (
