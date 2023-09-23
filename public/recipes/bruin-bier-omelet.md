@@ -20,6 +20,8 @@ ingredients:
 time: 15 minuten
 tags:
   - eten
+  - brunch
+  - hartig
 ---
 
 **1.** Klop in een kom de eieren los met een scheutje bier. De rest van het flesje schenk je in een glas, en mag je straks bij de omelet drinken. 🍻

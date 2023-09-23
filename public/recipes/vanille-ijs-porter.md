@@ -21,6 +21,7 @@ time: 4 uur
 tags:
   - eten
   - zoetigheden
+  - dessert
 ---
 
 **1.** Roer in een pan op laag vuur de slagroom, de suiker, het bier en de vanille door elkaar. Blijf roeren tot de suiker is opgelost en het mengsel heet is.
