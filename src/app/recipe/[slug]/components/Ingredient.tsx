@@ -8,7 +8,7 @@ type Props = {
 
 const Ingredient = ({ imageSlug, name, amount }: Props) => (
   <div className="rounded-md flex items-center justify-between space-x-3 flex-shrink-0">
-    <div className="w-8 h-8 bg-gray-100 rounded-md">
+    <div className="w-8 h-8 bg-amber-100 rounded-md">
       <Image
         src={`/images/ingredients/${imageSlug}.png`}
         width="32"
