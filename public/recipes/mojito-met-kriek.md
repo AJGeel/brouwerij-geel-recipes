@@ -19,8 +19,9 @@ ingredients:
     imageSlug: munt
 time: 5 minuten
 tags:
-  - cocktails
-  - zoetigheden
+  - Cocktails
+  - Zoetigheden
+  - Verfrissend
 ---
 
 **1.** Doe de takjes munt in een longdrinkglas en kneus ze met een stamper.

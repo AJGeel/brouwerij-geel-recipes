@@ -22,9 +22,9 @@ ingredients:
     imageSlug: tijm
 time: 25 minuten
 tags:
-  - eten
-  - hartig
-  - diner
+  - Eten
+  - Hartig
+  - Diner
 ---
 
 **1.** Laat de kersen uitlekken, bewaar de siroop. Verhit één derde van de boter in een steelpan, en fruit de sjalot 3 minuten. Voeg de bloem toe, en blijf

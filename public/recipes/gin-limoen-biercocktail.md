@@ -19,7 +19,7 @@ ingredients:
     imageSlug: ijsklontjes
 time: 5 minuten
 tags:
-  - cocktails
+  - Cocktails
 ---
 
 **1.** Pers de helft van de limoen en snijd de andere helft in partjes.

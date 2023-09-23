@@ -6,7 +6,7 @@ type Props = {
 };
 
 const Tags = ({ tags }: Props) => (
-  <div className="mt-4 gap-3 flex flex-wrap items-center">
+  <div className="mt-8 gap-3 flex flex-wrap items-center">
     <p className="font-medium">Tags: </p>
     {tags.map((item) => (
       <Link
