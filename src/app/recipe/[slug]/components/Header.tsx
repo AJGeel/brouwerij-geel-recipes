@@ -7,7 +7,7 @@ type Props = {
 };
 
 const Header = ({ name }: Props) => (
-  <div className="w-full flex items-center justify-between">
+  <div className="w-full flex items-center justify-between sticky md:relative top-0 bg-white z-20 border-b-2 md:border-b-0 border-amber-100">
     <Link href="/">
       <button className="w-16 h-16 flex items-center justify-center hover:bg-amber-100/50 cursor-pointer active:scale-90 duration-150 group">
         <ChevronLeftIcon className="w-6 h-6 text-gray-400 flex-shrink-0 group-hover:text-gray-900 duration-150" />

@@ -24,6 +24,7 @@ const RecipeCard = ({ slug, title, time, imageSlug }: Props) => (
           src={`/images/recipes/${imageSlug}`}
           fill={true}
           alt={title}
+          sizes="(max-width: 768px) 100vw, "
           style={{
             objectFit: "cover",
           }}

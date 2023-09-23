@@ -17,6 +17,8 @@ const Page = async () => {
   const recipes = await getRecipes();
   const randomWord = randomWaste();
 
+  console.log(recipes);
+
   return (
     <div className="max-w-7xl w-full mx-auto p-5 sm:p-8">
       <h1 className="text-3xl md:text-4xl mt-8 font-bold text-gray-900 max-w-lg">

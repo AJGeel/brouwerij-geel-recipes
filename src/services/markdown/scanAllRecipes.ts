@@ -5,7 +5,7 @@ import matter from "gray-matter";
 import { recipeDirectory } from "@/config/config";
 import { shuffleArray } from "@/utils/shuffleArray";
 
-import { RecipeMetadata } from "./types";
+import { MarkdownRecipe } from "./types";
 
 export const scanAllRecipes = () => {
   const files = fs.readdirSync(recipeDirectory);
@@ -20,10 +20,7 @@ export const scanAllRecipes = () => {
     return {
       slug,
       metadata,
-    } as {
-      slug: string;
-      metadata: RecipeMetadata;
-    };
+    } as MarkdownRecipe;
   });
 
   return allRecipes;

@@ -11,3 +11,8 @@ export interface RecipeMetadata {
   time: string;
   tags: string[];
 }
+
+export type MarkdownRecipe = {
+  slug: string;
+  metadata: RecipeMetadata;
+};
