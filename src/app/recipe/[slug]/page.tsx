@@ -6,6 +6,7 @@ import Hero from "@/app/recipe/[slug]/components/Hero";
 import Ingredient from "@/app/recipe/[slug]/components/Ingredient";
 import { recipeDirectory } from "@/config/config";
 import { parseRecipe } from "@/services/markdown";
+import Tags from "./components/Tags";
 
 export const generateStaticParams = async () => {
   const files = fs.readdirSync(recipeDirectory);
@@ -48,6 +49,7 @@ const Page = async ({ params }: Props) => {
               className="mt-4 text-gray-600 prose"
               dangerouslySetInnerHTML={{ __html: md().render(content) }}
             />
+            <Tags tags={metadata.tags} />
           </div>
           <div className="md:w-64 mb-16 md:mb-0 flex-shrink-0">
             <h2 className="font-medium text-lg">Ingrediënten</h2>

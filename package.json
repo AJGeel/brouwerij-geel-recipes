@@ -29,6 +29,7 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
     "@types/markdown-it": "^13.0.1",
+    "bun-types": "^1.0.3",
     "eslint-config-prettier": "^9.0.0"
   }
 }

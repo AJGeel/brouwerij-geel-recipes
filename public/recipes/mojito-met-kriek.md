@@ -20,6 +20,7 @@ ingredients:
 time: 5 minuten
 tags:
   - cocktails
+  - zoetigheden
 ---
 
 **1.** Doe de takjes munt in een longdrinkglas en kneus ze met een stamper.

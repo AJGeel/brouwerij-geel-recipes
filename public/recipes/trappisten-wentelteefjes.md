@@ -27,6 +27,7 @@ time: 20 minuten
 tags:
   - eten
   - zoetigheden
+  - brunch
 ---
 
 **1.** Klop de eieren los met de melk, een snufje kaneel en het bier. Snijd het suikerbrood in dikke plakken, en leg ze te weken in het eiermengsel.

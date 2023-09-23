@@ -32,6 +32,7 @@ ingredients:
 time: 3 uur
 tags:
   - eten
+  - hartig
 ---
 
 **1.** Verhit op middelhoog vuur de olijfolie in een braadpan waarin de lamsschenkels passen. Bestrooi het vlees met zout en peper en braad het rondom bruin. Neem het vlees uit de pan en houd het apart.
