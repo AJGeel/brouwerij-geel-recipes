@@ -1,7 +1,6 @@
-"use client";
-
-import { ChevronLeftIcon, ShareIcon } from "@heroicons/react/20/solid";
+import { ChevronLeftIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
+import ShareButton from "./ShareButton";
 
 type Props = {
   name: string;
@@ -18,12 +17,7 @@ const Header = ({ name }: Props) => (
       Recept
       <span className="hidden md:inline-block">: {name}</span>
     </h1>
-    <button
-      className="w-16 h-16 flex items-center justify-center hover:bg-gray-100 cursor-pointer active:scale-90 duration-150 group"
-      onClick={() => alert("Patience, young padawan.")}
-    >
-      <ShareIcon className="w-6 h-6 text-gray-400 flex-shrink-0 group-hover:text-gray-900 duration-150" />
-    </button>
+    <ShareButton recipeName={name} />
   </div>
 );
 

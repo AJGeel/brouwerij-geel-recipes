@@ -1,5 +1,4 @@
 import fs from "fs";
-
 import md from "markdown-it";
 
 import Header from "@/app/recipe/[slug]/components/Header";

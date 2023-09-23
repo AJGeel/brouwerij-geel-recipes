@@ -5,6 +5,7 @@ import { ReactNode } from "react";
 
 import Footer from "@/components/Footer";
 import { metadataConfig } from "@/config/config";
+import StyledToaster from "@/components/StyledToaster";
 
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ const RootLayout = ({ children }: Props) => (
     >
       {children}
       <Footer />
+      <StyledToaster />
     </body>
   </html>
 );
