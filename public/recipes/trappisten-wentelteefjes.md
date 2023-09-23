@@ -4,7 +4,7 @@ imageSlug: trappisten-wentelteefjes.jpeg
 ingredients:
   - name: Trappistenbier
     amount: 150 ml
-    imageSlug: trappist
+    imageSlug: trappistenbier
   - name: Eieren
     amount: 2×
     imageSlug: ei
