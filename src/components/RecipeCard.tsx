@@ -30,7 +30,7 @@ const RecipeCard = ({ slug, title, time, imageSlug }: Props) => (
           }}
         />
       </div>
-      <div className="absolute bg-gradient-to-b from-transparent to-black opacity-60 w-full h-2/3 mt-auto inset-0" />
+      <div className="absolute bg-gradient-to-b from-transparent to-black opacity-80 w-full h-2/3 mt-auto inset-0" />
     </div>
   </Link>
 );
