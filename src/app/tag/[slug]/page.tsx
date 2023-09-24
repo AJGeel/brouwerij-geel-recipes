@@ -1,7 +1,21 @@
 import RecipeCard from "@/components/RecipeCard";
-import { filterRecipes, scanAllRecipes } from "@/services/markdown";
+import {
+  filterRecipes,
+  generateTags,
+  scanAllRecipes,
+} from "@/services/markdown";
 import { capitalize } from "@/utils/capitalize";
 import Link from "next/link";
+
+export const generateStaticParams = async () => {
+  const allRecipes = scanAllRecipes();
+  const tagsWithCount = generateTags(allRecipes);
+  const tags = Array.from(tagsWithCount.keys());
+
+  return tags.map((tag) => ({
+    slug: tag,
+  }));
+};
 
 const getRecipesWithTag = async (tag: string) => {
   const allRecipes = scanAllRecipes();

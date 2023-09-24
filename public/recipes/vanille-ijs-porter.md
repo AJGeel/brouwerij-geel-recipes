@@ -11,7 +11,7 @@ ingredients:
   - name: Slagroom
     amount: 500 ml
     imageSlug: slagroom
-  - name: Vanillepeul
+  - name: Vanille-peul
     amount: ½×
     imageSlug: vanille
   - name: Suiker

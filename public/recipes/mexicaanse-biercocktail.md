@@ -2,7 +2,7 @@
 title: Mexicaanse biercocktail met tequila
 imageSlug: mexicaanse-biercocktail.jpeg
 ingredients:
-  - name: Cornet (blond)
+  - name: Blond bier
     amount: 250 ml
     imageSlug: witbier
   - name: Tequila

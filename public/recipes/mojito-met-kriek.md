@@ -8,7 +8,7 @@ ingredients:
   - name: Limoen
     amount: 1×
     imageSlug: limoen
-  - name: (Witte) Rum
+  - name: Witte Rum
     amount: 20 ml
     imageSlug: rum
   - name: IJsklontjes
