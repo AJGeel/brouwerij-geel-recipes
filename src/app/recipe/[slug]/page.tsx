@@ -18,7 +18,6 @@ export const generateStaticParams = async () => {
 
 const getRecipeContents = async (slug: string) => {
   const fileName = fs.readFileSync(`${recipeDirectory}/${slug}.md`, "utf-8");
-
   const parsedRecipe = parseRecipe(fileName);
 
   if (!parsedRecipe) {

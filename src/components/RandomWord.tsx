@@ -8,17 +8,17 @@ type Props = {
 };
 
 const RandomWord = ({ initialWord }: Props) => {
-  const [word, setWord] = useState(initialWord);
+  const [currentWord, setCurrentWord] = useState(initialWord);
 
   return (
     <span
       className="cursor-pointer hover:text-amber-500 duration-150 select-none active:text-amber-100"
       onClick={() => {
-        const newWord = getRandomWord();
-        setWord(newWord);
+        const newWord = getRandomWord(currentWord);
+        setCurrentWord(newWord);
       }}
     >
-      {word}
+      {currentWord}
     </span>
   );
 };

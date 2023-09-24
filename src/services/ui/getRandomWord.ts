@@ -17,5 +17,8 @@ const dictionary = [
   "verstieren",
 ];
 
-export const getRandomWord = () =>
-  dictionary[Math.floor(Math.random() * dictionary.length)];
+export const getRandomWord = (currentWord?: string) => {
+  const options = dictionary.filter((item) => item !== (currentWord ?? ""));
+
+  return options[Math.floor(Math.random() * options.length)];
+};
