@@ -28,7 +28,7 @@ tags:
 ---
 
 **1.** Laat de kersen uitlekken, bewaar de siroop. Verhit één derde van de boter in een steelpan, en fruit de sjalot 3 minuten. Voeg de bloem toe, en blijf
-vijf minuten roeren totdat je een roux hebt.
+5 minuten roeren totdat je een roux hebt.
 
 **2.** Voeg terwijl je roert de tijm, de kriek, de helft van de kersen en alle siroop toe. Laat het geheel 10 minuten inkoken.
 

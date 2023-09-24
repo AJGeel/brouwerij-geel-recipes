@@ -6,6 +6,7 @@ import {
 } from "@/services/markdown";
 import { capitalize } from "@/utils/capitalize";
 import Link from "next/link";
+import { Header } from "./Header";
 
 export const generateStaticParams = async () => {
   const allRecipes = scanAllRecipes();
@@ -40,12 +41,7 @@ const Page = async ({ params }: Props) => {
 
   return (
     <div className="max-w-7xl w-full mx-auto p-5 sm:p-8">
-      <div className="flex flex-col items-center mt-9">
-        <p className="text-gray-500">Je bekijkt:</p>
-        <h1 className="text-3xl font-bold text-gray-900 text-center">
-          #{capitalize(decodeURIComponent(params.slug))}
-        </h1>
-      </div>
+      <Header title={capitalize(decodeURIComponent(params.slug))} />
       <div className="w-full grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-16">
         {recipes.map(({ slug, metadata }) => (
           <RecipeCard
