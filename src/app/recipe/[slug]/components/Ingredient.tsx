@@ -10,7 +10,7 @@ type Props = {
 const Ingredient = ({ imageSlug, name, amount }: Props) => (
   <Link
     href={`/tag/${name}`}
-    className="rounded-md flex items-center justify-between space-x-3 flex-shrink-0 outline outline-2 outline-offset-2 outline-transparent hover:outline-amber-100 duration-150 cursor-pointer active:scale-95 active:opacity-70 select-none"
+    className="rounded-md flex items-center justify-between space-x-3 flex-shrink-0 outline outline-2 outline-offset-2 outline-transparent hover:outline-amber-100 focus:outline-amber-100 duration-150 cursor-pointer active:scale-95 active:opacity-70 select-none"
   >
     <div className="w-8 h-8 bg-amber-100 rounded-md">
       <Image

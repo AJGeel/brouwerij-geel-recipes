@@ -11,7 +11,7 @@ const Tags = ({ tags }: Props) => (
     {tags.map((item) => (
       <Link
         href={`/tag/${item}`}
-        className="inline rounded-sm text-gray-900 duration-150 text-sm cursor-pointer outline outline-2 outline-offset-2 outline-transparent hover:outline-amber-100 active:scale-95 active:opacity-70 select-none"
+        className="inline rounded-sm text-gray-900 duration-150 text-sm cursor-pointer outline outline-2 outline-offset-2 outline-transparent hover:outline-amber-100 focus:outline-amber-100 active:scale-95 active:opacity-70 select-none"
         key={item}
       >
         #{capitalize(item)}

@@ -23,7 +23,7 @@ const Page = async () => {
           <Link
             href={`/tag/${name}`}
             key={name}
-            className="inline-flex m-2 gap-1 items-center rounded-sm text-gray-900 duration-150 cursor-pointer outline outline-2 outline-offset-2 outline-transparent hover:outline-amber-100 active:scale-95 active:opacity-70 select-none"
+            className="inline-flex m-2 gap-1 items-center rounded-sm text-gray-900 duration-150 cursor-pointer outline outline-2 outline-offset-2 outline-transparent hover:outline-amber-100 focus:outline-amber-100 active:scale-95 active:opacity-70 select-none"
           >
             <p className="text-bold">#{capitalize(name)}</p>
             <span className="text-xs text-gray-500">{amount}</span>
