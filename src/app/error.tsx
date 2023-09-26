@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 type Props = {
   error: Error & { digest?: string };
   reset: () => void;
@@ -20,6 +22,12 @@ const Error = ({ error, reset }: Props) => (
       >
         Probeer het opnieuw
       </button>
+      <Link
+        href="/"
+        className="mx-auto mt-4 flex w-full items-center justify-center rounded-full bg-gray-900 p-4 tracking-wide text-white hover:bg-gray-700 duration-150"
+      >
+        Terug naar home
+      </Link>
     </div>
   </div>
 );
