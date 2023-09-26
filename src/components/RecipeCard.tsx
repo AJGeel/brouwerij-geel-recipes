@@ -1,3 +1,4 @@
+import { recipeImageDirectory } from "@/config/config";
 import { ClockIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,7 +22,7 @@ const RecipeCard = ({ slug, title, time, imageSlug }: Props) => (
       </div>
       <div className="absolute w-full h-full group-hover:scale-105 duration-1000">
         <Image
-          src={`/images/recipes/${imageSlug}`}
+          src={`${recipeImageDirectory}${imageSlug}`}
           fill={true}
           alt={title}
           sizes="(max-width: 768px) 100vw, "

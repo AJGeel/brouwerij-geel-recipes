@@ -1,12 +1,37 @@
 import fs from "fs";
 import md from "markdown-it";
-
+import type { Metadata } from "next";
 import Header from "@/app/recipe/[slug]/components/Header";
 import Hero from "@/app/recipe/[slug]/components/Hero";
 import Ingredient from "@/app/recipe/[slug]/components/Ingredient";
-import { recipeDirectory } from "@/config/config";
+import { recipeDirectory, recipeImageDirectory } from "@/config/config";
 import { parseRecipe } from "@/services/markdown";
 import Tags from "./components/Tags";
+import { createRecipeDescription } from "@/services/markdown/createRecipeDescription";
+
+type Props = {
+  params: {
+    slug: string;
+  };
+};
+
+export const generateMetadata = async ({
+  params,
+}: Props): Promise<Metadata> => {
+  const { metadata, content } = await getRecipeContents(params.slug);
+
+  return {
+    title: `Recept: ${metadata.title}`,
+    description: createRecipeDescription(content),
+    keywords: [
+      ...["Brouwerij Geel", "Recept"],
+      ...metadata.ingredients.map((item) => item.name),
+    ],
+    openGraph: {
+      images: `${recipeImageDirectory}${metadata.imageSlug}`,
+    },
+  };
+};
 
 export const generateStaticParams = async () => {
   const files = fs.readdirSync(recipeDirectory);
@@ -25,12 +50,6 @@ const getRecipeContents = async (slug: string) => {
   }
 
   return parsedRecipe;
-};
-
-type Props = {
-  params: {
-    slug: string;
-  };
 };
 
 const Page = async ({ params }: Props) => {

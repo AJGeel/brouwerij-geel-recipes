@@ -1,3 +1,4 @@
+import { recipeImageDirectory } from "@/config/config";
 import Image from "next/image";
 
 type Props = {
@@ -8,7 +9,7 @@ type Props = {
 const Hero = ({ imageSlug, title }: Props) => (
   <div className="w-full mb-8 md:rounded-md bg-center bg-cover flex flex-col h-64 sm:h-80 md:h-96 relative overflow-hidden bg-amber-100">
     <Image
-      src={`/images/recipes/${imageSlug}`}
+      src={`${recipeImageDirectory}${imageSlug}`}
       fill={true}
       alt={title}
       style={{ objectFit: "cover" }}

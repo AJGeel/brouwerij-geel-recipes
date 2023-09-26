@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 
 export const recipeDirectory = "./public/recipes";
+export const recipeImageDirectory = "/images/recipes/";
 
 export const metadataConfig: Metadata = {
   title: {

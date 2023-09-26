@@ -7,6 +7,29 @@ import {
 import { capitalize } from "@/utils/capitalize";
 import Link from "next/link";
 import { Header } from "./Header";
+import { Metadata } from "next";
+
+type Props = {
+  params: {
+    slug: string;
+  };
+};
+
+export const generateMetadata = async ({
+  params,
+}: Props): Promise<Metadata> => {
+  const recipes = await getRecipesWithTag(params.slug);
+  const decodedSlug = decodeURIComponent(params.slug);
+
+  return {
+    title: `Recepten met '${decodedSlug}': ${recipes.length}`,
+    description: `Vind recepten met ${decodedSlug} bij Brouwerij Geel`,
+    keywords: [
+      ...["Brouwerij Geel", "Recept", decodedSlug],
+      ...recipes.map((item) => item.metadata.title),
+    ],
+  };
+};
 
 export const generateStaticParams = async () => {
   const allRecipes = scanAllRecipes();
@@ -20,7 +43,7 @@ export const generateStaticParams = async () => {
 
 const getRecipesWithTag = async (tag: string) => {
   const allRecipes = scanAllRecipes();
-  const filteredRecipes = filterRecipes(allRecipes, tag);
+  const filteredRecipes = filterRecipes(allRecipes, decodeURIComponent(tag));
 
   if (!filteredRecipes || filteredRecipes.length === 0) {
     // This will activate the closest `error.js` Error Boundary
@@ -30,14 +53,8 @@ const getRecipesWithTag = async (tag: string) => {
   return filteredRecipes;
 };
 
-type Props = {
-  params: {
-    slug: string;
-  };
-};
-
 const Page = async ({ params }: Props) => {
-  const recipes = await getRecipesWithTag(decodeURIComponent(params.slug));
+  const recipes = await getRecipesWithTag(params.slug);
 
   return (
     <div className="max-w-7xl w-full mx-auto p-5 sm:p-8">

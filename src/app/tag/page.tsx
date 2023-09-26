@@ -1,16 +1,29 @@
 import { generateTags, scanAllRecipes } from "@/services/markdown";
 import { capitalize } from "@/utils/capitalize";
+import { Metadata } from "next";
 import Link from "next/link";
 
-const getTags = async () => {
+const getTagsAndRecipes = async () => {
   const allRecipes = scanAllRecipes();
   const allTags = generateTags(allRecipes);
 
-  return allTags;
+  return { tags: allTags, numRecipes: allRecipes.length };
+};
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  const { tags, numRecipes } = await getTagsAndRecipes();
+
+  return {
+    title: `Vind recepten met via tags`,
+    description: `Brouwerij Geel heeft ${numRecipes} recepten met ${
+      Array.from(tags).length
+    } tags`,
+    keywords: [...["Brouwerij Geel", "Recepten"], ...Array.from(tags.keys())],
+  };
 };
 
 const Page = async () => {
-  const tags = await getTags();
+  const { tags } = await getTagsAndRecipes();
   const iterableTags = Array.from(tags);
 
   return (
