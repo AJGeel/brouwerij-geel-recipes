@@ -8,6 +8,7 @@ import { recipeDirectory, recipeImageDirectory } from "@/config/config";
 import { parseRecipe } from "@/services/markdown";
 import Tags from "./components/Tags";
 import { createRecipeDescription } from "@/services/markdown/createRecipeDescription";
+import { Recipe, WithContext } from "schema-dts";
 
 type Props = {
   params: {
@@ -55,8 +56,23 @@ const getRecipeContents = async (slug: string) => {
 const Page = async ({ params }: Props) => {
   const { metadata, content } = await getRecipeContents(params.slug);
 
+  const jsonLd: WithContext<Recipe> = {
+    "@context": "https://schema.org",
+    "@type": "Recipe",
+    name: metadata.title,
+    image: recipeImageDirectory + metadata.imageSlug,
+    keywords: metadata.tags,
+    recipeIngredient: metadata.ingredients.map((item) =>
+      String(`${item.amount} ${item.name}`)
+    ),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Header name={metadata.title} />
       <div className="max-w-3xl mx-auto">
         <Hero imageSlug={metadata.imageSlug} title={metadata.title} />
