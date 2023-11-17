@@ -1,22 +1,22 @@
 ---
 title: Vanille-ijs met porterbier
-imageSlug: vanille-bier-porter.jpeg
+imageSlug: /images/recipes/vanille-bier-porter.jpg
 ingredients:
   - name: Porter
     amount: 100 ml
-    imageSlug: porter
+    imageSlug: /images/ingredients/porter.png
   - name: Eieren
     amount: 5×
-    imageSlug: ei
+    imageSlug: /images/ingredients/ei.png
   - name: Slagroom
     amount: 500 ml
-    imageSlug: slagroom
+    imageSlug: /images/ingredients/slagroom.png
   - name: Vanille-peul
     amount: ½×
-    imageSlug: vanille
+    imageSlug: /images/ingredients/vanille.png
   - name: Suiker
     amount: 150 g
-    imageSlug: suiker
+    imageSlug: /images/ingredients/suiker.png
 time: 4 uur
 tags:
   - Eten

@@ -1,22 +1,22 @@
 ---
 title: Mexicaanse biercocktail met tequila
-imageSlug: mexicaanse-biercocktail.jpeg
+imageSlug: /images/recipes/mexicaanse-biercocktail.jpg
 ingredients:
   - name: Blond bier
     amount: 250 ml
-    imageSlug: witbier
+    imageSlug: /images/ingredients/witbier.png
   - name: Tequila
     amount: 15 ml
-    imageSlug: tequila
+    imageSlug: /images/ingredients/tequila.png
   - name: Limoen
     amount: ½×
-    imageSlug: limoen
+    imageSlug: /images/ingredients/limoen.png
   - name: Munt
     amount: 10 g
-    imageSlug: munt
+    imageSlug: /images/ingredients/munt.png
   - name: IJsklontjes
     amount: 5×
-    imageSlug: ijsklontjes
+    imageSlug: /images/ingredients/ijsklontjes.png
 time: 5 minuten
 tags:
   - Cocktails

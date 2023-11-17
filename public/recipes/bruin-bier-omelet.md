@@ -1,22 +1,22 @@
 ---
 title: Omelet met bruin bier, champignons en spek
-imageSlug: bruin-bier-omelet.jpeg
+imageSlug: /images/recipes/bruin-bier-omelet.jpg
 ingredients:
   - name: Bruin bier
     amount: 330 ml
-    imageSlug: bruin-bier
+    imageSlug: /images/ingredients/bruin-bier.png
   - name: Eieren
     amount: 2×
-    imageSlug: ei
+    imageSlug: images/ingredients/ei.png
   - name: Spek
     amount: 50 g
-    imageSlug: spek
+    imageSlug: images/ingredients/spek.png
   - name: Champignons
     amount: 4×
-    imageSlug: champignon
+    imageSlug: images/ingredients/champignon.png
   - name: Brood (snee)
     amount: 2×
-    imageSlug: brood
+    imageSlug: images/ingredients/brood.png
 time: 15 minuten
 tags:
   - Eten

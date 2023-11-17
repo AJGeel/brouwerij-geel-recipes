@@ -1,22 +1,22 @@
 ---
 title: Gin-limoen biercocktail met grenadine
-imageSlug: gin-limoen-biercocktail.jpeg
+imageSlug: /images/recipes/gin-limoen-biercocktail.jpg
 ingredients:
   - name: Blond bier
     amount: 250 ml
-    imageSlug: witbier
+    imageSlug: /images/ingredients/witbier.png
   - name: Gin
     amount: 50 ml
-    imageSlug: gin
+    imageSlug: /images/ingredients/gin.png
   - name: Limoen
     amount: 1×
-    imageSlug: limoen
+    imageSlug: /images/ingredients/limoen.png
   - name: Grenadine
     amount: 1 tl
-    imageSlug: grenadine
+    imageSlug: /images/ingredients/grenadine.png
   - name: IJsklontjes
     amount: 5×
-    imageSlug: ijsklontjes
+    imageSlug: /images/ingredients/ijsklontjes.png
 time: 5 minuten
 tags:
   - Cocktails

@@ -1,34 +1,34 @@
 ---
 title: Lamsschenkel in Porter
-imageSlug: lamsschenkel.jpeg
+imageSlug: /images/recipes/lamsschenkel.jpg
 ingredients:
   - name: Porter
     amount: 180 ml
-    imageSlug: porter
+    imageSlug: /images/ingredients/porter.png
   - name: Lamsschenkels
     amount: 4×
-    imageSlug: lamsschenkel
+    imageSlug: /images/ingredients/lamsschenkel.png
   - name: Uien
     amount: 225 g
-    imageSlug: ui
+    imageSlug: /images/ingredients/ui.png
   - name: Wortel
     amount: 150 g
-    imageSlug: wortel
+    imageSlug: /images/ingredients/wortel.png
   - name: Bleekselderij
     amount: 150 g
-    imageSlug: bleekselderij
+    imageSlug: /images/ingredients/bleekselderij.png
   - name: Tomaten
     amount: 150 g
-    imageSlug: tomaat
+    imageSlug: /images/ingredients/tomaat.png
   - name: Knoflook
     amount: 2 tenen
-    imageSlug: knoflook
+    imageSlug: /images/ingredients/knoflook.png
   - name: Runderbouillon
     amount: 300 ml
-    imageSlug: bouillon
+    imageSlug: /images/ingredients/bouillon.png
   - name: Laurierblaadjes
     amount: 2×
-    imageSlug: laurierblaadje
+    imageSlug: /images/ingredients/laurierblaadje.png
 time: 3 uur
 tags:
   - Eten

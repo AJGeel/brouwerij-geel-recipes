@@ -1,25 +1,25 @@
 ---
 title: Varkenshaas in kriekensaus
-imageSlug: kriek-varkenshaas.jpg
+imageSlug: /images/recipes/kriek-varkenshaas.jpg
 ingredients:
   - name: Kriek
     amount: 250 ml
-    imageSlug: kriek
+    imageSlug: /images/ingredients/kriek.png
   - name: Kersen op siroop
     amount: 350 g
-    imageSlug: kersen
+    imageSlug: /images/ingredients/kersen.png
   - name: Varkenshaas
     amount: 500 g
-    imageSlug: varkenshaas
+    imageSlug: /images/ingredients/varkenshaas.png
   - name: Roomboter
     amount: 75 g
-    imageSlug: roomboter
+    imageSlug: /images/ingredients/roomboter.png
   - name: Sjalot
     amount: 1×
-    imageSlug: sjalot
+    imageSlug: /images/ingredients/sjalot.png
   - name: Tijm
     amount: 3 takjes
-    imageSlug: tijm
+    imageSlug: /images/ingredients/tijm.png
 time: 25 minuten
 tags:
   - Eten

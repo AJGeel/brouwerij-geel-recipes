@@ -1,22 +1,22 @@
 ---
 title: Mojito met Kriek
-imageSlug: kriek-mojito.jpeg
+imageSlug: /images/recipes/kriek-mojito.jpg
 ingredients:
   - name: Kriek
     amount: 150 ml
-    imageSlug: kriek
+    imageSlug: /images/ingredients/kriek.png
   - name: Limoen
     amount: 1×
-    imageSlug: limoen
+    imageSlug: /images/ingredients/limoen.png
   - name: Witte Rum
     amount: 20 ml
-    imageSlug: rum
+    imageSlug: /images/ingredients/rum.png
   - name: IJsklontjes
     amount: 5×
-    imageSlug: ijsklontjes
+    imageSlug: /images/ingredients/ijsklontjes.png
   - name: Munt
     amount: 5 g
-    imageSlug: munt
+    imageSlug: /images/ingredients/munt.png
 time: 5 minuten
 tags:
   - Cocktails

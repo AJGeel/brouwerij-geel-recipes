@@ -1,28 +1,28 @@
 ---
 title: Trappisten-wentelteefjes van suikerbrood
-imageSlug: trappisten-wentelteefjes.jpeg
+imageSlug: /images/recipes/trappisten-wentelteefjes.jpg
 ingredients:
   - name: Trappistenbier
     amount: 150 ml
-    imageSlug: trappistenbier
+    imageSlug: /images/ingredients/trappistenbier.png
   - name: Eieren
     amount: 2×
-    imageSlug: ei
+    imageSlug: /images/ingredients/ei.png
   - name: Melk
     amount: 100 ml
-    imageSlug: melk
+    imageSlug: /images/ingredients/melk.png
   - name: Kaneel
     amount: Snufje
-    imageSlug: kaneel
+    imageSlug: /images/ingredients/kaneel.png
   - name: Suikerbrood
     amount: 1×
-    imageSlug: suikerbrood
+    imageSlug: /images/ingredients/suikerbrood.png
   - name: Seizoensfruit
     amount: 100 g
-    imageSlug: bosvruchten
+    imageSlug: /images/ingredients/bosvruchten.png
   - name: Vanille-ijs
     amount: 500 ml
-    imageSlug: ijs
+    imageSlug: /images/ingredients/ijs.png
 time: 20 minuten
 tags:
   - Eten

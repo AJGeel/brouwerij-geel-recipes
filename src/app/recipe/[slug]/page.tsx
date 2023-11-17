@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import Header from "@/app/recipe/[slug]/components/Header";
 import Hero from "@/app/recipe/[slug]/components/Hero";
 import Ingredient from "@/app/recipe/[slug]/components/Ingredient";
-import { recipeDirectory, recipeImageDirectory } from "@/config/config";
+import { recipeDirectory } from "@/config/config";
 import { parseRecipe } from "@/services/markdown";
 import Tags from "./components/Tags";
 import { createRecipeDescription } from "@/services/markdown/createRecipeDescription";
@@ -29,7 +29,7 @@ export const generateMetadata = async ({
       ...metadata.ingredients.map((item) => item.name),
     ],
     openGraph: {
-      images: `${recipeImageDirectory}${metadata.imageSlug}`,
+      images: metadata.imageSlug,
     },
   };
 };
@@ -60,7 +60,7 @@ const Page = async ({ params }: Props) => {
     "@context": "https://schema.org",
     "@type": "Recipe",
     name: metadata.title,
-    image: recipeImageDirectory + metadata.imageSlug,
+    image: metadata.imageSlug,
     keywords: metadata.tags,
     recipeIngredient: metadata.ingredients.map((item) =>
       String(`${item.amount} ${item.name}`)

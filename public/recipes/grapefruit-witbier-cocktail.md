@@ -1,16 +1,16 @@
 ---
 title: Witbier-cocktail met gin & grapefruit
-imageSlug: grapefruit-witbier-cocktail.jpeg
+imageSlug: /images/recipes/grapefruit-witbier-cocktail.jpg
 ingredients:
   - name: Witbier
     amount: 330 ml
-    imageSlug: witbier
+    imageSlug: /images/ingredients/witbier.png
   - name: Gin
     amount: 40 ml
-    imageSlug: gin
+    imageSlug: /images/ingredients/gin.png
   - name: Grapefruit
     amount: 1×
-    imageSlug: grapefruit
+    imageSlug: /images/ingredients/grapefruit.png
 time: 5 minuten
 tags:
   - Cocktails
