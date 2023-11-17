@@ -20,7 +20,7 @@ ingredients:
   - name: Tijm
     amount: 3 takjes
     imageSlug: /images/ingredients/tijm.png
-time: 25 minuten
+duration: P0Y0M0DT0H25M0S
 tags:
   - Eten
   - Hartig

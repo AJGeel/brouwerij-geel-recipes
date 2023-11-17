@@ -17,7 +17,7 @@ ingredients:
   - name: Brood (snee)
     amount: 2×
     imageSlug: images/ingredients/brood.png
-time: 15 minuten
+duration: P0Y0M0DT0H15M0S
 tags:
   - Eten
   - Brunch

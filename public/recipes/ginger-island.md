@@ -14,7 +14,7 @@ ingredients:
   - name: IJsklontjes
     amount: 2×
     imageSlug: /images/ingredients/ijsklontjes.png
-time: 5 minuten
+duration: P0Y0M0DT0H5M0S
 tags:
   - Cocktails
   - Zoetigheden

@@ -3,6 +3,9 @@ import slugify from "slugify";
 import * as fs from "fs";
 import chalk from "chalk";
 import { capitalize } from "@/utils/capitalize";
+import { minutesToDuration } from "@/utils/duration/minutesToDuration";
+import { fancyPrompt } from "./utils/fancyPrompt";
+import { durationToISO } from "@/utils/duration/durationToISO";
 
 type IngredientInput = { name: string; amount: string; imageSlug: string };
 
@@ -14,27 +17,21 @@ const config = {
   },
 };
 
-// Function to create a fancy colored prompt
-const fancyPrompt = (question: string, index: number, total: number) =>
-  `\n${chalk.bold.bgWhite.black(`${index}/${total}:`)} ${question}\n`;
-
 // Function to create a numbered markdown list item
 const createListItem = (index: number, text: string) =>
   `**${index}.** ${text}\n`;
 
 // Prompt user for recipe information
-const recipeName = readlineSync.question(
-  fancyPrompt("Hoe wil je je recept noemen?", 1, 6)
-);
+const recipeName = fancyPrompt("Hoe wil je je recept noemen?", 1, 6);
 
-const recipeUrl = readlineSync.question(
-  fancyPrompt("Hoe moet de URL van je recept eruit zien?", 2, 6)
+const recipeUrl = fancyPrompt(
+  "Hoe moet de URL van je recept eruit zien?",
+  2,
+  6
 );
 
 const ingredients: IngredientInput[] = [];
-console.log(
-  fancyPrompt("Voeg ingrediënten toe (Laat hem leeg om af te sluiten):", 3, 6)
-);
+fancyPrompt("Voeg ingrediënten toe (Laat hem leeg om af te sluiten):", 3, 6);
 
 let ingredientIndex = 1;
 while (true) {
@@ -56,23 +53,19 @@ while (true) {
   ingredientIndex++;
 }
 
-const totalTime = parseInt(
-  readlineSync.question(
-    fancyPrompt(
-      "Hoe lang kost het je om het recept te maken? (in minuten)",
-      4,
-      6
-    )
+const timeInMinutes = parseInt(
+  fancyPrompt(
+    "Hoe lang kost het je om het recept te maken? (in minuten)",
+    4,
+    6
   ),
   10
 );
 
-const tags = readlineSync.question(
-  fancyPrompt(
-    "Met welke tags zou je het recept omschrijven? (gescheiden door komma's)",
-    5,
-    6
-  )
+const tags = fancyPrompt(
+  "Met welke tags zou je het recept omschrijven? (gescheiden door komma's)",
+  5,
+  6
 );
 
 // Create slug for the recipe URL
@@ -100,7 +93,7 @@ ${ingredients
       )}\n    amount: ${amount}\n    imageSlug: ${imageSlug}`
   )
   .join("\n")}
-time: ${totalTime}
+duration: ${durationToISO(minutesToDuration(timeInMinutes))}
 tags: ${Array.from(tags.split(",").map((item) => `\n  - ${capitalize(item)}`))}
 ---
 ${createListItem(1, "")}

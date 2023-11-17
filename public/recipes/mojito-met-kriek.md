@@ -17,7 +17,7 @@ ingredients:
   - name: Munt
     amount: 5 g
     imageSlug: /images/ingredients/munt.png
-time: 5 minuten
+duration: P0Y0M0DT0H5M0S
 tags:
   - Cocktails
   - Zoetigheden

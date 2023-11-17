@@ -30,7 +30,7 @@ const Page = async () => {
             key={slug}
             slug={slug}
             title={metadata.title}
-            time={metadata.time}
+            durationString={metadata.duration}
             imageSlug={metadata.imageSlug}
           />
         ))}

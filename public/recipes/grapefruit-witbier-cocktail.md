@@ -11,7 +11,7 @@ ingredients:
   - name: Grapefruit
     amount: 1×
     imageSlug: /images/ingredients/grapefruit.png
-time: 5 minuten
+duration: P0Y0M0DT0H5M0S
 tags:
   - Cocktails
 ---

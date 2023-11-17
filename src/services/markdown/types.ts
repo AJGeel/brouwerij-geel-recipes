@@ -1,3 +1,5 @@
+import { DurationString } from "@/utils/duration/types";
+
 export interface Ingredient {
   name: string;
   amount: string;
@@ -8,7 +10,7 @@ export interface RecipeMetadata {
   title: string;
   imageSlug: string;
   ingredients: Ingredient[];
-  time: string;
+  duration: DurationString;
   tags: string[];
 }
 

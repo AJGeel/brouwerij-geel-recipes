@@ -65,7 +65,7 @@ const Page = async ({ params }: Props) => {
             key={slug}
             slug={slug}
             title={metadata.title}
-            time={metadata.time}
+            durationString={metadata.duration}
             imageSlug={metadata.imageSlug}
           />
         ))}

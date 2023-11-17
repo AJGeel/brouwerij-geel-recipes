@@ -29,7 +29,7 @@ ingredients:
   - name: Laurierblaadjes
     amount: 2×
     imageSlug: /images/ingredients/laurierblaadje.png
-time: 3 uur
+duration: P0Y0M0DT3H0M0S
 tags:
   - Eten
   - Hartig

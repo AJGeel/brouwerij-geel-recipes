@@ -23,7 +23,7 @@ ingredients:
   - name: Vanille-ijs
     amount: 500 ml
     imageSlug: /images/ingredients/ijs.png
-time: 20 minuten
+duration: P0Y0M0DT0H20M0S
 tags:
   - Eten
   - Zoetigheden

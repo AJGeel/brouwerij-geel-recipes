@@ -17,7 +17,7 @@ ingredients:
   - name: Suiker
     amount: 150 g
     imageSlug: /images/ingredients/suiker.png
-time: 4 uur
+duration: P0Y0M0DT4H0M0S
 tags:
   - Eten
   - Zoetigheden
