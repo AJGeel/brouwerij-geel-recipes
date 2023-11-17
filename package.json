@@ -2,13 +2,12 @@
   "name": "brouwerij-geel-recipes",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "create:recipe": "node --loader ts-node/esm ./dev/scripts/createMarkdownRecipe.ts"
+    "create:recipe": "tsx ./dev/scripts/createMarkdownRecipe.ts"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
@@ -38,6 +37,6 @@
     "eslint-config-prettier": "^9.0.0",
     "readline-sync": "^1.4.10",
     "slugify": "^1.6.6",
-    "ts-node": "^10.9.1"
+    "tsx": "^4.1.3"
   }
 }

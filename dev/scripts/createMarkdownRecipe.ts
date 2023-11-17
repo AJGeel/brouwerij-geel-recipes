@@ -24,24 +24,28 @@ const createListItem = (index: number, text: string) =>
 
 // Prompt user for recipe information
 const recipeName = readlineSync.question(
-  fancyPrompt("What is the recipe called?", 1, 6)
+  fancyPrompt("Hoe wil je je recept noemen?", 1, 6)
 );
 
 const recipeUrl = readlineSync.question(
-  fancyPrompt("What should the URL of the new recipe be?", 2, 6)
+  fancyPrompt("Hoe moet de URL van je recept eruit zien?", 2, 6)
 );
 
 const ingredients: IngredientInput[] = [];
 console.log(
-  fancyPrompt("Enter ingredients (Press Enter twice to finish):", 3, 6)
+  fancyPrompt("Voeg ingrediënten toe (Laat hem leeg om af te sluiten):", 3, 6)
 );
 
 let ingredientIndex = 1;
 while (true) {
-  const name = readlineSync.question(`  Ingredient ${ingredientIndex} name: `);
+  const name = readlineSync.question(
+    `  Ingredient ${ingredientIndex} name:   `
+  );
+
   if (!name) {
     break;
   }
+
   const amount = readlineSync.question(
     `  Ingredient ${ingredientIndex} amount: `
   );
@@ -54,13 +58,21 @@ while (true) {
 
 const totalTime = parseInt(
   readlineSync.question(
-    fancyPrompt("How long does it take to make this recipe (in minutes)?", 4, 6)
+    fancyPrompt(
+      "Hoe lang kost het je om het recept te maken? (in minuten)",
+      4,
+      6
+    )
   ),
   10
 );
 
 const tags = readlineSync.question(
-  fancyPrompt("Which tags describe this recipe? (comma-separated)", 5, 6)
+  fancyPrompt(
+    "Met welke tags zou je het recept omschrijven? (gescheiden door komma's)",
+    5,
+    6
+  )
 );
 
 // Create slug for the recipe URL
@@ -89,9 +101,7 @@ ${ingredients
   )
   .join("\n")}
 time: ${totalTime}
-tags: ${Array.from(
-  tags.split(",").map((item) => `\n  - ${capitalize(item.replace(",", ""))}`)
-)}
+tags: ${Array.from(tags.split(",").map((item) => `\n  - ${capitalize(item)}`))}
 ---
 ${createListItem(1, "")}
 ${createListItem(2, "")}
