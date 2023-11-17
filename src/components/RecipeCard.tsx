@@ -10,7 +10,7 @@ type Props = {
 };
 
 const RecipeCard = ({ slug, title, time, imageSlug }: Props) => (
-  <Link href={`/recipe/${slug}`}>
+  <Link href={`/recept/${slug}`}>
     <div className="flex flex-col h-48 md:h-64 rounded-md overflow-hidden text-white relative group active:scale-95 active:opacity-75 duration-150 ease-in-out">
       <div className="mt-auto z-10 p-5">
         <h1 className="font-medium text-xl leading-6">{title}</h1>

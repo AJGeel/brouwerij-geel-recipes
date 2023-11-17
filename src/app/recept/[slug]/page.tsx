@@ -1,9 +1,9 @@
 import fs from "fs";
 import md from "markdown-it";
 import type { Metadata } from "next";
-import Header from "@/app/recipe/[slug]/components/Header";
-import Hero from "@/app/recipe/[slug]/components/Hero";
-import Ingredient from "@/app/recipe/[slug]/components/Ingredient";
+import Header from "@/app/recept/[slug]/components/Header";
+import Hero from "@/app/recept/[slug]/components/Hero";
+import Ingredient from "@/app/recept/[slug]/components/Ingredient";
 import { recipeDirectory } from "@/config/config";
 import { parseRecipe } from "@/services/markdown";
 import Tags from "./components/Tags";
