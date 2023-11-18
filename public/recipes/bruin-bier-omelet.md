@@ -7,16 +7,16 @@ ingredients:
     imageSlug: /images/ingredients/bruin-bier.png
   - name: Eieren
     amount: 2×
-    imageSlug: images/ingredients/ei.png
+    imageSlug: /images/ingredients/ei.png
   - name: Spek
     amount: 50 g
-    imageSlug: images/ingredients/spek.png
+    imageSlug: /images/ingredients/spek.png
   - name: Champignons
     amount: 4×
-    imageSlug: images/ingredients/champignon.png
+    imageSlug: /images/ingredients/champignon.png
   - name: Brood (snee)
     amount: 2×
-    imageSlug: images/ingredients/brood.png
+    imageSlug: /images/ingredients/brood.png
 duration: P0Y0M0DT0H15M0S
 tags:
   - Eten
