@@ -1,14 +1,17 @@
 import fs from "fs";
+
 import md from "markdown-it";
 import type { Metadata } from "next";
+import { Recipe, WithContext } from "schema-dts";
+
 import Header from "@/app/recept/[slug]/components/Header";
 import Hero from "@/app/recept/[slug]/components/Hero";
 import Ingredient from "@/app/recept/[slug]/components/Ingredient";
 import { recipeDirectory } from "@/config/config";
 import { parseRecipe } from "@/services/markdown";
-import Tags from "./components/Tags";
 import { createRecipeDescription } from "@/services/markdown/createRecipeDescription";
-import { Recipe, WithContext } from "schema-dts";
+
+import Tags from "./components/Tags";
 
 type Props = {
   params: {

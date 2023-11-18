@@ -1,5 +1,6 @@
-import { capitalize } from "@/utils/capitalize";
 import Link from "next/link";
+
+import { capitalize } from "@/utils/capitalize";
 
 type Props = {
   tags: string[];

@@ -1,4 +1,5 @@
 import { describe, it, expect } from "bun:test";
+
 import { formatDurationString } from "./formatDurationString";
 
 describe("formatDurationString", () => {

@@ -1,11 +1,14 @@
+import * as fs from "fs";
+
+import chalk from "chalk";
 import * as readlineSync from "readline-sync";
 import slugify from "slugify";
-import * as fs from "fs";
-import chalk from "chalk";
+
 import { capitalize } from "@/utils/capitalize";
-import { minutesToDuration } from "@/utils/duration/minutesToDuration";
-import { fancyPrompt } from "./utils/fancyPrompt";
 import { durationToISO } from "@/utils/duration/durationToISO";
+import { minutesToDuration } from "@/utils/duration/minutesToDuration";
+
+import { fancyPrompt } from "./utils/fancyPrompt";
 
 type IngredientInput = { name: string; amount: string; imageSlug: string };
 

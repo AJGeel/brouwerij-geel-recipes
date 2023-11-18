@@ -1,11 +1,12 @@
 import "./globals.css";
 
-import { Space_Grotesk } from "next/font/google";
 import { ReactNode } from "react";
 
+import { Space_Grotesk } from "next/font/google";
+
 import Footer from "@/components/Footer";
-import { metadataConfig } from "@/config/config";
 import StyledToaster from "@/components/StyledToaster";
+import { metadataConfig } from "@/config/config";
 
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
 

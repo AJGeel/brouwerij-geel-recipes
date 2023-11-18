@@ -1,7 +1,8 @@
-import { generateTags, scanAllRecipes } from "@/services/markdown";
-import { capitalize } from "@/utils/capitalize";
 import { Metadata } from "next";
 import Link from "next/link";
+
+import { generateTags, scanAllRecipes } from "@/services/markdown";
+import { capitalize } from "@/utils/capitalize";
 
 const getTagsAndRecipes = async () => {
   const allRecipes = scanAllRecipes();

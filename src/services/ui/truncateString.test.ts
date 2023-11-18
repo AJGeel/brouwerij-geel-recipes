@@ -1,4 +1,5 @@
 import { describe, it, expect } from "bun:test";
+
 import { truncateString } from "./truncateString";
 
 describe("truncateString", () => {

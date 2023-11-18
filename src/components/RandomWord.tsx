@@ -1,7 +1,8 @@
 "use client";
 
-import { getRandomWord } from "@/services/ui/getRandomWord";
 import { useState } from "react";
+
+import { getRandomWord } from "@/services/ui/getRandomWord";
 
 type Props = {
   initialWord: string;

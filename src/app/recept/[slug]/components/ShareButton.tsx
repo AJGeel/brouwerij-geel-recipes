@@ -1,8 +1,9 @@
 "use client";
 
-import { shareRecipe } from "@/services/ui/shareRecipe";
 import { ShareIcon } from "@heroicons/react/20/solid";
 import toast, { ToastOptions } from "react-hot-toast";
+
+import { shareRecipe } from "@/services/ui/shareRecipe";
 
 type Props = {
   recipeName: string;

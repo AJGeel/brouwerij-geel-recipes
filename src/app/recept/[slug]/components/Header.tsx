@@ -1,5 +1,6 @@
 import { ChevronLeftIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
+
 import ShareButton from "./ShareButton";
 
 type Props = {

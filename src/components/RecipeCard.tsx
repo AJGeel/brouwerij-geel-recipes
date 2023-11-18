@@ -1,8 +1,9 @@
-import { formatDurationString } from "@/utils/duration/formatDurationString";
-import { DurationString } from "@/utils/duration/types";
 import { ClockIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import Link from "next/link";
+
+import { formatDurationString } from "@/utils/duration/formatDurationString";
+import { DurationString } from "@/utils/duration/types";
 
 type Props = {
   slug: string;

@@ -1,5 +1,5 @@
-import * as readlineSync from "readline-sync";
 import chalk from "chalk";
+import * as readlineSync from "readline-sync";
 
 export const fancyPrompt = (
   question: string,

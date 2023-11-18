@@ -1,3 +1,6 @@
+import { Metadata } from "next";
+import Link from "next/link";
+
 import RecipeCard from "@/components/RecipeCard";
 import {
   filterRecipes,
@@ -5,9 +8,8 @@ import {
   scanAllRecipes,
 } from "@/services/markdown";
 import { capitalize } from "@/utils/capitalize";
-import Link from "next/link";
+
 import { Header } from "./Header";
-import { Metadata } from "next";
 
 type Props = {
   params: {
