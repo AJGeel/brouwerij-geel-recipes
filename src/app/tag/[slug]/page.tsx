@@ -1,3 +1,6 @@
+import { Metadata } from "next";
+import Link from "next/link";
+
 import RecipeCard from "@/components/RecipeCard";
 import {
   filterRecipes,
@@ -5,9 +8,8 @@ import {
   scanAllRecipes,
 } from "@/services/markdown";
 import { capitalize } from "@/utils/capitalize";
-import Link from "next/link";
+
 import { Header } from "./Header";
-import { Metadata } from "next";
 
 type Props = {
   params: {
@@ -57,9 +59,9 @@ const Page = async ({ params }: Props) => {
   const recipes = await getRecipesWithTag(params.slug);
 
   return (
-    <div className="max-w-7xl w-full mx-auto p-5 sm:p-8">
+    <div className="mx-auto w-full max-w-7xl p-5 sm:p-8">
       <Header title={capitalize(decodeURIComponent(params.slug))} />
-      <div className="w-full grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-16">
+      <div className="mt-16 grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {recipes.map(({ slug, metadata }) => (
           <RecipeCard
             key={slug}
@@ -71,9 +73,9 @@ const Page = async ({ params }: Props) => {
         ))}
         <Link
           href="/"
-          className="bg-white border-2 border-amber-100 rounded-md h-48 md:h-64 flex items-center justify-center active:scale-95 active:opacity-75 duration-150 ease-in-out group"
+          className="group flex h-48 items-center justify-center rounded-md border-2 border-amber-100 bg-white duration-150 ease-in-out active:scale-95 active:opacity-75 md:h-64"
         >
-          <p className="group-hover:scale-105 duration-1000 text-gray-400">
+          <p className="text-gray-400 duration-1000 group-hover:scale-105">
             Terug naar alle recepten
           </p>
         </Link>

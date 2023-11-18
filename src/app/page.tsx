@@ -19,12 +19,12 @@ const Page = async () => {
   const initialRandomWord = getRandomWord();
 
   return (
-    <div className="max-w-7xl w-full mx-auto p-5 sm:p-8">
-      <h1 className="text-3xl md:text-4xl mt-8 font-bold text-gray-900 max-w-lg">
+    <div className="mx-auto w-full max-w-7xl p-5 sm:p-8">
+      <h1 className="mt-8 max-w-lg text-3xl font-bold text-gray-900 md:text-4xl">
         Waar ga je je bier vandaag aan{" "}
         <RandomWord initialWord={initialRandomWord} />?
       </h1>
-      <div className="w-full grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-12">
+      <div className="mt-12 grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {recipes.map(({ slug, metadata }) => (
           <RecipeCard
             key={slug}

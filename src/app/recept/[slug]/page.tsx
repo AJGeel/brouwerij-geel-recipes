@@ -1,14 +1,17 @@
 import fs from "fs";
+
 import md from "markdown-it";
 import type { Metadata } from "next";
+import { Recipe, WithContext } from "schema-dts";
+
 import Header from "@/app/recept/[slug]/components/Header";
 import Hero from "@/app/recept/[slug]/components/Hero";
 import Ingredient from "@/app/recept/[slug]/components/Ingredient";
 import { recipeDirectory } from "@/config/config";
 import { parseRecipe } from "@/services/markdown";
-import Tags from "./components/Tags";
 import { createRecipeDescription } from "@/services/markdown/createRecipeDescription";
-import { Recipe, WithContext } from "schema-dts";
+
+import Tags from "./components/Tags";
 
 type Props = {
   params: {
@@ -74,19 +77,19 @@ const Page = async ({ params }: Props) => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Header name={metadata.title} />
-      <div className="max-w-3xl mx-auto">
+      <div className="mx-auto max-w-3xl">
         <Hero imageSlug={metadata.imageSlug} title={metadata.title} />
-        <div className="flex flex-col-reverse md:flex-row md:space-x-12 px-6">
+        <div className="flex flex-col-reverse px-6 md:flex-row md:space-x-12">
           <div>
-            <h2 className="font-medium text-lg">Bereiding</h2>
+            <h2 className="text-lg font-medium">Bereiding</h2>
             <div
-              className="mt-4 text-gray-600 prose"
+              className="prose mt-4 text-gray-600"
               dangerouslySetInnerHTML={{ __html: md().render(content) }}
             />
             <Tags tags={metadata.tags} />
           </div>
-          <div className="md:w-64 mb-16 md:mb-0 flex-shrink-0">
-            <h2 className="font-medium text-lg">Ingrediënten</h2>
+          <div className="mb-16 shrink-0 md:mb-0 md:w-64">
+            <h2 className="text-lg font-medium">Ingrediënten</h2>
             <div className="mt-4 space-y-1.5">
               {metadata.ingredients.map(({ name, imageSlug, amount }) => (
                 <Ingredient

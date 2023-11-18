@@ -1,11 +1,12 @@
 import "./globals.css";
 
-import { Space_Grotesk } from "next/font/google";
 import { ReactNode } from "react";
 
+import { Space_Grotesk } from "next/font/google";
+
 import Footer from "@/components/Footer";
-import { metadataConfig } from "@/config/config";
 import StyledToaster from "@/components/StyledToaster";
+import { metadataConfig } from "@/config/config";
 
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
 
@@ -18,7 +19,7 @@ type Props = {
 const RootLayout = ({ children }: Props) => (
   <html lang="nl" className="bg-amber-100">
     <body
-      className={`${spaceGrotesk.className} min-h-screen flex flex-col md:border-t-4 border-amber-100 bg-white`}
+      className={`${spaceGrotesk.className} flex min-h-screen flex-col border-amber-100 bg-white md:border-t-4`}
     >
       {children}
       <Footer />
