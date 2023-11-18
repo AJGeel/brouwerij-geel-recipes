@@ -8,13 +8,13 @@ type Props = {
 };
 
 const Header = ({ name }: Props) => (
-  <div className="w-full flex items-center justify-between sticky md:relative top-0 bg-white z-20 border-b-2 md:border-b-0 border-amber-100">
+  <div className="sticky top-0 z-20 flex w-full items-center justify-between border-b-2 border-amber-100 bg-white md:relative md:border-b-0">
     <Link href="/">
-      <button className="w-16 h-16 flex items-center justify-center hover:bg-amber-100/50 cursor-pointer active:scale-90 duration-150 group">
-        <ChevronLeftIcon className="w-6 h-6 text-gray-400 flex-shrink-0 group-hover:text-gray-900 duration-150" />
+      <button className="group flex h-16 w-16 cursor-pointer items-center justify-center duration-150 hover:bg-amber-100/50 active:scale-90">
+        <ChevronLeftIcon className="h-6 w-6 shrink-0 text-gray-400 duration-150 group-hover:text-gray-900" />
       </button>
     </Link>
-    <h1 className="font-bold text-2xl text-gray-900">
+    <h1 className="text-2xl font-bold text-gray-900">
       Recept
       <span className="hidden md:inline-block">: {name}</span>
     </h1>

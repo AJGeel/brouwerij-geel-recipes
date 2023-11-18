@@ -7,12 +7,12 @@ type Props = {
 };
 
 const Tags = ({ tags }: Props) => (
-  <div className="mt-8 gap-3 flex flex-wrap items-center">
+  <div className="mt-8 flex flex-wrap items-center gap-3">
     <p className="font-medium">Tags: </p>
     {tags.map((item) => (
       <Link
         href={`/tag/${item}`}
-        className="inline rounded-sm text-gray-900 duration-150 text-sm cursor-pointer outline outline-2 outline-offset-2 outline-transparent hover:outline-amber-100 focus:outline-amber-100 active:scale-95 active:opacity-70 select-none"
+        className="inline cursor-pointer select-none rounded-sm text-sm text-gray-900 outline outline-2 outline-offset-2 outline-transparent duration-150 hover:outline-amber-100 focus:outline-amber-100 active:scale-95 active:opacity-70"
         key={item}
       >
         #{capitalize(item)}

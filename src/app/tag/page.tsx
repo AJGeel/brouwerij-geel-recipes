@@ -28,18 +28,18 @@ const Page = async () => {
   const iterableTags = Array.from(tags);
 
   return (
-    <div className="max-w-7xl w-full mx-auto p-5 sm:p-8">
-      <h1 className="text-3xl md:text-4xl mt-8 font-bold text-gray-900 max-w-lg">
+    <div className="mx-auto w-full max-w-7xl p-5 sm:p-8">
+      <h1 className="mt-8 max-w-lg text-3xl font-bold text-gray-900 md:text-4xl">
         Brouwerij Geel heeft recepten in thema:
       </h1>
-      <div className="mt-4 -m-2">
+      <div className="-m-2 mt-4">
         {iterableTags.map(([name, amount]) => (
           <Link
             href={`/tag/${name}`}
             key={name}
-            className="inline-flex m-2 gap-1 items-center rounded-sm text-gray-900 duration-150 cursor-pointer outline outline-2 outline-offset-2 outline-transparent hover:outline-amber-100 focus:outline-amber-100 active:scale-95 active:opacity-70 select-none"
+            className="m-2 inline-flex cursor-pointer select-none items-center gap-1 rounded-sm text-gray-900 outline outline-2 outline-offset-2 outline-transparent duration-150 hover:outline-amber-100 focus:outline-amber-100 active:scale-95 active:opacity-70"
           >
-            <p className="text-bold">#{capitalize(name)}</p>
+            <p className="font-bold">#{capitalize(name)}</p>
             <span className="text-xs text-gray-500">{amount}</span>
           </Link>
         ))}

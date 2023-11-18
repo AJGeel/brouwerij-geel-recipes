@@ -10,13 +10,13 @@ type Props = {
 const Ingredient = ({ imageSlug, name, amount }: Props) => (
   <Link
     href={`/tag/${name}`}
-    className="rounded-md flex items-center justify-between space-x-3 flex-shrink-0 outline outline-2 outline-offset-2 outline-transparent hover:outline-amber-100 focus:outline-amber-100 duration-150 cursor-pointer active:scale-95 active:opacity-70 select-none"
+    className="flex shrink-0 cursor-pointer select-none items-center justify-between space-x-3 rounded-md outline outline-2 outline-offset-2 outline-transparent duration-150 hover:outline-amber-100 focus:outline-amber-100 active:scale-95 active:opacity-70"
   >
-    <div className="w-8 h-8 bg-amber-100 rounded-md">
+    <div className="h-8 w-8 rounded-md bg-amber-100">
       <Image src={imageSlug} width="32" height="32" alt={name} />
     </div>
-    <p className="flex-grow">{name}</p>
-    <p className="text-gray-400 font-thin text-right">{amount}</p>
+    <p className="grow">{name}</p>
+    <p className="text-right font-thin text-gray-400">{amount}</p>
   </Link>
 );
 

@@ -19,7 +19,7 @@ type Props = {
 const RootLayout = ({ children }: Props) => (
   <html lang="nl" className="bg-amber-100">
     <body
-      className={`${spaceGrotesk.className} min-h-screen flex flex-col md:border-t-4 border-amber-100 bg-white`}
+      className={`${spaceGrotesk.className} flex min-h-screen flex-col border-amber-100 bg-white md:border-t-4`}
     >
       {children}
       <Footer />

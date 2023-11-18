@@ -25,6 +25,7 @@
     {
       "files": ["**/*.ts", "**/*.tsx"],
       "plugins": ["unused-imports"],
+      "extends": ["plugin:tailwindcss/recommended"],
       "rules": {
         "unused-imports/no-unused-imports": "error",
         "unused-imports/no-unused-vars": [
