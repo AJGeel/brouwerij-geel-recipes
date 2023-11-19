@@ -1,5 +1,7 @@
 import { Metadata } from "next";
 
+export const websiteUrl = "https://brouwerij-geel-recipes.vercel.app";
+
 export const recipeDirectory = "./public/recipes";
 export const recipeImageDirectory = "/images/recipes/";
 
