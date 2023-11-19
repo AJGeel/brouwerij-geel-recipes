@@ -7,7 +7,7 @@ import { Recipe, WithContext } from "schema-dts";
 import Header from "@/app/recept/[slug]/components/Header";
 import Hero from "@/app/recept/[slug]/components/Hero";
 import Ingredient from "@/app/recept/[slug]/components/Ingredient";
-import { recipeDirectory } from "@/config/config";
+import { recipeDirectory } from "@/config";
 import { parseRecipe } from "@/services/markdown";
 import { createRecipeDescription } from "@/services/markdown/createRecipeDescription";
 

@@ -2,7 +2,7 @@ import fs from "fs";
 
 import matter from "gray-matter";
 
-import { recipeDirectory } from "@/config/config";
+import { recipeDirectory } from "@/config";
 import { shuffleArray } from "@/utils/shuffleArray";
 
 import { MarkdownRecipe } from "./types";

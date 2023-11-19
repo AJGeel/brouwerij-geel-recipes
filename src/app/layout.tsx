@@ -6,7 +6,7 @@ import { Space_Grotesk } from "next/font/google";
 
 import Footer from "@/components/Footer";
 import StyledToaster from "@/components/StyledToaster";
-import { metadataConfig } from "@/config/config";
+import { metadataConfig } from "@/config";
 
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
 
