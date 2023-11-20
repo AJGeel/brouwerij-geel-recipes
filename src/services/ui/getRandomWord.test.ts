@@ -1,6 +1,6 @@
 import { describe, it, expect } from "bun:test";
 
-import { getRandomWord } from "./getRandomWord";
+import { dictionary, getRandomWord } from "./getRandomWord";
 
 describe("getRandomWord", () => {
   it("should return a random word from the dictionary", () => {
