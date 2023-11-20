@@ -10,7 +10,7 @@ export const metadataConfig: Metadata = {
     template: "%s | Brouwerij Geel",
     default: "Brouwerij Geel | Recepten om te maken met je bier! 🍻",
   },
-  metadataBase: new URL("https://brouwerij-geel-recipes.vercel.app"),
+  metadataBase: new URL(websiteUrl),
   description:
     "Elke dag vraag je het je weer af: waar ga ik mijn bier vandaag aan verkwisten? Wij hebben het antwoord: deze recepten! Van omelet tot cocktail tot ijs, Brouwerij Geel neemt je mee op reis.",
   keywords: [
