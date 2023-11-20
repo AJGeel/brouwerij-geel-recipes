@@ -3,25 +3,6 @@ import { describe, it, expect } from "bun:test";
 import { getRandomWord } from "./getRandomWord";
 
 describe("getRandomWord", () => {
-  const dictionary = [
-    "verboemelen",
-    "verbrassen",
-    "verbruiken",
-    "verdoen",
-    "verkloten",
-    "verknoeien",
-    "verkwanselen",
-    "verkwijnen",
-    "verkwisten",
-    "verloederen",
-    "verlummelen",
-    "verprutsen",
-    "verspatten",
-    "verspelen",
-    "verspillen",
-    "verstieren",
-  ];
-
   it("should return a random word from the dictionary", () => {
     const result = getRandomWord();
     expect(dictionary).toContain(result);
