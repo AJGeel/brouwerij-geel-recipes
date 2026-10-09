@@ -28,7 +28,7 @@ export const shareRecipe = async (recipeName: string) => {
 
     await navigator.share(shareData);
     return shareResponses.webApi;
-  } catch (error) {
+  } catch {
     return shareResponses.error;
   }
 };
