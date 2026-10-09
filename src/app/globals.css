@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+  }
+}
+
 /* Shared element morphs between recipe cards and the recipe page */
 ::view-transition-group(.morph) {
   animation-duration: 500ms;

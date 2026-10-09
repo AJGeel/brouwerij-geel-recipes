@@ -25,7 +25,7 @@ const RecipeCard = ({ slug, title, durationString, imageSlug }: Props) => (
     <div className="group relative flex h-48 flex-col overflow-hidden rounded-md text-white duration-150 ease-in-out active:scale-95 active:opacity-75 md:h-64">
       <div className="z-10 mt-auto p-5">
         <Morph name={recipeTransitionName.title(slug)}>
-          <h1 className="w-fit text-xl font-medium leading-6">{title}</h1>
+          <h1 className="w-fit text-xl font-semibold leading-6">{title}</h1>
         </Morph>
         <div className="mt-2 flex items-center space-x-1.5">
           <ClockIcon className="h-5 w-5 duration-1000 group-hover:rotate-[50deg]" />
@@ -36,7 +36,7 @@ const RecipeCard = ({ slug, title, durationString, imageSlug }: Props) => (
       </div>
       <Morph name={recipeTransitionName.image(slug)}>
         <div className="absolute h-full w-full">
-          <div className="relative h-full w-full duration-1000 group-hover:scale-105">
+          <div className="relative h-full w-full duration-1000 group-hover:scale-110">
             <Image
               src={imageSlug}
               fill={true}

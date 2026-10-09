@@ -2,13 +2,17 @@ import "./globals.css";
 
 import { ReactNode } from "react";
 
-import { Space_Grotesk } from "next/font/google";
+import { Bricolage_Grotesque, DM_Sans } from "next/font/google";
 
 import Footer from "@/components/Footer";
 import StyledToaster from "@/components/StyledToaster";
 import { metadataConfig, viewportConfig } from "@/config";
 
-const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
+const display = Bricolage_Grotesque({
+  subsets: ["latin"],
+  variable: "--font-display",
+});
+const sans = DM_Sans({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata = metadataConfig;
 export const viewport = viewportConfig;
@@ -18,9 +22,12 @@ type Props = {
 };
 
 const RootLayout = ({ children }: Props) => (
-  <html lang="nl" className="bg-amber-100">
+  <html
+    lang="nl"
+    className={`${display.variable} ${sans.variable} bg-amber-100`}
+  >
     <body
-      className={`${spaceGrotesk.className} flex min-h-screen flex-col border-amber-100 bg-white md:border-t-4`}
+      className={`flex min-h-screen flex-col border-amber-100 bg-white md:border-t-4`}
     >
       {children}
       <Footer />

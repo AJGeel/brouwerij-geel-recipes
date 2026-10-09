@@ -91,7 +91,7 @@ const Page = async ({ params }: Props) => {
           <div className="flex flex-col-reverse px-6 md:flex-row md:space-x-12">
             <Stagger step={0}>
               <div>
-                <h2 className="text-lg font-medium">Bereiding</h2>
+                <h2 className="text-xl font-semibold">Bereiding</h2>
                 <div
                   className="prose mt-4 text-gray-600"
                   dangerouslySetInnerHTML={{ __html: md().render(content) }}
@@ -101,7 +101,7 @@ const Page = async ({ params }: Props) => {
             </Stagger>
             <Stagger step={1}>
               <div className="mb-16 shrink-0 md:mb-0 md:w-64">
-                <h2 className="text-lg font-medium">Ingrediënten</h2>
+                <h2 className="text-xl font-semibold">Ingrediënten</h2>
                 <div className="mt-4 space-y-1.5">
                   {metadata.ingredients.map(({ name, imageSlug, amount }) => (
                     <Ingredient
