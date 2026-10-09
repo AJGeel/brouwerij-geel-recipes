@@ -27,7 +27,7 @@ const CarbonFootprint = async () => {
         <p className="py-1">
           Website Carbon:
           <HoverSpan label={`${footprintData.co2}g`} />
-          of CO2/view
+          of CO₂/view
         </p>
       </div>
       <p className="w-full py-1 text-center">
