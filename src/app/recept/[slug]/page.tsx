@@ -1,5 +1,7 @@
 import fs from "fs";
 
+import { ViewTransition } from "react";
+
 import md from "markdown-it";
 import type { Metadata } from "next";
 import { Recipe, WithContext } from "schema-dts";
@@ -78,9 +80,10 @@ const Page = async ({ params }: Props) => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Header name={metadata.title} />
+      <Header slug={slug} name={metadata.title} />
       <div className="mx-auto max-w-3xl">
-        <Hero imageSlug={metadata.imageSlug} title={metadata.title} />
+        <Hero slug={slug} imageSlug={metadata.imageSlug} title={metadata.title} />
+        <ViewTransition enter="slide-up" default="none">
         <div className="flex flex-col-reverse px-6 md:flex-row md:space-x-12">
           <div>
             <h2 className="text-lg font-medium">Bereiding</h2>
@@ -104,6 +107,7 @@ const Page = async ({ params }: Props) => {
             </div>
           </div>
         </div>
+        </ViewTransition>
       </div>
     </>
   );

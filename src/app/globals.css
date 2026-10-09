@@ -1,3 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Shared element morphs between recipe cards and the recipe page */
+::view-transition-group(.morph) {
+  animation-duration: 500ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  border-radius: 0.375rem;
+  overflow: clip;
+}
+
+/* The page content slides up while the shared elements morph */
+::view-transition-new(.slide-up) {
+  animation:
+    300ms ease-out 150ms both fade-in,
+    500ms cubic-bezier(0.22, 1, 0.36, 1) 150ms both slide-up;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(24px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
