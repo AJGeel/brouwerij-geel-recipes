@@ -2,12 +2,14 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 import RecipeCard from "@/components/RecipeCard";
+import PageTransition from "@/components/transitions/PageTransition";
 import {
   filterRecipes,
   generateTags,
   scanAllRecipes,
 } from "@/services/markdown";
 import { capitalize } from "@/utils/capitalize";
+import { navBack } from "@/utils/viewTransitions";
 
 import { Header } from "./Header";
 
@@ -61,28 +63,31 @@ const Page = async ({ params }: Props) => {
   const recipes = await getRecipesWithTag(slug);
 
   return (
-    <div className="mx-auto w-full max-w-7xl p-5 sm:p-8">
-      <Header title={capitalize(decodeURIComponent(slug))} />
-      <div className="mt-16 grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {recipes.map(({ slug, metadata }) => (
-          <RecipeCard
-            key={slug}
-            slug={slug}
-            title={metadata.title}
-            durationString={metadata.duration}
-            imageSlug={metadata.imageSlug}
-          />
-        ))}
-        <Link
-          href="/"
-          className="group flex h-48 items-center justify-center rounded-md border-2 border-amber-100 bg-white duration-150 ease-in-out active:scale-95 active:opacity-75 md:h-64"
-        >
-          <p className="text-gray-400 duration-1000 group-hover:scale-105">
-            Terug naar alle recepten
-          </p>
-        </Link>
+    <PageTransition>
+      <div className="mx-auto w-full max-w-7xl p-5 sm:p-8">
+        <Header title={capitalize(decodeURIComponent(slug))} />
+        <div className="mt-16 grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {recipes.map(({ slug, metadata }) => (
+            <RecipeCard
+              key={slug}
+              slug={slug}
+              title={metadata.title}
+              durationString={metadata.duration}
+              imageSlug={metadata.imageSlug}
+            />
+          ))}
+          <Link
+            href="/"
+            transitionTypes={navBack}
+            className="group flex h-48 items-center justify-center rounded-md border-2 border-amber-100 bg-white duration-150 ease-in-out active:scale-95 active:opacity-75 md:h-64"
+          >
+            <p className="text-gray-400 duration-1000 group-hover:scale-105">
+              Terug naar alle recepten
+            </p>
+          </Link>
+        </div>
       </div>
-    </div>
+    </PageTransition>
   );
 };
 

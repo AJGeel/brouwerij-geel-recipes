@@ -10,11 +10,51 @@
   overflow: clip;
 }
 
-/* The page content slides up while the shared elements morph */
-::view-transition-new(.slide-up) {
+/* Soften the scaling of the morphing image mid-flight */
+::view-transition-image-pair(.morph) {
+  animation-name: via-blur;
+}
+
+@keyframes via-blur {
+  30% {
+    filter: blur(3px);
+  }
+}
+
+/* Directional page slides: forward moves left, back moves right */
+::view-transition-old(.slide-out-to-left),
+::view-transition-old(.slide-out-to-right) {
   animation:
-    300ms ease-out 150ms both fade-in,
-    500ms cubic-bezier(0.22, 1, 0.36, 1) 150ms both slide-up;
+    150ms ease-in both fade-out,
+    250ms ease-in both slide-x-out;
+}
+::view-transition-new(.slide-in-from-right),
+::view-transition-new(.slide-in-from-left) {
+  animation:
+    250ms ease-out 100ms both fade-in,
+    450ms cubic-bezier(0.22, 1, 0.36, 1) 100ms both slide-x-in;
+}
+::view-transition-old(.slide-out-to-left),
+::view-transition-new(.slide-in-from-right) {
+  --slide-x: -48px;
+}
+::view-transition-old(.slide-out-to-right),
+::view-transition-new(.slide-in-from-left) {
+  --slide-x: 48px;
+}
+
+/* Content arriving after a forward navigation, one after the other */
+::view-transition-new(.stagger-0),
+::view-transition-new(.stagger-1) {
+  animation:
+    300ms ease-out var(--delay) both fade-in,
+    500ms cubic-bezier(0.22, 1, 0.36, 1) var(--delay) both slide-up;
+}
+::view-transition-new(.stagger-0) {
+  --delay: 150ms;
+}
+::view-transition-new(.stagger-1) {
+  --delay: 200ms;
 }
 
 @keyframes fade-in {
@@ -22,10 +62,24 @@
     opacity: 0;
   }
 }
-
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
 @keyframes slide-up {
   from {
     transform: translateY(24px);
+  }
+}
+@keyframes slide-x-in {
+  from {
+    transform: translateX(calc(var(--slide-x) * -1));
+  }
+}
+@keyframes slide-x-out {
+  to {
+    transform: translateX(var(--slide-x));
   }
 }
 
