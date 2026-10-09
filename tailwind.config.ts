@@ -18,9 +18,21 @@ const config: Config = {
         reveal: {
           from: { opacity: "0", transform: "translateY(24px)" },
         },
+        "bubble-rise": {
+          "0%": { opacity: "0", transform: "translateY(0)" },
+          "10%": { opacity: "1" },
+          "80%": { opacity: "1" },
+          "100%": { opacity: "0", transform: "translateY(-110vh)" },
+        },
+        "bubble-sway": {
+          "0%, 100%": { transform: "translateX(-10px)" },
+          "50%": { transform: "translateX(10px)" },
+        },
       },
       animation: {
         reveal: "reveal 700ms cubic-bezier(0.22, 1, 0.36, 1) backwards",
+        "bubble-rise": "bubble-rise 30s linear infinite",
+        "bubble-sway": "bubble-sway 7s ease-in-out infinite",
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...defaultTheme.fontFamily.sans],

@@ -4,6 +4,7 @@ import { ReactNode } from "react";
 
 import { Bricolage_Grotesque, DM_Sans } from "next/font/google";
 
+import Bubbles from "@/components/Bubbles";
 import Footer from "@/components/Footer";
 import StyledToaster from "@/components/StyledToaster";
 import { metadataConfig, viewportConfig } from "@/config";
@@ -27,8 +28,9 @@ const RootLayout = ({ children }: Props) => (
     className={`${display.variable} ${sans.variable} bg-amber-100`}
   >
     <body
-      className={`flex min-h-screen flex-col border-amber-100 bg-white md:border-t-4`}
+      className={`isolate flex min-h-screen flex-col border-amber-100 bg-white md:border-t-4`}
     >
+      <Bubbles />
       {children}
       <Footer />
       <StyledToaster />
