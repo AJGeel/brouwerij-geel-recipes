@@ -1,7 +1,13 @@
 export type ApiResponse = {
-  c: number;
-  p: number;
-  url: string;
+  bytes: number;
+  green: boolean;
+  gco2e: number;
+  rating: string;
+  cleanerThan: number;
+};
+
+export type GreenCheckResponse = {
+  green: boolean;
 };
 
 export type Footprint = {
