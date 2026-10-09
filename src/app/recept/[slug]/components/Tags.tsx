@@ -2,7 +2,6 @@ import Link from "next/link";
 
 import Reveal from "@/components/Reveal";
 import { capitalize } from "@/utils/capitalize";
-import { navForward } from "@/utils/viewTransitions";
 
 type Props = {
   tags: string[];
@@ -19,7 +18,6 @@ const Tags = ({ tags, revealIndex }: Props) => (
       <Reveal key={item} index={revealIndex + index + 1}>
         <Link
           href={`/tag/${item}`}
-          transitionTypes={navForward}
           className="inline cursor-pointer select-none rounded-sm text-sm text-gray-900 outline outline-2 outline-offset-2 outline-transparent duration-150 hover:outline-amber-100 focus:outline-amber-100 active:scale-95 active:opacity-70"
         >
           #{capitalize(item)}

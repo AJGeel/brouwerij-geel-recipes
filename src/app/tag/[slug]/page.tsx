@@ -10,7 +10,6 @@ import {
   scanAllRecipes,
 } from "@/services/markdown";
 import { capitalize } from "@/utils/capitalize";
-import { navBack } from "@/utils/viewTransitions";
 
 import { Header } from "./Header";
 
@@ -83,7 +82,6 @@ const Page = async ({ params }: Props) => {
           <Reveal index={recipes.length + 1} total={recipes.length + 1}>
             <Link
               href="/"
-              transitionTypes={navBack}
               className="group flex h-48 items-center justify-center rounded-md border-2 border-amber-100 bg-white duration-150 ease-in-out active:scale-95 active:opacity-75 md:h-64"
             >
               <p className="text-gray-400 duration-1000 group-hover:scale-105">

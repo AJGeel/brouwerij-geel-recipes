@@ -1,8 +1,11 @@
 import Image from "next/image";
 
+import Reveal from "@/components/Reveal";
 import Morph from "@/components/transitions/Morph";
-import ResponsiveMorph from "@/components/transitions/ResponsiveMorph";
-import { recipeTransitionName } from "@/utils/viewTransitions";
+import {
+  morphDuration,
+  recipeImageTransitionName,
+} from "@/utils/viewTransitions";
 
 type Props = {
   slug: string;
@@ -12,9 +15,10 @@ type Props = {
 
 function Hero({ slug, imageSlug, title }: Props) {
   return (
-    <div className="relative mb-8 flex h-64 w-full flex-col overflow-hidden bg-amber-100 bg-cover bg-center sm:h-80 md:h-96 md:rounded-md">
-      <Morph name={recipeTransitionName.image(slug)}>
-        <div className="absolute inset-0">
+    <div className="relative mb-8 flex h-64 w-full flex-col overflow-hidden sm:h-80 md:h-96 md:rounded-md">
+      <Morph name={recipeImageTransitionName(slug)}>
+        {/* The placeholder colour lives here, so it morphs along with the image */}
+        <div className="absolute inset-0 bg-amber-100">
           <Image
             src={imageSlug}
             fill={true}
@@ -27,12 +31,10 @@ function Hero({ slug, imageSlug, title }: Props) {
         </div>
       </Morph>
       <div className="z-10 mt-auto p-5 md:hidden">
-        <ResponsiveMorph
-          name={recipeTransitionName.title(slug)}
-          visibleOn="mobile"
-        >
-          <h1 className="w-fit text-2xl font-bold text-white">{title}</h1>
-        </ResponsiveMorph>
+        {/* The morphing image covers the title until it lands */}
+        <Reveal index={0} delay={morphDuration}>
+          <h1 className="text-2xl font-bold text-white">{title}</h1>
+        </Reveal>
       </div>
     </div>
   );

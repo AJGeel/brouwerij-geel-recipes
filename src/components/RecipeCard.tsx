@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { formatDurationString } from "@/utils/duration/formatDurationString";
 import { DurationString } from "@/utils/duration/types";
-import { navForward, recipeTransitionName } from "@/utils/viewTransitions";
+import { openRecipe, recipeImageTransitionName } from "@/utils/viewTransitions";
 
 import Morph from "./transitions/Morph";
 
@@ -20,13 +20,11 @@ const RecipeCard = ({ slug, title, durationString, imageSlug }: Props) => (
     href={`/recept/${slug}`}
     // Fully prefetched, so the morph always has its destination ready
     prefetch={true}
-    transitionTypes={navForward}
+    transitionTypes={[openRecipe]}
   >
     <div className="group relative flex h-48 flex-col overflow-hidden rounded-md text-white duration-150 ease-in-out active:scale-95 active:opacity-75 md:h-64">
       <div className="z-10 mt-auto p-5">
-        <Morph name={recipeTransitionName.title(slug)}>
-          <h1 className="w-fit text-xl font-semibold leading-6">{title}</h1>
-        </Morph>
+        <h1 className="text-xl font-semibold leading-6">{title}</h1>
         <div className="mt-2 flex items-center space-x-1.5">
           <ClockIcon className="h-5 w-5 duration-1000 group-hover:rotate-[50deg]" />
           <span className="font-light">
@@ -34,7 +32,7 @@ const RecipeCard = ({ slug, title, durationString, imageSlug }: Props) => (
           </span>
         </div>
       </div>
-      <Morph name={recipeTransitionName.image(slug)}>
+      <Morph name={recipeImageTransitionName(slug)}>
         <div className="absolute h-full w-full">
           <div className="relative h-full w-full duration-1000 group-hover:scale-110">
             <Image

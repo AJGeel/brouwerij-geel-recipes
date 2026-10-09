@@ -8,7 +8,6 @@ import Hero from "@/app/recept/[slug]/components/Hero";
 import Ingredient from "@/app/recept/[slug]/components/Ingredient";
 import Reveal from "@/components/Reveal";
 import PageTransition from "@/components/transitions/PageTransition";
-import Stagger from "@/components/transitions/Stagger";
 import { recipeDirectory } from "@/config";
 import { parseRecipe, renderMarkdownBlocks } from "@/services/markdown";
 import { createRecipeDescription } from "@/services/markdown/createRecipeDescription";
@@ -81,53 +80,51 @@ const Page = async ({ params }: Props) => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Header slug={slug} name={metadata.title} />
-      <PageTransition exitOnly>
-        <div className="mx-auto max-w-3xl">
+      <PageTransition fadeIn>
+        <Header name={metadata.title} />
+      </PageTransition>
+      <PageTransition>
+        <div className="mx-auto max-w-7xl">
           <Hero
             slug={slug}
             imageSlug={metadata.imageSlug}
             title={metadata.title}
           />
-          <div className="flex flex-col-reverse px-6 md:flex-row md:space-x-12">
-            <Stagger step={0}>
-              <div>
-                <Reveal index={0}>
-                  <h2 className="text-xl font-semibold">Bereiding</h2>
-                </Reveal>
-                <div className="prose mt-4 space-y-5 text-gray-600">
-                  {preparationSteps.map((html, index) => (
-                    <Reveal key={index} index={index + 1}>
-                      <div dangerouslySetInnerHTML={{ __html: html }} />
+          <div className="max-w-3xl flex flex-col-reverse px-6 md:px-2 md:flex-row md:space-x-12">
+            <div>
+              <Reveal index={0}>
+                <h2 className="text-xl font-semibold">Bereiding</h2>
+              </Reveal>
+              <div className="prose mt-4 space-y-5 text-gray-600">
+                {preparationSteps.map((html, index) => (
+                  <Reveal key={index} index={index + 1}>
+                    <div dangerouslySetInnerHTML={{ __html: html }} />
+                  </Reveal>
+                ))}
+              </div>
+              <Tags
+                tags={metadata.tags}
+                revealIndex={preparationSteps.length + 1}
+              />
+            </div>
+            <div className="mb-16 shrink-0 md:mb-0 md:w-64">
+              <Reveal index={1}>
+                <h2 className="text-xl font-semibold">Ingrediënten</h2>
+              </Reveal>
+              <div className="mt-4 space-y-1.5">
+                {metadata.ingredients.map(
+                  ({ name, imageSlug, amount }, index) => (
+                    <Reveal key={name} index={index + 2}>
+                      <Ingredient
+                        name={name}
+                        imageSlug={imageSlug}
+                        amount={amount}
+                      />
                     </Reveal>
-                  ))}
-                </div>
-                <Tags
-                  tags={metadata.tags}
-                  revealIndex={preparationSteps.length + 1}
-                />
+                  )
+                )}
               </div>
-            </Stagger>
-            <Stagger step={1}>
-              <div className="mb-16 shrink-0 md:mb-0 md:w-64">
-                <Reveal index={1}>
-                  <h2 className="text-xl font-semibold">Ingrediënten</h2>
-                </Reveal>
-                <div className="mt-4 space-y-1.5">
-                  {metadata.ingredients.map(
-                    ({ name, imageSlug, amount }, index) => (
-                      <Reveal key={name} index={index + 2}>
-                        <Ingredient
-                          name={name}
-                          imageSlug={imageSlug}
-                          amount={amount}
-                        />
-                      </Reveal>
-                    )
-                  )}
-                </div>
-              </div>
-            </Stagger>
+            </div>
           </div>
         </div>
       </PageTransition>

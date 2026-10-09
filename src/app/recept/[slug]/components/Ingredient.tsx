@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { navForward } from "@/utils/viewTransitions";
-
 type Props = {
   imageSlug: string;
   name: string;
@@ -12,7 +10,6 @@ type Props = {
 const Ingredient = ({ imageSlug, name, amount }: Props) => (
   <Link
     href={`/tag/${name}`}
-    transitionTypes={navForward}
     className="flex shrink-0 cursor-pointer select-none items-center justify-between space-x-3 rounded-md outline outline-2 outline-offset-2 outline-transparent duration-150 hover:outline-amber-100 focus:outline-amber-100 active:scale-95 active:opacity-70"
   >
     <div className="h-8 w-8 rounded-md bg-amber-100">
