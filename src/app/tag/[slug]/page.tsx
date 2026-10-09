@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 import RecipeCard from "@/components/RecipeCard";
+import Reveal from "@/components/Reveal";
 import PageTransition from "@/components/transitions/PageTransition";
 import {
   filterRecipes,
@@ -65,26 +66,31 @@ const Page = async ({ params }: Props) => {
   return (
     <PageTransition>
       <div className="mx-auto w-full max-w-7xl p-5 sm:p-8">
-        <Header title={capitalize(decodeURIComponent(slug))} />
+        <Reveal index={0}>
+          <Header title={capitalize(decodeURIComponent(slug))} />
+        </Reveal>
         <div className="mt-16 grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {recipes.map(({ slug, metadata }) => (
-            <RecipeCard
-              key={slug}
-              slug={slug}
-              title={metadata.title}
-              durationString={metadata.duration}
-              imageSlug={metadata.imageSlug}
-            />
+          {recipes.map(({ slug, metadata }, index) => (
+            <Reveal key={slug} index={index + 1} total={recipes.length + 1}>
+              <RecipeCard
+                slug={slug}
+                title={metadata.title}
+                durationString={metadata.duration}
+                imageSlug={metadata.imageSlug}
+              />
+            </Reveal>
           ))}
-          <Link
-            href="/"
-            transitionTypes={navBack}
-            className="group flex h-48 items-center justify-center rounded-md border-2 border-amber-100 bg-white duration-150 ease-in-out active:scale-95 active:opacity-75 md:h-64"
-          >
-            <p className="text-gray-400 duration-1000 group-hover:scale-105">
-              Terug naar alle recepten
-            </p>
-          </Link>
+          <Reveal index={recipes.length + 1} total={recipes.length + 1}>
+            <Link
+              href="/"
+              transitionTypes={navBack}
+              className="group flex h-48 items-center justify-center rounded-md border-2 border-amber-100 bg-white duration-150 ease-in-out active:scale-95 active:opacity-75 md:h-64"
+            >
+              <p className="text-gray-400 duration-1000 group-hover:scale-105">
+                Terug naar alle recepten
+              </p>
+            </Link>
+          </Reveal>
         </div>
       </div>
     </PageTransition>

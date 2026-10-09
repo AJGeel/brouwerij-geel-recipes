@@ -1,16 +1,16 @@
 import fs from "fs";
 
-import md from "markdown-it";
 import type { Metadata } from "next";
 import { Recipe, WithContext } from "schema-dts";
 
 import Header from "@/app/recept/[slug]/components/Header";
 import Hero from "@/app/recept/[slug]/components/Hero";
 import Ingredient from "@/app/recept/[slug]/components/Ingredient";
+import Reveal from "@/components/Reveal";
 import PageTransition from "@/components/transitions/PageTransition";
 import Stagger from "@/components/transitions/Stagger";
 import { recipeDirectory } from "@/config";
-import { parseRecipe } from "@/services/markdown";
+import { parseRecipe, renderMarkdownBlocks } from "@/services/markdown";
 import { createRecipeDescription } from "@/services/markdown/createRecipeDescription";
 
 import Tags from "./components/Tags";
@@ -62,6 +62,7 @@ const getRecipeContents = async (slug: string) => {
 const Page = async ({ params }: Props) => {
   const { slug } = await params;
   const { metadata, content } = await getRecipeContents(slug);
+  const preparationSteps = renderMarkdownBlocks(content);
 
   const jsonLd: WithContext<Recipe> = {
     "@context": "https://schema.org",
@@ -91,26 +92,39 @@ const Page = async ({ params }: Props) => {
           <div className="flex flex-col-reverse px-6 md:flex-row md:space-x-12">
             <Stagger step={0}>
               <div>
-                <h2 className="text-xl font-semibold">Bereiding</h2>
-                <div
-                  className="prose mt-4 text-gray-600"
-                  dangerouslySetInnerHTML={{ __html: md().render(content) }}
+                <Reveal index={0}>
+                  <h2 className="text-xl font-semibold">Bereiding</h2>
+                </Reveal>
+                <div className="prose mt-4 space-y-5 text-gray-600">
+                  {preparationSteps.map((html, index) => (
+                    <Reveal key={index} index={index + 1}>
+                      <div dangerouslySetInnerHTML={{ __html: html }} />
+                    </Reveal>
+                  ))}
+                </div>
+                <Tags
+                  tags={metadata.tags}
+                  revealIndex={preparationSteps.length + 1}
                 />
-                <Tags tags={metadata.tags} />
               </div>
             </Stagger>
             <Stagger step={1}>
               <div className="mb-16 shrink-0 md:mb-0 md:w-64">
-                <h2 className="text-xl font-semibold">Ingrediënten</h2>
+                <Reveal index={1}>
+                  <h2 className="text-xl font-semibold">Ingrediënten</h2>
+                </Reveal>
                 <div className="mt-4 space-y-1.5">
-                  {metadata.ingredients.map(({ name, imageSlug, amount }) => (
-                    <Ingredient
-                      key={name}
-                      name={name}
-                      imageSlug={imageSlug}
-                      amount={amount}
-                    />
-                  ))}
+                  {metadata.ingredients.map(
+                    ({ name, imageSlug, amount }, index) => (
+                      <Reveal key={name} index={index + 2}>
+                        <Ingredient
+                          name={name}
+                          imageSlug={imageSlug}
+                          amount={amount}
+                        />
+                      </Reveal>
+                    )
+                  )}
                 </div>
               </div>
             </Stagger>

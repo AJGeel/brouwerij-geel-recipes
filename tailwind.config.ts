@@ -14,6 +14,14 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      keyframes: {
+        reveal: {
+          from: { opacity: "0", transform: "translateY(24px)" },
+        },
+      },
+      animation: {
+        reveal: "reveal 700ms cubic-bezier(0.22, 1, 0.36, 1) backwards",
+      },
       fontFamily: {
         sans: ["var(--font-sans)", ...defaultTheme.fontFamily.sans],
         display: ["var(--font-display)", ...defaultTheme.fontFamily.sans],
