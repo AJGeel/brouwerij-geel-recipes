@@ -21,7 +21,7 @@ const CarbonFootprint = async () => {
       href="https://websitecarbon.com/website/brouwerij-geel-recipes-vercel-app"
       target="_blank"
       rel="noreferrer noopener"
-      className="group flex flex-col items-center divide-y divide-amber-200 rounded-md px-2 text-xs outline outline-1 outline-amber-200/0 duration-150 hover:scale-105 hover:bg-white hover:shadow-md hover:outline-amber-200"
+      className="group flex flex-col items-center divide-y divide-amber-200 rounded-md px-2 text-xs outline outline-1 outline-amber-200/0 duration-150 hover:scale-105 hover:bg-surface hover:shadow-md hover:outline-amber-200"
     >
       <div className="flex rounded-md">
         <p className="py-1">

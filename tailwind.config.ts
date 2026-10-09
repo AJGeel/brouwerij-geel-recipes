@@ -1,6 +1,8 @@
 import type { Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
 
+const token = (name: string) => `rgb(var(--${name}) / <alpha-value>)`;
+
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -39,17 +41,20 @@ const config: Config = {
         display: ["var(--font-display)", ...defaultTheme.fontFamily.sans],
       },
       colors: {
+        foreground: token("foreground"),
+        surface: token("surface"),
         gray: {
-          "100": "#F4F4F4",
-          "400": "#A699A5",
-          "500": "#8F7F8E",
-          "600": "#634E63",
-          "900": "#20011F",
+          "100": token("gray-100"),
+          "400": token("gray-400"),
+          "500": token("gray-500"),
+          "600": token("gray-600"),
+          "700": token("gray-700"),
+          "900": token("gray-900"),
         },
         amber: {
-          "100": "#EDE8E1",
-          "200": "#CBC8C3",
-          "500": "#A07F4D",
+          "100": token("amber-100"),
+          "200": token("amber-200"),
+          "500": token("amber-500"),
         },
       },
     },

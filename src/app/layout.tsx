@@ -28,7 +28,7 @@ const RootLayout = ({ children }: Props) => (
     className={`${display.variable} ${sans.variable} bg-amber-100`}
   >
     <body
-      className={`isolate flex min-h-screen flex-col border-amber-100 bg-white md:border-t-4`}
+      className={`relative isolate flex min-h-screen flex-col border-amber-100 bg-surface text-foreground md:border-t-4`}
     >
       <Bubbles />
       {children}

@@ -3,6 +3,37 @@
 @tailwind utilities;
 
 @layer base {
+  /* RGB channels, so Tailwind can apply opacity. Dark mode follows the OS. */
+  :root {
+    --foreground: 0 0 0;
+    --surface: 255 255 255;
+    --gray-100: 244 244 244;
+    --gray-400: 166 153 165;
+    --gray-500: 143 127 142;
+    --gray-600: 99 78 99;
+    --gray-700: 55 65 81;
+    --gray-900: 32 1 31;
+    --amber-100: 237 232 225;
+    --amber-200: 203 200 195;
+    --amber-500: 160 127 77;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --foreground: 236 230 235;
+      --surface: 22 16 21;
+      --gray-100: 38 30 37;
+      --gray-400: 150 135 149;
+      --gray-500: 172 158 171;
+      --gray-600: 205 195 204;
+      --gray-700: 219 210 217;
+      --gray-900: 244 238 243;
+      --amber-100: 43 33 38;
+      --amber-200: 66 53 60;
+      --amber-500: 205 165 105;
+    }
+  }
+
   h1,
   h2,
   h3 {

@@ -90,12 +90,12 @@ const Page = async ({ params }: Props) => {
             imageSlug={metadata.imageSlug}
             title={metadata.title}
           />
-          <div className="max-w-3xl flex flex-col-reverse px-6 md:px-2 md:flex-row md:space-x-12">
+          <div className="flex max-w-3xl flex-col-reverse px-6 md:flex-row md:space-x-12 md:px-2">
             <div>
               <Reveal index={0}>
                 <h2 className="text-xl font-semibold">Bereiding</h2>
               </Reveal>
-              <div className="prose mt-4 space-y-5 text-gray-600">
+              <div className="prose mt-4 space-y-5 text-gray-600 dark:prose-invert">
                 {preparationSteps.map((html, index) => (
                   <Reveal key={index} index={index + 1}>
                     <div dangerouslySetInnerHTML={{ __html: html }} />

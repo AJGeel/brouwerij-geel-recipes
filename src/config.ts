@@ -29,5 +29,5 @@ export const metadataConfig: Metadata = {
 };
 
 export const viewportConfig: Viewport = {
-  colorScheme: "light",
+  colorScheme: "light dark",
 };
