@@ -3,16 +3,12 @@
 import { usePathname } from "next/navigation";
 
 import { cn } from "@/utils/cn";
+import { spread } from "@/utils/spread";
 
 const baseCount = 12;
 // The overview is mostly covered by recipe cards, so it gets extra bubbles
 const denseCount = baseCount * 4;
-const denseRoutes = ["/"];
-const goldenRatio = 0.618034;
-
-const spread = (index: number, seed: number) =>
-  ((((index + 1) * goldenRatio * seed) % 1) + 1) % 1;
-
+const denseRoutes = ["/", "/tag"];
 // Extending the pool never changes existing bubbles, only adds new ones
 const bubbles = Array.from({ length: denseCount }, (_, index) => ({
   left: `${Math.round(spread(index, 1) * 96 + 2)}%`,

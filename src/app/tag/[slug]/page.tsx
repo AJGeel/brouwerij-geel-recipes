@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import Link from "next/link";
 
+import BackToRecipes from "@/components/BackToRecipes";
 import RecipeCard from "@/components/RecipeCard";
 import Reveal from "@/components/Reveal";
 import PageTransition from "@/components/transitions/PageTransition";
@@ -80,14 +80,7 @@ const Page = async ({ params }: Props) => {
             </Reveal>
           ))}
           <Reveal index={recipes.length + 1} total={recipes.length + 1}>
-            <Link
-              href="/"
-              className="group flex h-48 items-center justify-center rounded-md border-2 border-amber-100 bg-surface duration-150 ease-in-out active:scale-95 active:opacity-75 md:h-64"
-            >
-              <p className="text-gray-400 duration-1000 group-hover:scale-105">
-                Terug naar alle recepten
-              </p>
-            </Link>
+            <BackToRecipes />
           </Reveal>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { ClockIcon } from "@heroicons/react/20/solid";
+import { ClockIcon } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -26,7 +26,10 @@ const RecipeCard = ({ slug, title, durationString, imageSlug }: Props) => (
       <div className="z-10 mt-auto p-5">
         <h1 className="text-xl font-semibold leading-6">{title}</h1>
         <div className="mt-2 flex items-center space-x-1.5">
-          <ClockIcon className="h-5 w-5 duration-1000 group-hover:rotate-[50deg]" />
+          <ClockIcon
+            weight="fill"
+            className="h-5 w-5 duration-1000 group-hover:rotate-[50deg]"
+          />
           <span className="font-light">
             {formatDurationString(durationString)}
           </span>

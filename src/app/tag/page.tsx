@@ -49,8 +49,10 @@ const Page = async () => {
                 href={`/tag/${name}`}
                 className="m-2 inline-flex cursor-pointer select-none items-center gap-1 rounded-sm text-gray-900 outline outline-2 outline-offset-2 outline-transparent duration-150 hover:outline-amber-100 focus:outline-amber-100 active:scale-95 active:opacity-70"
               >
-                <p className="font-bold">#{capitalize(name)}</p>
-                <span className="text-xs text-gray-500">{amount}</span>
+                <p className="font-semibold">#{capitalize(name)}</p>
+                <span className="text-xs font-semibold text-gray-500">
+                  {amount}
+                </span>
               </Link>
             </Reveal>
           ))}
