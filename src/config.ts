@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 
 export const websiteUrl = "https://brouwerij-geel-recipes.vercel.app";
 
@@ -23,8 +23,11 @@ export const metadataConfig: Metadata = {
   ],
   authors: [{ name: "Arthur", url: "https://www.linkedin.com/in/ajgeel" }],
   creator: "Arthur Geel",
-  colorScheme: "light",
   openGraph: {
     images: "/images/brouwerij-geel-og.png",
   },
+};
+
+export const viewportConfig: Viewport = {
+  colorScheme: "light",
 };

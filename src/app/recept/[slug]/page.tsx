@@ -14,15 +14,16 @@ import { createRecipeDescription } from "@/services/markdown/createRecipeDescrip
 import Tags from "./components/Tags";
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export const generateMetadata = async ({
   params,
 }: Props): Promise<Metadata> => {
-  const { metadata, content } = await getRecipeContents(params.slug);
+  const { slug } = await params;
+  const { metadata, content } = await getRecipeContents(slug);
 
   return {
     title: `Recept: ${metadata.title}`,
@@ -57,7 +58,8 @@ const getRecipeContents = async (slug: string) => {
 };
 
 const Page = async ({ params }: Props) => {
-  const { metadata, content } = await getRecipeContents(params.slug);
+  const { slug } = await params;
+  const { metadata, content } = await getRecipeContents(slug);
 
   const jsonLd: WithContext<Recipe> = {
     "@context": "https://schema.org",

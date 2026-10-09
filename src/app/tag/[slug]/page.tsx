@@ -12,16 +12,17 @@ import { capitalize } from "@/utils/capitalize";
 import { Header } from "./Header";
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export const generateMetadata = async ({
   params,
 }: Props): Promise<Metadata> => {
-  const recipes = await getRecipesWithTag(params.slug);
-  const decodedSlug = decodeURIComponent(params.slug);
+  const { slug } = await params;
+  const recipes = await getRecipesWithTag(slug);
+  const decodedSlug = decodeURIComponent(slug);
 
   return {
     title: `Recepten met '${decodedSlug}': ${recipes.length}`,
@@ -56,11 +57,12 @@ const getRecipesWithTag = async (tag: string) => {
 };
 
 const Page = async ({ params }: Props) => {
-  const recipes = await getRecipesWithTag(params.slug);
+  const { slug } = await params;
+  const recipes = await getRecipesWithTag(slug);
 
   return (
     <div className="mx-auto w-full max-w-7xl p-5 sm:p-8">
-      <Header title={capitalize(decodeURIComponent(params.slug))} />
+      <Header title={capitalize(decodeURIComponent(slug))} />
       <div className="mt-16 grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {recipes.map(({ slug, metadata }) => (
           <RecipeCard

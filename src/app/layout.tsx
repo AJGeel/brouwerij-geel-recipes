@@ -6,11 +6,12 @@ import { Space_Grotesk } from "next/font/google";
 
 import Footer from "@/components/Footer";
 import StyledToaster from "@/components/StyledToaster";
-import { metadataConfig } from "@/config";
+import { metadataConfig, viewportConfig } from "@/config";
 
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
 
 export const metadata = metadataConfig;
+export const viewport = viewportConfig;
 
 type Props = {
   children: ReactNode;
