@@ -27,8 +27,8 @@ const Page = async () => {
     <PageTransition>
       <div className="mx-auto w-full max-w-7xl p-5 sm:p-8">
         <Reveal index={0}>
-          <div className="mt-8 flex flex-wrap items-start justify-between gap-x-4 gap-y-3">
-            <h1 className="max-w-lg text-3xl font-bold text-gray-900 md:text-4xl">
+          <div className="mt-8 flex flex-col items-center justify-between gap-4 md:flex-row md:items-start">
+            <h1 className="max-w-lg text-center text-3xl font-bold text-gray-900 md:text-left md:text-4xl">
               Waar ga je je bier vandaag aan{" "}
               <RandomWord initialWord={initialRandomWord} />?
             </h1>
