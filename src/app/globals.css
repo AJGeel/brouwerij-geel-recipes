@@ -1,3 +1,89 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  /* RGB channels, so Tailwind can apply opacity. Dark mode follows the OS. */
+  :root {
+    --foreground: 0 0 0;
+    --surface: 255 255 255;
+    --gray-100: 244 244 244;
+    --gray-400: 166 153 165;
+    --gray-500: 143 127 142;
+    --gray-600: 99 78 99;
+    --gray-700: 55 65 81;
+    --gray-900: 32 1 31;
+    --amber-100: 237 232 225;
+    --amber-200: 203 200 195;
+    --amber-500: 160 127 77;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --foreground: 236 230 235;
+      --surface: 22 16 21;
+      --gray-100: 38 30 37;
+      --gray-400: 150 135 149;
+      --gray-500: 172 158 171;
+      --gray-600: 205 195 204;
+      --gray-700: 219 210 217;
+      --gray-900: 244 238 243;
+      --amber-100: 43 33 38;
+      --amber-200: 66 53 60;
+      --amber-500: 205 165 105;
+    }
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+  }
+}
+
+/* Shared element morphs between recipe cards and the recipe page */
+::view-transition-group(.morph) {
+  /* Keep in sync with morphDuration in utils/viewTransitions.ts */
+  animation-duration: 500ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  border-radius: 0.375rem;
+  overflow: clip;
+}
+
+/* Soften the scaling of the morphing image mid-flight */
+::view-transition-image-pair(.morph) {
+  animation-name: via-blur;
+}
+
+@keyframes via-blur {
+  30% {
+    filter: blur(3px);
+  }
+}
+
+/* Pages fade out fast, then their content builds up, see Reveal.tsx */
+::view-transition-old(.fade-out-fast) {
+  animation: 100ms linear both fade-out;
+}
+::view-transition-new(.fade-in-late) {
+  animation: 200ms ease-out 100ms both fade-in;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
