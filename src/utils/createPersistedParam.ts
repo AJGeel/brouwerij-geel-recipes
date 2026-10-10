@@ -1,5 +1,5 @@
-import { useLocalStorage, writeLocalStorage } from "./useLocalStorage";
-import { setQueryParam, useQueryParam } from "./useQueryParam";
+import { useLocalStorage, writeLocalStorage } from "@/hooks/useLocalStorage";
+import { setQueryParam, useQueryParam } from "@/hooks/useQueryParam";
 
 type Options<T extends string> = {
   param: string;
@@ -8,7 +8,7 @@ type Options<T extends string> = {
   defaultValue: T;
 };
 
-export const usePersistedParams = <T extends string>({
+export const createPersistedParam = <T extends string>({
   param,
   storageKey,
   values,

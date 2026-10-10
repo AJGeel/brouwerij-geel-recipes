@@ -9,13 +9,13 @@ import {
   MenuRadioItem,
   MenuTrigger,
 } from "@/components/ui/Menu";
+import { setSortMode, useSortMode } from "@/hooks/useSortMode";
 import {
   parseSortMode,
   SortMode,
   sortModes,
 } from "@/services/markdown/sortRecipes";
 
-import { setSortMode, useSortMode } from "@/hooks/useSortMode";
 
 const labels: Record<SortMode, string> = {
   willekeurig: "Willekeurig",

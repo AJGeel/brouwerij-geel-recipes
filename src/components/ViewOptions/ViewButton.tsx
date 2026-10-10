@@ -2,10 +2,10 @@
 
 import { ListIcon, SquaresFourIcon } from "@phosphor-icons/react/dist/ssr";
 
+import { Menu, MenuContent, MenuRadioGroup, MenuRadioItem, MenuTrigger } from "@/components/ui/Menu";
+import { setViewMode, useViewMode } from "@/hooks/useViewMode";
 import { ViewMode, viewModes } from "@/services/ui/viewMode";
 
-import { setViewMode, useViewMode } from "@/hooks/useViewMode";
-import { Menu, MenuContent, MenuRadioGroup, MenuRadioItem, MenuTrigger } from "@/components/ui/Menu";
 
 const labels: Record<ViewMode, string> = {
   'kaarten': "Toon als kaarten",
