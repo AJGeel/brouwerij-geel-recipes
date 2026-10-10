@@ -16,7 +16,7 @@ const Ingredient = ({ imageSlug, name, amount }: Props) => (
       <Image src={imageSlug} width="32" height="32" alt={name} />
     </div>
     <p className="grow">{name}</p>
-    <p className="text-right font-thin text-gray-400">{amount}</p>
+    <p className="text-right font-light text-gray-400">{amount}</p>
   </Link>
 );
 

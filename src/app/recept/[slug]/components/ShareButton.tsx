@@ -1,6 +1,6 @@
 "use client";
 
-import { ShareIcon } from "@heroicons/react/20/solid";
+import { ShareNetworkIcon } from "@phosphor-icons/react/dist/ssr";
 import toast, { ToastOptions } from "react-hot-toast";
 
 import { shareRecipe } from "@/services/ui/shareRecipe";
@@ -30,7 +30,10 @@ const ShareButton = ({ recipeName }: Props) => {
       className="group flex h-16 w-16 cursor-pointer items-center justify-center duration-150 hover:bg-amber-100/50 active:scale-90"
       onClick={() => onPressShare(recipeName)}
     >
-      <ShareIcon className="h-6 w-6 shrink-0 text-gray-400 duration-150 group-hover:text-gray-900" />
+      <ShareNetworkIcon
+        weight="fill"
+        className="h-6 w-6 shrink-0 text-gray-400 duration-150 group-hover:text-gray-900"
+      />
     </button>
   );
 };

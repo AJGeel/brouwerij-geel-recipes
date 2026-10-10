@@ -9,7 +9,7 @@ const Footer = () => (
       <Link href="/">
         <Image
           src="/images/brouwerij-geel-logo.svg"
-          className="cursor-pointer duration-150 hover:opacity-50"
+          className="cursor-pointer duration-150 hover:opacity-50 dark:invert"
           width="100"
           height="62"
           alt="Brouwerij Geel Logo"

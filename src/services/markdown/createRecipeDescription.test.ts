@@ -8,13 +8,10 @@ describe("createRecipeDescription", () => {
       "This is a recipe description with some *special* formatting.";
     const result = createRecipeDescription(content);
 
-    // Assuming truncateString is working correctly, you can check the length
     expect(result.length).toBeLessThanOrEqual(158);
 
-    // Check if the formatted description starts with 'Bereiding:'
     expect(result.startsWith("Bereiding:")).toBe(true);
 
-    // Check if the special characters are removed
     expect(result.includes("*")).toBe(false);
   });
 
@@ -24,7 +21,7 @@ describe("createRecipeDescription", () => {
   });
 
   it("should handle a long content string with truncation", () => {
-    const longContent = "A".repeat(200); // Assuming truncateString works, this should be truncated
+    const longContent = "A".repeat(200);
     const result = createRecipeDescription(longContent);
 
     expect(result.length).toBeLessThanOrEqual(158);

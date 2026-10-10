@@ -3,6 +3,7 @@ import { Metadata, Viewport } from "next";
 export const websiteUrl = "https://brouwerij-geel-recipes.vercel.app";
 
 export const recipeDirectory = "./public/recipes";
+export const taxonomyPath = "./data/taxonomy.json";
 export const recipeImageDirectory = "/images/recipes/";
 
 export const metadataConfig: Metadata = {
@@ -29,5 +30,5 @@ export const metadataConfig: Metadata = {
 };
 
 export const viewportConfig: Viewport = {
-  colorScheme: "light",
+  colorScheme: "light dark",
 };
