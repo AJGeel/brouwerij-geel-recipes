@@ -6,7 +6,7 @@ import { formatDurationString } from "@/utils/duration/formatDurationString";
 import { DurationString } from "@/utils/duration/types";
 import { openRecipe, recipeImageTransitionName } from "@/utils/viewTransitions";
 
-import Morph from "./transitions/Morph";
+import Morph from "../transitions/Morph";
 
 type Props = {
   slug: string;
@@ -18,7 +18,6 @@ type Props = {
 const RecipeCard = ({ slug, title, durationString, imageSlug }: Props) => (
   <Link
     href={`/recept/${slug}`}
-    // Fully prefetched, so the morph always has its destination ready
     prefetch={true}
     transitionTypes={[openRecipe]}
   >

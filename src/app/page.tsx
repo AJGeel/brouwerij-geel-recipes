@@ -1,11 +1,13 @@
 import RandomWord from "@/components/RandomWord";
-import RecipeCard from "@/components/RecipeCard";
+import RecipeCard from "@/components/Recipe/RecipeCard";
+import RecipeOverview from "@/components/RecipeOverview";
 import Reveal from "@/components/Reveal";
-import SortButton from "@/components/SortButton";
-import SortedRecipeGrid from "@/components/SortedRecipeGrid";
 import PageTransition from "@/components/transitions/PageTransition";
+import { ViewOptions } from "@/components/ViewOptions/ViewOptions";
 import { scanAllRecipes } from "@/services/markdown";
+import { createSearchText } from "@/services/markdown/searchRecipes";
 import { getRandomWord } from "@/services/ui/getRandomWord";
+import { formatDurationString } from "@/utils/duration/formatDurationString";
 
 const getRecipes = async () => {
   const allRecipes = scanAllRecipes();
@@ -26,18 +28,24 @@ const Page = async () => {
     <PageTransition>
       <div className="mx-auto w-full max-w-7xl p-5 sm:p-8">
         <Reveal index={0}>
-          <div className="mt-8 flex items-start justify-between gap-4">
+          <div className="mt-8 flex flex-wrap items-start justify-between gap-x-4 gap-y-3">
             <h1 className="max-w-lg text-3xl font-bold text-gray-900 md:text-4xl">
               Waar ga je je bier vandaag aan{" "}
               <RandomWord initialWord={initialRandomWord} />?
             </h1>
-            <SortButton />
+            <ViewOptions />
           </div>
         </Reveal>
-        <SortedRecipeGrid
+        <RecipeOverview
           recipes={recipes.map(({ slug, metadata }) => ({
             slug,
-            metadata: { title: metadata.title, duration: metadata.duration },
+            metadata: {
+              title: metadata.title,
+              duration: metadata.duration,
+              imageSlug: metadata.imageSlug,
+            },
+            durationLabel: formatDurationString(metadata.duration),
+            searchText: createSearchText(metadata),
           }))}
           cards={Object.fromEntries(
             recipes.map(({ slug, metadata }) => [

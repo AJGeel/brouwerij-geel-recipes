@@ -15,7 +15,7 @@ import {
   sortModes,
 } from "@/services/markdown/sortRecipes";
 
-import { setSortMode, useSortMode } from "./useSortMode";
+import { setSortMode, useSortMode } from "@/hooks/useSortMode";
 
 const labels: Record<SortMode, string> = {
   willekeurig: "Willekeurig",
@@ -28,10 +28,9 @@ const SortButton = () => {
 
   return (
     <Menu>
-      {/* Only the icon scales when pressed: the menu is anchored to the trigger and would follow its size */}
       <MenuTrigger
         aria-label="Sorteren"
-        className="group flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-md duration-150 hover:bg-amber-100/50 data-[popup-open]:bg-amber-100/50"
+        className="group flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-md duration-150 hover:bg-amber-100/50 data-[popup-open]:bg-amber-100/50"
       >
         <SortAscendingIcon
           weight="bold"

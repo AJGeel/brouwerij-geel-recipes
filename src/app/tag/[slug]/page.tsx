@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 import BackToRecipes from "@/components/BackToRecipes";
-import RecipeCard from "@/components/RecipeCard";
+import RecipeCard from "@/components/Recipe/RecipeCard";
 import Reveal from "@/components/Reveal";
 import PageTransition from "@/components/transitions/PageTransition";
 import {
