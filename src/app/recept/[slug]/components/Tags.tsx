@@ -5,7 +5,6 @@ import { capitalize } from "@/utils/capitalize";
 
 type Props = {
   tags: string[];
-  /** Reveal index of the label, the tags follow after it */
   revealIndex: number;
 };
 

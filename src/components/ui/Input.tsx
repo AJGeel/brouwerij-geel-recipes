@@ -10,7 +10,6 @@ type Props = Omit<ComponentProps<typeof BaseInput>, "className"> & {
   className?: string;
 };
 
-/** A text input in the site's look, a thin layer over Base UI */
 export const Input = ({ className, ...props }: Props) => (
   <BaseInput
     className={cn(

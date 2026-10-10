@@ -51,7 +51,6 @@ const getRecipesWithTag = async (tag: string) => {
   const filteredRecipes = filterRecipes(allRecipes, decodeURIComponent(tag));
 
   if (!filteredRecipes || filteredRecipes.length === 0) {
-    // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to fetch data");
   }
 

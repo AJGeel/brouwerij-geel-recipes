@@ -20,11 +20,9 @@ const config = {
   },
 };
 
-// Function to create a numbered markdown list item
 const createListItem = (index: number, text: string) =>
   `**${index}.** ${text}\n`;
 
-// Prompt user for recipe information
 const recipeName = fancyPrompt("Hoe wil je je recept noemen?", 1, 6);
 
 const recipeUrl = fancyPrompt(
@@ -71,18 +69,14 @@ const tags = fancyPrompt(
   6
 );
 
-// Create slug for the recipe URL
 const recipeSlug = slugify(recipeUrl, config.slugifyOptions);
 
-// Create the markdown filename
 const fileName = `${config.recipeDir}${recipeSlug}.md`;
 
-// Ensure the directory exists
 if (!fs.existsSync(config.recipeDir)) {
   fs.mkdirSync(config.recipeDir, { recursive: true });
 }
 
-// Create the markdown file content
 const content = `
 ---
 title: ${recipeName}
@@ -103,7 +97,6 @@ ${createListItem(1, "")}
 ${createListItem(2, "")}
 `;
 
-// Write content to the file
 fs.writeFileSync(fileName, content);
 
 console.log(chalk.green(`\n✅ Recipe created successfully at ${fileName}`));

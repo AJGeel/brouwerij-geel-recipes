@@ -13,7 +13,6 @@ const getRecipes = async () => {
   const allRecipes = scanAllRecipes();
 
   if (!allRecipes || allRecipes.length === 0) {
-    // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to fetch data");
   }
 
