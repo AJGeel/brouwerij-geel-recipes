@@ -8,7 +8,8 @@ import {
 
 import { setSortMode, useSortMode } from "@/hooks/useSortMode";
 import { setViewMode, useViewMode } from "@/hooks/useViewMode";
-import { SortMode, sortModes } from "@/services/markdown/sortRecipes";
+import { groupModes } from "@/services/markdown/groupRecipes";
+import { orderModes, SortMode } from "@/services/markdown/sortRecipes";
 import { ViewMode, viewModes } from "@/services/ui/viewMode";
 
 import { OptionMenu } from "./OptionMenu";
@@ -22,6 +23,8 @@ const sortLabels: Record<SortMode, string> = {
     willekeurig: "Willekeurig",
     titel: "Titel (A–Z)",
     tijd: "Snel smikkelen",
+    bier: "Groepeer per bier",
+    maaltijd: "Groepeer per maaltijd",
 };
 
 export const ViewOptions = () => {
@@ -34,16 +37,16 @@ export const ViewOptions = () => {
                 label="Weergave"
                 tooltip="Pas weergave aan"
                 icon={viewMode === "kaarten" ? SquaresFourIcon : ListIcon}
-                options={viewModes}
+                optionGroups={[viewModes]}
                 labels={viewLabels}
                 value={viewMode}
                 onChange={setViewMode}
             />
             <OptionMenu
                 label="Sorteren"
-                tooltip="Pas sortering aan"
+                tooltip="Pas sortering of groepering aan"
                 icon={SortAscendingIcon}
-                options={sortModes}
+                optionGroups={[orderModes, groupModes]}
                 labels={sortLabels}
                 value={sortMode}
                 onChange={setSortMode}

@@ -1,12 +1,13 @@
 "use client";
 
-import { ComponentType } from "react";
+import { ComponentType, Fragment } from "react";
 
 import {
   Menu,
   MenuContent,
   MenuRadioGroup,
   MenuRadioItem,
+  MenuSeparator,
   MenuTrigger,
 } from "@/components/ui/Menu";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/Tooltip";
@@ -15,7 +16,8 @@ type Props<T extends string> = {
   label: string;
   tooltip: string;
   icon: ComponentType<{ weight: "bold"; className: string }>;
-  options: readonly T[];
+  /** Options in groups, with a separator between the groups */
+  optionGroups: readonly (readonly T[])[];
   labels: Record<T, string>;
   value: T;
   onChange: (value: T) => void;
@@ -25,7 +27,7 @@ export const OptionMenu = <T extends string>({
   label,
   tooltip,
   icon: Icon,
-  options,
+  optionGroups,
   labels,
   value,
   onChange,
@@ -51,17 +53,24 @@ export const OptionMenu = <T extends string>({
       <MenuRadioGroup
         value={value}
         onValueChange={(next) => {
-          const option = options.find((candidate) => candidate === next);
+          const option = optionGroups
+            .flat()
+            .find((candidate) => candidate === next);
 
           if (option) {
             onChange(option);
           }
         }}
       >
-        {options.map((option) => (
-          <MenuRadioItem key={option} value={option} closeOnClick>
-            {labels[option]}
-          </MenuRadioItem>
+        {optionGroups.map((options, index) => (
+          <Fragment key={options.join()}>
+            {index > 0 && <MenuSeparator />}
+            {options.map((option) => (
+              <MenuRadioItem key={option} value={option} closeOnClick>
+                {labels[option]}
+              </MenuRadioItem>
+            ))}
+          </Fragment>
         ))}
       </MenuRadioGroup>
     </MenuContent>

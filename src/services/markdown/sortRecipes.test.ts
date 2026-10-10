@@ -19,6 +19,11 @@ describe("sortRecipes", () => {
     expect(sortRecipes(recipes, "willekeurig")).toBe(recipes);
   });
 
+  it("keeps the given order for the group modes", () => {
+    expect(sortRecipes(recipes, "bier")).toBe(recipes);
+    expect(sortRecipes(recipes, "maaltijd")).toBe(recipes);
+  });
+
   it("sorts alphabetically without mutating the input", () => {
     expect(titles(sortRecipes(recipes, "titel"))).toEqual([
       "Cocktail",

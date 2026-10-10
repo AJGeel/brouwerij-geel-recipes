@@ -1,0 +1,17 @@
+{
+  "beers": [
+    "Blond bier",
+    "Bruin bier",
+    "Kriek",
+    "Porter",
+    "Trappistenbier",
+    "Witbier"
+  ],
+  "mealTypes": {
+    "Ontbijt": ["Ontbijt"],
+    "Brunch": ["Brunch"],
+    "Diner": ["Diner"],
+    "Dessert": ["Dessert"],
+    "Cocktail": ["Cocktails"]
+  }
+}

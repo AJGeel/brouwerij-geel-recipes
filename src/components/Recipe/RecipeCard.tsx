@@ -13,9 +13,16 @@ type Props = {
   title: string;
   durationString: DurationString;
   imageSlug: string;
+  morph?: boolean;
 };
 
-const RecipeCard = ({ slug, title, durationString, imageSlug }: Props) => (
+const RecipeCard = ({
+  slug,
+  title,
+  durationString,
+  imageSlug,
+  morph,
+}: Props) => (
   <Link
     href={`/recept/${slug}`}
     prefetch={true}
@@ -34,7 +41,7 @@ const RecipeCard = ({ slug, title, durationString, imageSlug }: Props) => (
           </span>
         </div>
       </div>
-      <Morph name={recipeImageTransitionName(slug)}>
+      <Morph name={recipeImageTransitionName(slug)} enabled={morph}>
         <div className="absolute h-full w-full">
           <div className="relative h-full w-full duration-1000 group-hover:scale-110">
             <Image

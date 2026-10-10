@@ -1,9 +1,14 @@
 import { parseDuration } from "@/utils/duration/parseDuration";
 
+import { groupModes } from "./groupRecipes";
 import type { RecipeMetadata } from "./types";
 
-/** `willekeurig` keeps the order as given, which is shuffled when scanning */
-export const sortModes = ["willekeurig", "titel", "tijd"] as const;
+/**
+ * `willekeurig` keeps the order as given, which is shuffled when scanning.
+ * The group modes don't reorder recipes, they split them into sections.
+ */
+export const orderModes = ["willekeurig", "titel", "tijd"] as const;
+export const sortModes = [...orderModes, ...groupModes] as const;
 export type SortMode = (typeof sortModes)[number];
 export const defaultSortMode: SortMode = "willekeurig";
 

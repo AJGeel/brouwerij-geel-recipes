@@ -42,6 +42,18 @@ export const MenuContent = ({
   </BaseMenu.Portal>
 );
 
+export const MenuSeparator = ({
+  className,
+  ...props
+}: Omit<ComponentProps<typeof BaseMenu.Separator>, "className"> & {
+  className?: string;
+}) => (
+  <BaseMenu.Separator
+    className={cn("-mx-1 my-1 h-px bg-amber-100", className)}
+    {...props}
+  />
+);
+
 type RadioItemProps = Omit<
   ComponentProps<typeof BaseMenu.RadioItem>,
   "className"

@@ -5,7 +5,9 @@ import Reveal from "@/components/Reveal";
 import PageTransition from "@/components/transitions/PageTransition";
 import { ViewOptions } from "@/components/ViewOptions/ViewOptions";
 import { scanAllRecipes } from "@/services/markdown";
+import { groupRecipes } from "@/services/markdown/groupRecipes";
 import { createSearchText } from "@/services/markdown/searchRecipes";
+import { loadTaxonomy } from "@/services/markdown/taxonomy";
 import { getRandomWord } from "@/services/ui/getRandomWord";
 import { formatDurationString } from "@/utils/duration/formatDurationString";
 
@@ -22,6 +24,22 @@ const getRecipes = async () => {
 const Page = async () => {
   const recipes = await getRecipes();
   const initialRandomWord = getRandomWord();
+  const taxonomy = loadTaxonomy();
+
+  const createCards = (morph: boolean) =>
+    Object.fromEntries(
+      recipes.map(({ slug, metadata }) => [
+        slug,
+        <RecipeCard
+          key={slug}
+          slug={slug}
+          title={metadata.title}
+          durationString={metadata.duration}
+          imageSlug={metadata.imageSlug}
+          morph={morph}
+        />,
+      ]),
+    );
 
   return (
     <PageTransition>
@@ -36,6 +54,10 @@ const Page = async () => {
           </div>
         </Reveal>
         <RecipeOverview
+          groups={{
+            bier: groupRecipes(recipes, "bier", taxonomy),
+            maaltijd: groupRecipes(recipes, "maaltijd", taxonomy),
+          }}
           recipes={recipes.map(({ slug, metadata }) => ({
             slug,
             metadata: {
@@ -46,18 +68,8 @@ const Page = async () => {
             durationLabel: formatDurationString(metadata.duration),
             searchText: createSearchText(metadata),
           }))}
-          cards={Object.fromEntries(
-            recipes.map(({ slug, metadata }) => [
-              slug,
-              <RecipeCard
-                key={slug}
-                slug={slug}
-                title={metadata.title}
-                durationString={metadata.duration}
-                imageSlug={metadata.imageSlug}
-              />,
-            ]),
-          )}
+          cards={createCards(true)}
+          repeatedCards={createCards(false)}
         />
       </div>
     </PageTransition>

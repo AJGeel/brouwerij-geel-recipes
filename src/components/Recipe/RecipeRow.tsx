@@ -11,16 +11,23 @@ type Props = {
   title: string;
   durationLabel: string;
   imageSlug: string;
+  morph?: boolean;
 };
 
-const RecipeRow = ({ slug, title, durationLabel, imageSlug }: Props) => (
+const RecipeRow = ({
+  slug,
+  title,
+  durationLabel,
+  imageSlug,
+  morph,
+}: Props) => (
   <Link
     href={`/recept/${slug}`}
     prefetch={true}
     transitionTypes={[openRecipe]}
     className="-mx-2 flex items-center gap-4 rounded-md p-2 duration-150 hover:bg-amber-100/50 active:scale-[0.99] active:opacity-75"
   >
-    <Morph name={recipeImageTransitionName(slug)}>
+    <Morph name={recipeImageTransitionName(slug)} enabled={morph}>
       <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-md bg-amber-100">
         <Image
           src={imageSlug}
