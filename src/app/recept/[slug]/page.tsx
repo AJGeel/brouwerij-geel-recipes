@@ -1,7 +1,6 @@
 import fs from "fs";
 
 import type { Metadata } from "next";
-import { Recipe, WithContext } from "schema-dts";
 
 import Header from "@/app/recept/[slug]/components/Header";
 import Hero from "@/app/recept/[slug]/components/Hero";
@@ -12,6 +11,7 @@ import PageTransition from "@/components/transitions/PageTransition";
 import { recipeDirectory } from "@/config";
 import { parseRecipe, renderMarkdownBlocks } from "@/services/markdown";
 import { createRecipeDescription } from "@/services/markdown/createRecipeDescription";
+import { createRecipeJsonLd } from "@/services/seo/createRecipeJsonLd";
 
 import Tags from "./components/Tags";
 
@@ -34,9 +34,14 @@ export const generateMetadata = async ({
       ...["Brouwerij Geel", "Recept"],
       ...metadata.ingredients.map((item) => item.name),
     ],
+    alternates: { canonical: `/recept/${slug}` },
+    // The image comes from opengraph-image.tsx
     openGraph: {
-      images: metadata.imageSlug,
+      type: "article",
+      title: metadata.title,
+      url: `/recept/${slug}`,
     },
+    twitter: { card: "summary_large_image" },
   };
 };
 
@@ -64,16 +69,7 @@ const Page = async ({ params }: Props) => {
   const { metadata, content } = await getRecipeContents(slug);
   const preparationSteps = renderMarkdownBlocks(content);
 
-  const jsonLd: WithContext<Recipe> = {
-    "@context": "https://schema.org",
-    "@type": "Recipe",
-    name: metadata.title,
-    image: metadata.imageSlug,
-    keywords: metadata.tags,
-    recipeIngredient: metadata.ingredients.map((item) =>
-      String(`${item.amount} ${item.name}`)
-    ),
-  };
+  const jsonLd = createRecipeJsonLd({ slug, metadata, content });
 
   return (
     <>
@@ -122,7 +118,7 @@ const Page = async ({ params }: Props) => {
                         amount={amount}
                       />
                     </Reveal>
-                  )
+                  ),
                 )}
               </div>
             </div>
