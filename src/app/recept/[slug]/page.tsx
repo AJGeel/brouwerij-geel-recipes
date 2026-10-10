@@ -6,6 +6,7 @@ import { Recipe, WithContext } from "schema-dts";
 import Header from "@/app/recept/[slug]/components/Header";
 import Hero from "@/app/recept/[slug]/components/Hero";
 import Ingredient from "@/app/recept/[slug]/components/Ingredient";
+import Step from "@/app/recept/[slug]/components/Step";
 import Reveal from "@/components/Reveal";
 import PageTransition from "@/components/transitions/PageTransition";
 import { recipeDirectory } from "@/config";
@@ -98,7 +99,7 @@ const Page = async ({ params }: Props) => {
               <div className="prose mt-4 space-y-5 text-gray-600 dark:prose-invert">
                 {preparationSteps.map((html, index) => (
                   <Reveal key={index} index={index + 1}>
-                    <div dangerouslySetInnerHTML={{ __html: html }} />
+                    <Step html={html} />
                   </Reveal>
                 ))}
               </div>
