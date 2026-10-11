@@ -48,6 +48,7 @@ const RecipeCard = ({
               style={{
                 objectFit: "cover",
               }}
+              className="bg-amber-100 text-transparent"
             />
           </div>
           <div className="absolute inset-0 mt-auto h-2/3 w-full bg-linear-to-b from-transparent to-black opacity-80" />

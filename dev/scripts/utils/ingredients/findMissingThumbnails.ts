@@ -19,3 +19,12 @@ export const findMissingThumbnails = (
         imageSlug,
       })),
   );
+
+/** Several ingredients can share one image file, which only has to be made once */
+export const groupMissingByImage = (missing: MissingThumbnail[]) =>
+  [...Map.groupBy(missing, ({ imageSlug }) => imageSlug)].map(
+    ([imageSlug, items]) => ({
+      imageSlug,
+      ingredients: [...new Set(items.map(({ ingredient }) => ingredient))],
+    }),
+  );

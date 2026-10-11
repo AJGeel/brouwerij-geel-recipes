@@ -8,8 +8,9 @@ import { scanAllRecipes } from "@/services/markdown/load/scanAllRecipes";
 import { deleteThumbnails } from "./utils/deleteThumbnails";
 import { ingredientImageDirectory, publicDirectory } from "./utils/devConfig";
 import { findUnusedThumbnails } from "./utils/ingredients/findUnusedThumbnails";
+import { isInteractive } from "./utils/isInteractive";
 
-if (!process.stdin.isTTY || process.env.CI) {
+if (!isInteractive()) {
   console.error(chalk.red("This is a manual cleanup, run it in a terminal."));
   process.exit(1);
 }

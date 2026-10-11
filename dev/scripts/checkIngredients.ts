@@ -15,8 +15,13 @@ import {
   withoutAcceptedDuplicates,
 } from "./utils/ingredients/acceptedDuplicates";
 import { findDuplicateIngredients } from "./utils/ingredients/findDuplicateIngredients";
-import { findMissingThumbnails } from "./utils/ingredients/findMissingThumbnails";
+import {
+  findMissingThumbnails,
+  groupMissingByImage,
+} from "./utils/ingredients/findMissingThumbnails";
 import { findUnusedThumbnails } from "./utils/ingredients/findUnusedThumbnails";
+import { isInteractive } from "./utils/isInteractive";
+import { fillMissingThumbnails } from "./utils/thumbnails/fillMissingThumbnails";
 
 const recipeFile = (slug: string) =>
   `${recipeDirectory.replace(/^\.\//, "")}/${slug}.md`;
@@ -40,14 +45,14 @@ const report = (
   }
 };
 
-// Strict, so an invalid recipe fails instead of silently hiding its thumbnails
 const recipes = scanAllRecipes(recipeDirectory, { strict: true }).sort((a, b) =>
   a.slug.localeCompare(b.slug),
 );
 
-const missing = findMissingThumbnails(recipes, (imageSlug) =>
-  fs.existsSync(`${publicDirectory}${imageSlug}`),
-);
+const imageExists = (imageSlug: string) =>
+  fs.existsSync(`${publicDirectory}${imageSlug}`);
+
+const missing = findMissingThumbnails(recipes, imageExists);
 const unused = findUnusedThumbnails(
   recipes,
   fs.readdirSync(`${publicDirectory}${ingredientImageDirectory}`),
@@ -82,9 +87,7 @@ report(
   })),
 );
 
-const isInteractive = process.stdin.isTTY && !process.env.CI;
-
-if (isInteractive && duplicates.length > 0) {
+const promptForDuplicates = () => {
   console.log("");
 
   const accepted = duplicates.filter(({ names }) =>
@@ -99,21 +102,37 @@ if (isInteractive && duplicates.length > 0) {
       ...accepted.map(({ names }) => names),
     ]);
     console.log(
-      chalk.green(`Saved ${accepted.length} to data/acceptedDuplicates.json`),
+      chalk.green(`Saved ${accepted.length} to dev/acceptedDuplicates.json`),
     );
   }
-}
+};
 
-if (
-  isInteractive &&
-  unused.length > 0 &&
-  readlineSync.keyInYNStrict("\nClean up the unused thumbnails now?")
-) {
-  deleteThumbnails(unused);
-}
+const main = async () => {
+  if (isInteractive()) {
+    if (duplicates.length > 0) {
+      promptForDuplicates();
+    }
 
-if (missing.length > 0) {
-  process.exit(1);
-}
+    if (
+      missing.length > 0 &&
+      readlineSync.keyInYNStrict("\nFind the missing thumbnails now?")
+    ) {
+      await fillMissingThumbnails(groupMissingByImage(missing));
+    }
 
-console.log(chalk.green("\nAll ingredients have a thumbnail."));
+    if (
+      unused.length > 0 &&
+      readlineSync.keyInYNStrict("\nClean up the unused thumbnails now?")
+    ) {
+      deleteThumbnails(unused);
+    }
+  }
+
+  if (findMissingThumbnails(recipes, imageExists).length > 0) {
+    process.exit(1);
+  }
+
+  console.log(chalk.green("\nAll ingredients have a thumbnail."));
+};
+
+void main();

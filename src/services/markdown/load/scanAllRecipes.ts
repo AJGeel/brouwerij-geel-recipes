@@ -11,7 +11,6 @@ type Options = {
   strict?: boolean;
 };
 
-/** All valid recipes, in random order. Invalid ones are reported and left out */
 export const scanAllRecipes = (
   directory = recipeDirectory,
   { strict = false }: Options = {},
