@@ -69,4 +69,10 @@ describe("scanAllRecipes with an invalid recipe", () => {
 
     warn.mockRestore();
   });
+
+  it("throws on the invalid recipe when strict", () => {
+    expect(() => scanAllRecipes(directory, { strict: true })).toThrow(
+      "kapot.md",
+    );
+  });
 });

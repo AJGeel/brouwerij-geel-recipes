@@ -49,6 +49,15 @@ jobs:
       - uses: ./.github/actions/setup
       - run: bun test
 
+  ingredients:
+    name: Ingredients
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup
+      - run: bun run check:ingredients
+
   build:
     name: Build
     runs-on: ubuntu-latest
