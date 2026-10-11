@@ -13,7 +13,7 @@ type Props = Omit<ComponentProps<typeof BaseInput>, "className"> & {
 export const Input = ({ className, ...props }: Props) => (
   <BaseInput
     className={cn(
-      "h-10 w-full rounded-md bg-amber-100/50 px-3 text-sm text-gray-900 outline outline-2 outline-transparent duration-150 placeholder:text-gray-400 focus:outline-amber-200",
+      "h-10 w-full rounded-md bg-amber-100/50 px-3 text-sm text-gray-900 outline-2 outline-transparent duration-150 outline-solid placeholder:text-gray-400 focus:outline-amber-200",
       className,
     )}
     {...props}

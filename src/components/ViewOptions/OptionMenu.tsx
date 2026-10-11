@@ -38,13 +38,13 @@ export const OptionMenu = <T extends string>({
         render={
           <MenuTrigger
             aria-label={label}
-            className="group flex h-11 w-11 shrink-0 cursor-pointer items-center justify-center rounded-md p-2 duration-150 hover:bg-amber-100/50 data-[popup-open]:bg-amber-100/50 md:h-9 md:w-9"
+            className="group flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-md p-2 duration-150 hover:bg-amber-100/50 data-popup-open:bg-amber-100/50 md:size-9"
           />
         }
       >
         <Icon
           weight="bold"
-          className="h-full w-full text-gray-400 duration-150 group-hover:text-gray-900 group-active:scale-90 group-data-[popup-open]:text-gray-900"
+          className="size-full text-gray-400 duration-150 group-hover:text-gray-900 group-active:scale-90 group-data-popup-open:text-gray-900"
         />
       </TooltipTrigger>
       <TooltipContent>{tooltip}</TooltipContent>

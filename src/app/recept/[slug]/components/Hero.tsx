@@ -26,7 +26,7 @@ function Hero({ slug, imageSlug, title }: Props) {
             sizes="(max-width: 768px) 100vw, 768px"
             style={{ objectFit: "cover" }}
           />
-          <div className="absolute inset-0 mt-auto h-1/2 w-full bg-gradient-to-b from-transparent to-black opacity-60 md:opacity-0"></div>
+          <div className="absolute inset-0 mt-auto h-1/2 w-full bg-linear-to-b from-transparent to-black opacity-60 md:opacity-0"></div>
         </div>
       </Morph>
       <div className="z-10 mt-auto p-5 md:hidden">

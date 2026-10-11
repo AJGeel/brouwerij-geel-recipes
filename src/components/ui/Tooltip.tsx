@@ -32,7 +32,7 @@ export const TooltipContent = ({
     >
       <BaseTooltip.Popup
         className={cn(
-          "origin-[var(--transform-origin)] rounded-md px-2 py-1 text-sm text-gray-100 bg-gray-900 duration-150 data-[ending-style]:scale-95 data-[starting-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:opacity-0",
+          "origin-(--transform-origin) rounded-md bg-gray-900 px-2 py-1 text-sm text-gray-100 duration-150 data-ending-style:scale-95 data-ending-style:opacity-0 data-starting-style:scale-95 data-starting-style:opacity-0",
           className,
         )}
         {...props}

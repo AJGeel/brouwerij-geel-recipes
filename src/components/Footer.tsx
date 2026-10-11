@@ -4,8 +4,8 @@ import Link from "next/link";
 import CarbonFootprint from "./CarbonFootprint";
 
 const Footer = () => (
-  <div className="mt-16 flex min-h-[120px] w-full grow justify-center bg-gradient-to-b from-transparent to-amber-100">
-    <div className="mb-10 mt-auto flex items-center gap-12 text-gray-900">
+  <div className="mt-16 flex min-h-30 w-full grow justify-center bg-linear-to-b from-transparent to-amber-100">
+    <div className="mt-auto mb-10 flex items-center gap-12 text-gray-900">
       <Link href="/">
         <Image
           src="/images/brouwerij-geel-logo.svg"

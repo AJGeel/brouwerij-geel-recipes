@@ -17,7 +17,7 @@ const Tags = ({ tags, revealIndex }: Props) => (
       <Reveal key={item} index={revealIndex + index + 1}>
         <Link
           href={`/tag/${item}`}
-          className="inline cursor-pointer select-none rounded-sm text-sm text-gray-900 outline outline-2 outline-offset-2 outline-transparent duration-150 hover:outline-amber-100 focus:outline-amber-100 active:scale-95 active:opacity-70"
+          className="inline cursor-pointer rounded-xs text-sm text-gray-900 outline-2 outline-offset-2 outline-transparent duration-150 outline-solid select-none hover:outline-amber-100 focus:outline-amber-100 active:scale-95 active:opacity-70"
         >
           #{capitalize(item)}
         </Link>

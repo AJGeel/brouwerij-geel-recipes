@@ -30,11 +30,11 @@ const RecipeCard = ({
   >
     <div className="group relative flex h-48 flex-col overflow-hidden rounded-md text-white duration-150 ease-in-out active:scale-95 active:opacity-75 md:h-64">
       <div className="z-10 mt-auto p-5">
-        <h1 className="text-xl font-semibold leading-6">{title}</h1>
+        <h1 className="text-xl leading-6 font-semibold">{title}</h1>
         <div className="mt-2 flex items-center space-x-1.5">
           <ClockIcon
             weight="fill"
-            className="h-5 w-5 duration-1000 group-hover:rotate-[50deg]"
+            className="size-5 duration-1000 group-hover:rotate-50"
           />
           <span className="font-light">
             {formatDurationString(durationString)}
@@ -42,8 +42,8 @@ const RecipeCard = ({
         </div>
       </div>
       <Morph name={recipeImageTransitionName(slug)} enabled={morph}>
-        <div className="absolute h-full w-full">
-          <div className="relative h-full w-full duration-1000 group-hover:scale-110">
+        <div className="absolute size-full">
+          <div className="relative size-full duration-1000 group-hover:scale-110">
             <Image
               src={imageSlug}
               fill={true}
@@ -54,7 +54,7 @@ const RecipeCard = ({
               }}
             />
           </div>
-          <div className="absolute inset-0 mt-auto h-2/3 w-full bg-gradient-to-b from-transparent to-black opacity-80" />
+          <div className="absolute inset-0 mt-auto h-2/3 w-full bg-linear-to-b from-transparent to-black opacity-80" />
         </div>
       </Morph>
     </div>
