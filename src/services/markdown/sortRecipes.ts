@@ -1,3 +1,5 @@
+import { milliseconds } from "date-fns/milliseconds";
+
 import { parseDuration } from "@/utils/duration/parseDuration";
 
 import { groupModes } from "./groupRecipes";
@@ -21,19 +23,8 @@ export const parseSortMode = (value: string | null | undefined): SortMode =>
 
 type Sortable = { metadata: Pick<RecipeMetadata, "title" | "duration"> };
 
-const toSeconds = (durationString: string) => {
-  const { years, months, days, hours, minutes, seconds } =
-    parseDuration(durationString) ?? {};
-
-  return (
-    ((((years ?? 0) * 365 + (months ?? 0) * 30 + (days ?? 0)) * 24 +
-      (hours ?? 0)) *
-      60 +
-      (minutes ?? 0)) *
-      60 +
-      (seconds ?? 0) || 0
-  );
-};
+const toMilliseconds = (durationString: string) =>
+  milliseconds(parseDuration(durationString) ?? {});
 
 const byTitle = (a: Sortable, b: Sortable) =>
   a.metadata.title.localeCompare(b.metadata.title, "nl");
@@ -48,7 +39,8 @@ export const sortRecipes = <T extends Sortable>(
     case "tijd":
       return [...recipes].sort(
         (a, b) =>
-          toSeconds(a.metadata.duration) - toSeconds(b.metadata.duration) ||
+          toMilliseconds(a.metadata.duration) -
+            toMilliseconds(b.metadata.duration) ||
           byTitle(a, b),
       );
     default:
