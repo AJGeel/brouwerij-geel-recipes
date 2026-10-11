@@ -3,14 +3,24 @@ import fs from "fs";
 import { recipeDirectory } from "@/config";
 import { shuffleArray } from "@/utils/shuffleArray";
 
-import { readRecipe } from "./readRecipe";
+import { readRecipe, readRecipeOrThrow } from "./readRecipe";
 import type { MarkdownRecipe } from "../types";
 
-/** All valid recipes, in random order. Invalid ones are reported and left out */
-export const scanAllRecipes = (directory = recipeDirectory) =>
+type Options = {
+  /** Throw on an invalid recipe instead of reporting and skipping it */
+  strict?: boolean;
+};
+
+export const scanAllRecipes = (
+  directory = recipeDirectory,
+  { strict = false }: Options = {},
+) =>
   shuffleArray(fs.readdirSync(directory)).flatMap(
     (fileName): MarkdownRecipe[] => {
-      const recipe = readRecipe(fileName, directory);
+      const recipe = (strict ? readRecipeOrThrow : readRecipe)(
+        fileName,
+        directory,
+      );
 
       return recipe
         ? [{ slug: fileName.replace(".md", ""), metadata: recipe.metadata }]
