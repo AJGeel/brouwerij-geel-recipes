@@ -15,6 +15,14 @@ describe("createRecipeDescription", () => {
     expect(result.includes("*")).toBe(false);
   });
 
+  it("should strip step numbers and markup but keep the text intact", () => {
+    const content = "**1.** Doe 120 ml bier in een pan.\n\n**2.** Roer 2 keer.";
+
+    expect(createRecipeDescription(content)).toBe(
+      "Bereiding: Doe 120 ml bier in een pan. Roer 2 keer....",
+    );
+  });
+
   it("should handle an empty content string", () => {
     const result = createRecipeDescription("");
     expect(result).toEqual("Bereiding: ...");

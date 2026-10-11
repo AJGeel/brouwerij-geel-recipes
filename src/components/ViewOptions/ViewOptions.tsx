@@ -9,8 +9,10 @@ import {
 import { setSortMode, useSortMode } from "@/hooks/useSortMode";
 import { setViewMode, useViewMode } from "@/hooks/useViewMode";
 import { groupModes } from "@/services/markdown/groupRecipes";
-import { orderModes, SortMode } from "@/services/markdown/sortRecipes";
-import { ViewMode, viewModes } from "@/services/ui/viewMode";
+import type { SortMode } from "@/services/markdown/sortRecipes";
+import { orderModes } from "@/services/markdown/sortRecipes";
+import type { ViewMode } from "@/services/ui/viewMode";
+import { viewModes } from "@/services/ui/viewMode";
 
 import { OptionMenu } from "./OptionMenu";
 

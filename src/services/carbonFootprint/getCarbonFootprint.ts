@@ -1,7 +1,7 @@
 import { websiteUrl } from "@/config";
 
 import { measurePageBytes } from "./measurePageBytes";
-import {
+import type {
   FootprintResult,
   FootprintError,
   ApiResponse,

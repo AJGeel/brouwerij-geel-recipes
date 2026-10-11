@@ -22,7 +22,7 @@ export const shareRecipe = async (recipeName: string) => {
 
   try {
     if (!navigator.share || !navigator.canShare(shareData)) {
-      navigator.clipboard.writeText(shareData.url ?? "");
+      await navigator.clipboard.writeText(shareData.url ?? "");
       return shareResponses.clipboard;
     }
 

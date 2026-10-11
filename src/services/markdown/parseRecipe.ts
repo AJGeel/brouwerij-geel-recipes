@@ -1,6 +1,6 @@
 import matter from "gray-matter";
 
-import { RecipeMetadata } from "./types";
+import type { RecipeMetadata } from "./types";
 
 export const parseRecipe = (fileName: string) => {
   const { data: metadata, content } = matter(fileName);

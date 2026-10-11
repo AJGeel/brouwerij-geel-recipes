@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { formatDurationString } from "@/utils/duration/formatDurationString";
-import { DurationString } from "@/utils/duration/types";
+import type { DurationString } from "@/utils/duration/types";
 import { openRecipe, recipeImageTransitionName } from "@/utils/viewTransitions";
 
 import Morph from "../transitions/Morph";

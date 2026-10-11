@@ -1,6 +1,6 @@
 "use client";
 
-import { ComponentProps } from "react";
+import type { ComponentProps } from "react";
 
 import { Menu as BaseMenu } from "@base-ui/react/menu";
 import { CheckIcon } from "@phosphor-icons/react/dist/ssr";

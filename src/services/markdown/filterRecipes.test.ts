@@ -1,7 +1,7 @@
 import { describe, expect, it } from "bun:test";
 
 import { filterRecipes } from "./filterRecipes";
-import { MarkdownRecipe } from "./types";
+import type { MarkdownRecipe } from "./types";
 
 const fixtures: MarkdownRecipe[] = [
   {

@@ -1,6 +1,6 @@
 "use client";
 
-import { ComponentProps } from "react";
+import type { ComponentProps } from "react";
 
 import { Tooltip as BaseTooltip } from "@base-ui/react/tooltip";
 

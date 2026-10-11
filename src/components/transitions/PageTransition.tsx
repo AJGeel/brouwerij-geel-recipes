@@ -1,4 +1,5 @@
-import { ReactNode, ViewTransition } from "react";
+import type { ReactNode } from "react";
+import { ViewTransition } from "react";
 
 type Props = {
   /** Also fade in, for what isn't built up by `Reveal`, like a header */

@@ -5,11 +5,11 @@ let stored: string | null = null;
 const setQueryParam = mock((_param: string, _value: string | null) => {});
 const writeLocalStorage = mock((_key: string, _value: string | null) => {});
 
-mock.module("@/hooks/useQueryParam", () => ({
+await mock.module("@/hooks/useQueryParam", () => ({
   useQueryParam: () => queryParam,
   setQueryParam,
 }));
-mock.module("@/hooks/useLocalStorage", () => ({
+await mock.module("@/hooks/useLocalStorage", () => ({
   useLocalStorage: () => [stored],
   writeLocalStorage,
 }));

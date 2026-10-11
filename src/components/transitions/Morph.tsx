@@ -1,4 +1,5 @@
-import { ReactNode, ViewTransition } from "react";
+import type { ReactNode } from "react";
+import { ViewTransition } from "react";
 
 import { openRecipe } from "@/utils/viewTransitions";
 

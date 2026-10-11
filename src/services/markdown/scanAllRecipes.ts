@@ -5,7 +5,7 @@ import matter from "gray-matter";
 import { recipeDirectory } from "@/config";
 import { shuffleArray } from "@/utils/shuffleArray";
 
-import { MarkdownRecipe } from "./types";
+import type { MarkdownRecipe } from "./types";
 
 export const scanAllRecipes = () => {
   const files = fs.readdirSync(recipeDirectory);
