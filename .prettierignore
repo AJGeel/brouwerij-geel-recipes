@@ -2,7 +2,7 @@
 node_modules
 public
 _screens
-bun.lockb
+bun.lock
 tsconfig.tsbuildinfo
 next-env.d.ts
 .github
