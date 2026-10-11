@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test",
     "test:watch": "bun test --watch",
     "create:recipe": "tsx ./dev/scripts/createMarkdownRecipe.ts",
     "format:minutes": "tsx ./dev/scripts/minutesToDuration.ts"
