@@ -10,7 +10,10 @@ export const TooltipProvider = BaseTooltip.Provider;
 export const Tooltip = BaseTooltip.Root;
 export const TooltipTrigger = BaseTooltip.Trigger;
 
-type ContentProps = Omit<ComponentProps<typeof BaseTooltip.Popup>, "className"> &
+type ContentProps = Omit<
+  ComponentProps<typeof BaseTooltip.Popup>,
+  "className"
+> &
   Pick<
     ComponentProps<typeof BaseTooltip.Positioner>,
     "side" | "align" | "sideOffset"

@@ -16,13 +16,13 @@ type Props = {
  */
 const Morph = ({ name, children, enabled = true }: Props) =>
   enabled ? (
-  <ViewTransition
-    name={name}
-    share={{ [openRecipe]: "morph", default: "none" }}
-    default="none"
-  >
-    {children}
-  </ViewTransition>
+    <ViewTransition
+      name={name}
+      share={{ [openRecipe]: "morph", default: "none" }}
+      default="none"
+    >
+      {children}
+    </ViewTransition>
   ) : (
     children
   );

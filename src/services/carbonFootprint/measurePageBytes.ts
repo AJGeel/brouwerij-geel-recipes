@@ -94,7 +94,7 @@ export const measurePageBytes = async (pageUrl: string) => {
     new TextEncoder().encode(html).byteLength;
 
   const assetSizes = await Promise.all(
-    extractAssetUrls(html, pageUrl).map(fetchSize)
+    extractAssetUrls(html, pageUrl).map(fetchSize),
   );
 
   return assetSizes.reduce((total, size) => total + size, htmlSize);

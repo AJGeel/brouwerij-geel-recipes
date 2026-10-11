@@ -1,0 +1,8 @@
+.next
+node_modules
+public
+_screens
+bun.lockb
+tsconfig.tsbuildinfo
+next-env.d.ts
+.github

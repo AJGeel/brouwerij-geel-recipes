@@ -11,9 +11,8 @@ import {
 const config = {
   apiUrl: "https://api.websitecarbon.com/data",
   greenCheckUrl: "https://api.thegreenwebfoundation.org/api/v3/greencheck/",
-  revalidateSeconds: 31 * 60 * 60 * 24, /** Refetch monthly */
-}
-
+  revalidateSeconds: 31 * 60 * 60 * 24 /** Refetch monthly */,
+};
 
 const errorResponse: FootprintError = {
   wasSuccessful: false,
@@ -42,9 +41,12 @@ export const getCarbonFootprint = async (): Promise<
       isGreenHosted(new URL(websiteUrl).hostname),
     ]);
 
-    const res = await fetch(`${config.apiUrl}?bytes=${bytes}&green=${green ? 1 : 0}`, {
-      next: { revalidate: config.revalidateSeconds },
-    });
+    const res = await fetch(
+      `${config.apiUrl}?bytes=${bytes}&green=${green ? 1 : 0}`,
+      {
+        next: { revalidate: config.revalidateSeconds },
+      },
+    );
 
     if (!res.ok) {
       return errorResponse;

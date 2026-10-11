@@ -76,7 +76,10 @@ const RecipeOverview = ({ recipes, cards, repeatedCards, groups }: Props) => {
         <p className="mt-8 text-gray-500">Whoops, geen recepten gevonden!</p>
       )}
       {visibleSections.map(({ name, recipes: sectionRecipes }) => (
-        <section key={`${sortMode}-${name}`} className={name ? "mt-10" : undefined}>
+        <section
+          key={`${sortMode}-${name}`}
+          className={name ? "mt-10" : undefined}
+        >
           {name && (
             <h2 className="text-xl font-bold text-gray-900">
               {name}
@@ -98,23 +101,23 @@ const RecipeOverview = ({ recipes, cards, repeatedCards, groups }: Props) => {
               shown.add(slug);
 
               return (
-              <Reveal
-                key={`${sortMode}-${name}-${slug}`}
-                index={++revealIndex}
-                total={total}
-              >
-                {isCards ? (
-                  (isRepeat ? repeatedCards : cards)[slug]
-                ) : (
-                  <RecipeRow
-                    slug={slug}
-                    title={metadata.title}
-                    durationLabel={durationLabel}
-                    imageSlug={metadata.imageSlug}
-                    morph={!isRepeat}
-                  />
-                )}
-              </Reveal>
+                <Reveal
+                  key={`${sortMode}-${name}-${slug}`}
+                  index={++revealIndex}
+                  total={total}
+                >
+                  {isCards ? (
+                    (isRepeat ? repeatedCards : cards)[slug]
+                  ) : (
+                    <RecipeRow
+                      slug={slug}
+                      title={metadata.title}
+                      durationLabel={durationLabel}
+                      imageSlug={metadata.imageSlug}
+                      morph={!isRepeat}
+                    />
+                  )}
+                </Reveal>
               );
             })}
           </div>

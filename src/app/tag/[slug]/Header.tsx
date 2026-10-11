@@ -13,6 +13,11 @@ export const Header = ({ title }: Props) => (
         #{title}
       </h1>
     </div>
-    <HeaderLink href="/tag" isLeft={false} title="Alle tags" className='justify-end' />
+    <HeaderLink
+      href="/tag"
+      isLeft={false}
+      title="Alle tags"
+      className="justify-end"
+    />
   </div>
 );

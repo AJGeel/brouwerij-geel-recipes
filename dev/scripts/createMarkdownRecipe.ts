@@ -28,7 +28,7 @@ const recipeName = fancyPrompt("Hoe wil je je recept noemen?", 1, 6);
 const recipeUrl = fancyPrompt(
   "Hoe moet de URL van je recept eruit zien?",
   2,
-  6
+  6,
 );
 
 const ingredients: IngredientInput[] = [];
@@ -37,7 +37,7 @@ fancyPrompt("Voeg ingrediënten toe (Laat hem leeg om af te sluiten):", 3, 6);
 let ingredientIndex = 1;
 while (true) {
   const name = readlineSync.question(
-    `  Ingredient ${ingredientIndex} name:   `
+    `  Ingredient ${ingredientIndex} name:   `,
   );
 
   if (!name) {
@@ -45,7 +45,7 @@ while (true) {
   }
 
   const amount = readlineSync.question(
-    `  Ingredient ${ingredientIndex} amount: `
+    `  Ingredient ${ingredientIndex} amount: `,
   );
 
   const imageSlug =
@@ -58,15 +58,15 @@ const timeInMinutes = parseInt(
   fancyPrompt(
     "Hoe lang kost het je om het recept te maken? (in minuten)",
     4,
-    6
+    6,
   ),
-  10
+  10,
 );
 
 const tags = fancyPrompt(
   "Met welke tags zou je het recept omschrijven? (gescheiden door komma's)",
   5,
-  6
+  6,
 );
 
 const recipeSlug = slugify(recipeUrl, config.slugifyOptions);
@@ -86,8 +86,8 @@ ${ingredients
   .map(
     ({ name, amount, imageSlug }) =>
       `  - name: ${capitalize(
-        name
-      )}\n    amount: ${amount}\n    imageSlug: ${imageSlug}`
+        name,
+      )}\n    amount: ${amount}\n    imageSlug: ${imageSlug}`,
   )
   .join("\n")}
 duration: ${durationToISO(minutesToDuration(timeInMinutes))}

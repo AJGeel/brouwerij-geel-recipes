@@ -1,4 +1,5 @@
 import nextCoreWebVitals from "eslint-config-next/core-web-vitals";
+import prettier from "eslint-config-prettier";
 import tailwind from "eslint-plugin-tailwindcss";
 import unusedImports from "eslint-plugin-unused-imports";
 
@@ -41,12 +42,10 @@ const eslintConfig = [
     plugins: { "unused-imports": unusedImports },
     rules: {
       "unused-imports/no-unused-imports": "error",
-      "unused-imports/no-unused-vars": [
-        "error",
-        { argsIgnorePattern: "^_" },
-      ],
+      "unused-imports/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
     },
   },
+  prettier,
   {
     ignores: [".next/**", "node_modules/**", "next-env.d.ts"],
   },

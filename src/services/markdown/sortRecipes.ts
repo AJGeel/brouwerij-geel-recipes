@@ -40,8 +40,7 @@ export const sortRecipes = <T extends Sortable>(
       return [...recipes].sort(
         (a, b) =>
           toMilliseconds(a.metadata.duration) -
-            toMilliseconds(b.metadata.duration) ||
-          byTitle(a, b),
+            toMilliseconds(b.metadata.duration) || byTitle(a, b),
       );
     default:
       return recipes;

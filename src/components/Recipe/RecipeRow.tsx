@@ -14,13 +14,7 @@ type Props = {
   morph?: boolean;
 };
 
-const RecipeRow = ({
-  slug,
-  title,
-  durationLabel,
-  imageSlug,
-  morph,
-}: Props) => (
+const RecipeRow = ({ slug, title, durationLabel, imageSlug, morph }: Props) => (
   <Link
     href={`/recept/${slug}`}
     prefetch={true}

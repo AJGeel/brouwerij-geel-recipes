@@ -4,7 +4,7 @@ import { MarkdownRecipe } from "./types";
 
 const accumulatorFn = (
   inputArray: string[],
-  accumulator: Map<string, number>
+  accumulator: Map<string, number>,
 ) =>
   inputArray.forEach((item) => {
     if (!accumulator.has(item)) {
@@ -18,7 +18,7 @@ const accumulatorFn = (
 export const generateTags = (recipes: MarkdownRecipe[]) => {
   const tagsWithCounts = recipes.reduce((accumulator, recipe) => {
     const uniqueIngredients = recipe.metadata.ingredients.map(
-      (item) => item.name
+      (item) => item.name,
     );
     const uniqueTags = recipe.metadata.tags;
 

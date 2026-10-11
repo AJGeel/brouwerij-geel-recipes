@@ -57,11 +57,15 @@ export const groupRecipes = (
       others.push(slug);
     }
 
-    names.forEach((name) => groups.set(name, [...(groups.get(name) ?? []), slug]));
+    names.forEach((name) =>
+      groups.set(name, [...(groups.get(name) ?? []), slug]),
+    );
   });
 
-  const grouped = Array.from(groups, ([name, slugs]) => ({ name, slugs }))
-    .filter(({ slugs }) => slugs.length > 0);
+  const grouped = Array.from(groups, ([name, slugs]) => ({
+    name,
+    slugs,
+  })).filter(({ slugs }) => slugs.length > 0);
 
   if (mode === "bier") {
     grouped.sort(

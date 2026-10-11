@@ -20,6 +20,6 @@ export const renderMarkdownBlocks = (content: string): string[] => {
   }
 
   return blocks.map((block) =>
-    parser.renderer.render(block, parser.options, env)
+    parser.renderer.render(block, parser.options, env),
   );
 };
