@@ -1,5 +1,5 @@
-import { formatDuration } from "date-fns";
-import { nl } from "date-fns/locale";
+import { formatDuration } from "date-fns/formatDuration";
+import { nl } from "date-fns/locale/nl";
 
 import { parseDuration } from "./parseDuration";
 import { DurationString } from "./types";

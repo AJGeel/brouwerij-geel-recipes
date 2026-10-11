@@ -13,7 +13,7 @@ const RandomWord = ({ initialWord }: Props) => {
 
   return (
     <span
-      className="cursor-pointer select-none duration-150 hover:text-amber-500 active:text-amber-100"
+      className="cursor-pointer duration-150 select-none hover:text-amber-500 active:text-amber-100"
       onClick={() => {
         const newWord = getRandomWord(currentWord);
         setCurrentWord(newWord);

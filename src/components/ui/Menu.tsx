@@ -33,7 +33,7 @@ export const MenuContent = ({
     >
       <BaseMenu.Popup
         className={cn(
-          "min-w-40 origin-[var(--transform-origin)] rounded-md bg-surface p-1 text-sm text-gray-900 shadow-md outline outline-1 outline-amber-200 duration-150 data-[ending-style]:scale-95 data-[starting-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:opacity-0",
+          "min-w-40 origin-(--transform-origin) rounded-md bg-surface p-1 text-sm text-gray-900 shadow-md outline-1 outline-amber-200 duration-150 outline-solid data-ending-style:scale-95 data-ending-style:opacity-0 data-starting-style:scale-95 data-starting-style:opacity-0",
           className,
         )}
         {...props}
@@ -66,14 +66,14 @@ export const MenuRadioItem = ({
 }: RadioItemProps) => (
   <BaseMenu.RadioItem
     className={cn(
-      "flex cursor-pointer select-none items-center gap-2 rounded-sm px-2 py-1.5 outline-none duration-150 data-[highlighted]:bg-amber-100/60",
+      "flex cursor-pointer items-center gap-2 rounded-xs px-2 py-1.5 outline-hidden duration-150 select-none data-highlighted:bg-amber-100/60",
       className,
     )}
     {...props}
   >
-    <span className="flex h-4 w-4 shrink-0 items-center justify-center">
+    <span className="flex size-4 shrink-0 items-center justify-center">
       <BaseMenu.RadioItemIndicator>
-        <CheckIcon weight="bold" className="h-3.5 w-3.5 text-amber-500" />
+        <CheckIcon weight="bold" className="size-3.5 text-amber-500" />
       </BaseMenu.RadioItemIndicator>
     </span>
     {children}

@@ -11,9 +11,9 @@ import { metadataConfig, viewportConfig } from "@/config";
 
 const display = Bricolage_Grotesque({
   subsets: ["latin"],
-  variable: "--font-display",
+  variable: "--font-bricolage",
 });
-const sans = DM_Sans({ subsets: ["latin"], variable: "--font-sans" });
+const sans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans" });
 
 export const metadata = metadataConfig;
 export const viewport = viewportConfig;

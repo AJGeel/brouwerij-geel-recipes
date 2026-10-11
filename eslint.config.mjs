@@ -27,10 +27,15 @@ const eslintConfig = [
       ],
     },
   },
-  ...tailwind.configs["flat/recommended"].map((config) => ({
-    ...config,
+  {
+    ...tailwind.configs.recommended,
     files: ["**/*.ts", "**/*.tsx"],
-  })),
+    settings: { tailwindcss: { cssConfigPath: "./src/app/globals.css" } },
+  },
+  {
+    files: ["src/utils/cn.ts", "src/utils/cn.test.ts"],
+    rules: { "tailwindcss/no-custom-classname": "off" },
+  },
   {
     files: ["**/*.ts", "**/*.tsx"],
     plugins: { "unused-imports": unusedImports },

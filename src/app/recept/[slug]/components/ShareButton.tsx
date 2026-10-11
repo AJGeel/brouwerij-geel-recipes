@@ -27,12 +27,12 @@ const onPressShare = async (recipeName: string) => {
 const ShareButton = ({ recipeName }: Props) => {
   return (
     <button
-      className="group flex h-16 w-16 cursor-pointer items-center justify-center duration-150 hover:bg-amber-100/50 active:scale-90"
+      className="group flex size-16 cursor-pointer items-center justify-center duration-150 hover:bg-amber-100/50 active:scale-90"
       onClick={() => onPressShare(recipeName)}
     >
       <ShareNetworkIcon
         weight="fill"
-        className="h-6 w-6 shrink-0 text-gray-400 duration-150 group-hover:text-gray-900"
+        className="size-6 shrink-0 text-gray-400 duration-150 group-hover:text-gray-900"
       />
     </button>
   );
