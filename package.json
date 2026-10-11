@@ -58,6 +58,6 @@
     "readline-sync": "^1.4.10",
     "slugify": "^1.6.9",
     "tsx": "^4.23.15",
-    "typescript": "^7"
+    "typescript": "^6.0.3"
   }
 }
