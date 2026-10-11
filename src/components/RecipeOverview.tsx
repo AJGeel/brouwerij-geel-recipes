@@ -4,10 +4,13 @@ import type { ReactNode } from "react";
 
 import Reveal from "@/components/Reveal";
 import { useQueryParam } from "@/hooks/useQueryParam";
-import type { GroupMode, RecipeGroup } from "@/services/markdown/groupRecipes";
-import { isGroupMode } from "@/services/markdown/groupRecipes";
-import { searchRecipes } from "@/services/markdown/searchRecipes";
-import { sortRecipes } from "@/services/markdown/sortRecipes";
+import type {
+  GroupMode,
+  RecipeGroup,
+} from "@/services/markdown/collection/groupRecipes";
+import { isGroupMode } from "@/services/markdown/collection/groupRecipes";
+import { searchRecipes } from "@/services/markdown/collection/searchRecipes";
+import { sortRecipes } from "@/services/markdown/collection/sortRecipes";
 import type { RecipeMetadata } from "@/services/markdown/types";
 import { cn } from "@/utils/cn";
 

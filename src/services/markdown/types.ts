@@ -1,18 +1,13 @@
-import type { DurationString } from "@/utils/duration/types";
+import type { z } from "zod";
 
-export interface Ingredient {
-  name: string;
-  amount: string;
-  imageSlug: string;
-}
+import type {
+  ingredientSchema,
+  recipeMetadataSchema,
+} from "./load/recipeSchema";
 
-export interface RecipeMetadata {
-  title: string;
-  imageSlug: string;
-  ingredients: Ingredient[];
-  duration: DurationString;
-  tags: string[];
-}
+export type Ingredient = z.infer<typeof ingredientSchema>;
+
+export type RecipeMetadata = z.infer<typeof recipeMetadataSchema>;
 
 export type MarkdownRecipe = {
   slug: string;

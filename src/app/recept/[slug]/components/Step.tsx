@@ -1,4 +1,4 @@
-import { splitStepNumber } from "@/services/markdown/splitStepNumber";
+import { splitStepNumber } from "@/services/markdown/content/splitStepNumber";
 
 type Props = {
   html: string;

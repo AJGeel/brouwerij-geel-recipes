@@ -4,11 +4,9 @@ import BackToRecipes from "@/components/BackToRecipes";
 import RecipeCard from "@/components/Recipe/RecipeCard";
 import Reveal from "@/components/Reveal";
 import PageTransition from "@/components/transitions/PageTransition";
-import {
-  filterRecipes,
-  generateTags,
-  scanAllRecipes,
-} from "@/services/markdown";
+import { filterRecipes } from "@/services/markdown/collection/filterRecipes";
+import { generateTags } from "@/services/markdown/collection/generateTags";
+import { scanAllRecipes } from "@/services/markdown/load/scanAllRecipes";
 import { capitalize } from "@/utils/capitalize";
 
 import { Header } from "./Header";

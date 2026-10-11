@@ -3,7 +3,8 @@ import Link from "next/link";
 
 import Reveal from "@/components/Reveal";
 import PageTransition from "@/components/transitions/PageTransition";
-import { generateTags, scanAllRecipes } from "@/services/markdown";
+import { generateTags } from "@/services/markdown/collection/generateTags";
+import { scanAllRecipes } from "@/services/markdown/load/scanAllRecipes";
 import { capitalize } from "@/utils/capitalize";
 
 const getTagsAndRecipes = async () => {

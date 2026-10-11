@@ -1,6 +1,5 @@
-import fs from "fs";
-
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 import Header from "@/app/recept/[slug]/components/Header";
 import Hero from "@/app/recept/[slug]/components/Hero";
@@ -8,9 +7,10 @@ import Ingredient from "@/app/recept/[slug]/components/Ingredient";
 import Step from "@/app/recept/[slug]/components/Step";
 import Reveal from "@/components/Reveal";
 import PageTransition from "@/components/transitions/PageTransition";
-import { recipeDirectory } from "@/config";
-import { parseRecipe, renderMarkdownBlocks } from "@/services/markdown";
-import { createRecipeDescription } from "@/services/markdown/createRecipeDescription";
+import { createRecipeDescription } from "@/services/markdown/content/createRecipeDescription";
+import { renderMarkdownBlocks } from "@/services/markdown/content/renderMarkdownBlocks";
+import { readRecipe } from "@/services/markdown/load/readRecipe";
+import { scanAllRecipes } from "@/services/markdown/load/scanAllRecipes";
 import { createRecipeJsonLd } from "@/services/seo/createRecipeJsonLd";
 
 import Tags from "./components/Tags";
@@ -45,23 +45,17 @@ export const generateMetadata = async ({
   };
 };
 
-export const generateStaticParams = async () => {
-  const files = fs.readdirSync(recipeDirectory);
-
-  return files.map((fileName) => ({
-    slug: fileName.replace(".md", ""),
-  }));
-};
+export const generateStaticParams = async () =>
+  scanAllRecipes().map(({ slug }) => ({ slug }));
 
 const getRecipeContents = async (slug: string) => {
-  const fileName = fs.readFileSync(`${recipeDirectory}/${slug}.md`, "utf-8");
-  const parsedRecipe = parseRecipe(fileName);
+  const recipe = readRecipe(`${slug}.md`);
 
-  if (!parsedRecipe) {
-    throw new Error("Failed to fetch data");
+  if (!recipe) {
+    notFound();
   }
 
-  return parsedRecipe;
+  return recipe;
 };
 
 const Page = async ({ params }: Props) => {

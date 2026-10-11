@@ -2,10 +2,11 @@ import fs from "fs";
 import path from "path";
 
 import { ClockIcon } from "@phosphor-icons/react/dist/ssr";
+import { notFound } from "next/navigation";
 import { ImageResponse } from "next/og";
 
-import { recipeDirectory } from "@/config";
-import { parseRecipe } from "@/services/markdown";
+import { readRecipe } from "@/services/markdown/load/readRecipe";
+import { scanAllRecipes } from "@/services/markdown/load/scanAllRecipes";
 import { formatDurationString } from "@/utils/duration/formatDurationString";
 
 export const alt = "Brouwerij Geel recept";
@@ -17,9 +18,7 @@ type Props = {
 };
 
 export const generateStaticParams = async () =>
-  fs
-    .readdirSync(recipeDirectory)
-    .map((fileName) => ({ slug: fileName.replace(".md", "") }));
+  scanAllRecipes().map(({ slug }) => ({ slug }));
 
 const toDataUrl = (publicPath: string) => {
   const file = fs.readFileSync(path.join(process.cwd(), "public", publicPath));
@@ -45,9 +44,13 @@ const readFont = (fileName: string) =>
 
 const Image = async ({ params }: Props) => {
   const { slug } = await params;
-  const { metadata } = parseRecipe(
-    fs.readFileSync(`${recipeDirectory}/${slug}.md`, "utf-8"),
-  );
+  const recipe = readRecipe(`${slug}.md`);
+
+  if (!recipe) {
+    notFound();
+  }
+
+  const { metadata } = recipe;
   const duration = formatDurationString(metadata.duration);
 
   return new ImageResponse(
