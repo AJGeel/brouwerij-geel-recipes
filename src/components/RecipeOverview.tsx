@@ -1,14 +1,11 @@
 "use client";
 
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import Reveal from "@/components/Reveal";
 import { useQueryParam } from "@/hooks/useQueryParam";
-import {
-  GroupMode,
-  isGroupMode,
-  RecipeGroup,
-} from "@/services/markdown/groupRecipes";
+import type { GroupMode, RecipeGroup } from "@/services/markdown/groupRecipes";
+import { isGroupMode } from "@/services/markdown/groupRecipes";
 import { searchRecipes } from "@/services/markdown/searchRecipes";
 import { sortRecipes } from "@/services/markdown/sortRecipes";
 import type { RecipeMetadata } from "@/services/markdown/types";
@@ -76,7 +73,10 @@ const RecipeOverview = ({ recipes, cards, repeatedCards, groups }: Props) => {
         <p className="mt-8 text-gray-500">Whoops, geen recepten gevonden!</p>
       )}
       {visibleSections.map(({ name, recipes: sectionRecipes }) => (
-        <section key={`${sortMode}-${name}`} className={name ? "mt-10" : undefined}>
+        <section
+          key={`${sortMode}-${name}`}
+          className={name ? "mt-10" : undefined}
+        >
           {name && (
             <h2 className="text-xl font-bold text-gray-900">
               {name}
@@ -90,31 +90,32 @@ const RecipeOverview = ({ recipes, cards, repeatedCards, groups }: Props) => {
               isCards
                 ? "grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3"
                 : "divide-y divide-amber-100",
-              (name || !isCards) && "mt-4",
+              (name !== null || !isCards) && "mt-4",
             )}
           >
             {sectionRecipes.map(({ slug, metadata, durationLabel }) => {
               const isRepeat = shown.has(slug);
               shown.add(slug);
+              const card = (isRepeat ? repeatedCards : cards)[slug];
 
               return (
-              <Reveal
-                key={`${sortMode}-${name}-${slug}`}
-                index={++revealIndex}
-                total={total}
-              >
-                {isCards ? (
-                  (isRepeat ? repeatedCards : cards)[slug]
-                ) : (
-                  <RecipeRow
-                    slug={slug}
-                    title={metadata.title}
-                    durationLabel={durationLabel}
-                    imageSlug={metadata.imageSlug}
-                    morph={!isRepeat}
-                  />
-                )}
-              </Reveal>
+                <Reveal
+                  key={`${sortMode}-${name}-${slug}`}
+                  index={++revealIndex}
+                  total={total}
+                >
+                  {isCards ? (
+                    card
+                  ) : (
+                    <RecipeRow
+                      slug={slug}
+                      title={metadata.title}
+                      durationLabel={durationLabel}
+                      imageSlug={metadata.imageSlug}
+                      morph={!isRepeat}
+                    />
+                  )}
+                </Reveal>
               );
             })}
           </div>

@@ -1,8 +1,8 @@
-import { Duration } from "./types";
+import type { Duration } from "./types";
 
 export const parseDuration = (durationString: string): Duration | undefined => {
   const durationRegex =
-    /P(?:([0-9]+)Y)?(?:([0-9]+)M)?(?:([0-9]+)D)?(?:T(?:([0-9]+)H)?(?:([0-9]+)M)?(?:([0-9]+)S)?)?/;
+    /P(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?)?/;
   const matches = durationString.match(durationRegex);
 
   if (!matches) {

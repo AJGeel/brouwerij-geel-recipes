@@ -73,8 +73,7 @@ describe("parseDuration", () => {
     });
   });
 
-  it("should throw an error for an invalid duration string", () => {
-    const durationString = "InvalidDuration";
-    expect(() => parseDuration(durationString)).toBeUndefined;
+  it("should return undefined for an invalid duration string", () => {
+    expect(parseDuration("InvalidDuration")).toBeUndefined();
   });
 });

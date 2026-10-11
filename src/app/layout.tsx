@@ -1,6 +1,6 @@
 import "./globals.css";
 
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import { Bricolage_Grotesque, DM_Sans } from "next/font/google";
 
@@ -27,9 +27,7 @@ const RootLayout = ({ children }: Props) => (
     lang="nl"
     className={`${display.variable} ${sans.variable} bg-amber-100`}
   >
-    <body
-      className={`relative isolate flex min-h-screen flex-col border-amber-100 bg-surface text-foreground md:border-t-4`}
-    >
+    <body className="relative isolate flex min-h-screen flex-col border-amber-100 bg-surface text-foreground md:border-t-4">
       <Bubbles />
       {children}
       <Footer />

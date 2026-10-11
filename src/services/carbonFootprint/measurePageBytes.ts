@@ -48,7 +48,7 @@ const getAssetFromTag = (tag: string) => {
  * when loading the page, resolved to absolute URLs.
  */
 export const extractAssetUrls = (html: string, pageUrl: string) => {
-  const tags = html.match(/<(script|link|img)\b[^>]*>/gi) ?? [];
+  const tags = html.match(/<(?:script|link|img)\b[^>]*>/gi) ?? [];
   const urls = tags
     .map(getAssetFromTag)
     .filter((url): url is string => !!url && !url.startsWith("data:"))
@@ -94,7 +94,7 @@ export const measurePageBytes = async (pageUrl: string) => {
     new TextEncoder().encode(html).byteLength;
 
   const assetSizes = await Promise.all(
-    extractAssetUrls(html, pageUrl).map(fetchSize)
+    extractAssetUrls(html, pageUrl).map(fetchSize),
   );
 
   return assetSizes.reduce((total, size) => total + size, htmlSize);

@@ -1,7 +1,8 @@
 "use client";
 
 import { ShareNetworkIcon } from "@phosphor-icons/react/dist/ssr";
-import toast, { ToastOptions } from "react-hot-toast";
+import type { ToastOptions } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 import { shareRecipe } from "@/services/ui/shareRecipe";
 
@@ -9,7 +10,7 @@ type Props = {
   recipeName: string;
 };
 
-const onPressShare = async (recipeName: string) => {
+const handleShare = async (recipeName: string) => {
   const shareResponse = await shareRecipe(recipeName);
 
   const toastOptions: ToastOptions = {
@@ -28,7 +29,7 @@ const ShareButton = ({ recipeName }: Props) => {
   return (
     <button
       className="group flex size-16 cursor-pointer items-center justify-center duration-150 hover:bg-amber-100/50 active:scale-90"
-      onClick={() => onPressShare(recipeName)}
+      onClick={() => void handleShare(recipeName)}
     >
       <ShareNetworkIcon
         weight="fill"

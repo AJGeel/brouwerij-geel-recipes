@@ -1,6 +1,7 @@
 "use client";
 
-import { ComponentType, Fragment } from "react";
+import type { ComponentType } from "react";
+import { Fragment } from "react";
 
 import {
   Menu,
@@ -10,7 +11,11 @@ import {
   MenuSeparator,
   MenuTrigger,
 } from "@/components/ui/Menu";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/Tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/Tooltip";
 
 type Props<T extends string> = {
   label: string;
@@ -44,15 +49,12 @@ export const OptionMenu = <T extends string>({
       >
         <span className="flex items-center justify-center gap-1.5 text-gray-400 duration-150 group-hover:text-gray-900 group-active:scale-90 group-data-popup-open:text-gray-900">
           <p className="md:hidden">{label}</p>
-          <Icon
-            weight="bold"
-            className="size-5"
-          />
+          <Icon weight="bold" className="size-5" />
         </span>
       </TooltipTrigger>
       <TooltipContent>{tooltip}</TooltipContent>
     </Tooltip>
-    <MenuContent >
+    <MenuContent>
       <MenuRadioGroup
         value={value}
         onValueChange={(next) => {

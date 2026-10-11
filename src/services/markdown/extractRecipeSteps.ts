@@ -1,4 +1,13 @@
 import md from "markdown-it";
+import type { Token } from "markdown-it";
+
+const tokenText = ({ type, content }: Token) => {
+  if (type === "softbreak" || type === "hardbreak") {
+    return " ";
+  }
+
+  return type === "text" || type === "code_inline" ? content : "";
+};
 
 /** Plain-text preparation steps, one per paragraph or list item, without markup or "1." numbering */
 export const extractRecipeSteps = (content: string): string[] =>
@@ -7,13 +16,7 @@ export const extractRecipeSteps = (content: string): string[] =>
     .filter((token) => token.type === "inline")
     .map((token) =>
       (token.children ?? [])
-        .map((child) =>
-          child.type === "softbreak" || child.type === "hardbreak"
-            ? " "
-            : child.type === "text" || child.type === "code_inline"
-              ? child.content
-              : "",
-        )
+        .map(tokenText)
         .join("")
         .replace(/^\d+\.\s*/, "")
         .trim(),

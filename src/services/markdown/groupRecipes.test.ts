@@ -4,13 +4,21 @@ import { groupRecipes } from "./groupRecipes";
 
 const taxonomy = {
   beers: ["Porter", "Kriek"],
-  mealTypes: { Diner: ["Diner"], Dessert: ["Dessert"], Cocktail: ["Cocktails"] },
+  mealTypes: {
+    Diner: ["Diner"],
+    Dessert: ["Dessert"],
+    Cocktail: ["Cocktails"],
+  },
 };
 
 const recipe = (slug: string, ingredients: string[], tags: string[]) => ({
   slug,
   metadata: {
-    ingredients: ingredients.map((name) => ({ name, amount: "", imageSlug: "" })),
+    ingredients: ingredients.map((name) => ({
+      name,
+      amount: "",
+      imageSlug: "",
+    })),
     tags,
   },
 });
@@ -48,10 +56,9 @@ describe("groupRecipes", () => {
       "Kriek",
       "Porter",
     ]);
-    expect(groupRecipes(both, "maaltijd", taxonomy).map((g) => g.name)).toEqual([
-      "Diner",
-      "Dessert",
-    ]);
+    expect(groupRecipes(both, "maaltijd", taxonomy).map((g) => g.name)).toEqual(
+      ["Diner", "Dessert"],
+    );
   });
 
   it("has no 'Overig' group when every recipe matches", () => {

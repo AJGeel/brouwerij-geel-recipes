@@ -4,7 +4,7 @@ import BackToRecipes from "@/components/BackToRecipes";
 
 const Error = () => (
   <div className="mx-auto w-full max-w-7xl p-5 sm:p-8">
-    <h1 className="mt-8 max-w-lg text-3xl font-bold text-gray-900 md:text-4xl ">
+    <h1 className="mt-8 max-w-lg text-3xl font-bold text-gray-900 md:text-4xl">
       Jammer de pammer...
     </h1>
     <p className="mt-4 max-w-lg">

@@ -39,7 +39,7 @@ function Bubbles() {
           key={index}
           className={cn(
             "absolute bottom-0 animate-bubble-rise will-change-transform",
-            !bubble.onMobile && "max-md:hidden"
+            !bubble.onMobile && "max-md:hidden",
           )}
           style={{
             left: bubble.left,
@@ -50,7 +50,7 @@ function Bubbles() {
           <span
             className={cn(
               "block animate-bubble-sway rounded-full border border-amber-500/40 bg-amber-500/10 transition-opacity duration-1000",
-              index >= baseCount && !dense && "opacity-0"
+              index >= baseCount && !dense && "opacity-0",
             )}
             style={{
               width: bubble.size,

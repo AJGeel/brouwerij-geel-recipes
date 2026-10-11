@@ -1,4 +1,4 @@
-import { Duration } from "./types";
+import type { Duration } from "./types";
 
 export const minutesToDuration = (totalMinutes: number): Duration => {
   const minutesInHour = 60;

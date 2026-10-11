@@ -1,6 +1,5 @@
 import { describe, it, expect } from "bun:test";
 
-
 import { cn } from "./cn";
 
 describe("cn", () => {
@@ -14,7 +13,7 @@ describe("cn", () => {
 
   it("lets later Tailwind classes override earlier conflicting ones", () => {
     expect(cn("p-2 text-gray-500", "p-4 text-amber-500")).toBe(
-      "p-4 text-amber-500"
+      "p-4 text-amber-500",
     );
   });
 });

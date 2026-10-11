@@ -42,7 +42,9 @@ describe("getCarbonFootprint", () => {
   });
 
   it("should pass the measured bytes and green status to the API", async () => {
-    const fetchMock = mockFetch({ green: () => Response.json({ green: true }) });
+    const fetchMock = mockFetch({
+      green: () => Response.json({ green: true }),
+    });
 
     await getCarbonFootprint();
 

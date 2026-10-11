@@ -1,4 +1,4 @@
-import { DurationString } from "@/utils/duration/types";
+import type { DurationString } from "@/utils/duration/types";
 
 export interface Ingredient {
   name: string;

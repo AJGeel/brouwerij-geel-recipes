@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { formatDurationString } from "@/utils/duration/formatDurationString";
-import { DurationString } from "@/utils/duration/types";
+import type { DurationString } from "@/utils/duration/types";
 import { openRecipe, recipeImageTransitionName } from "@/utils/viewTransitions";
 
 import Morph from "../transitions/Morph";
@@ -23,11 +23,7 @@ const RecipeCard = ({
   imageSlug,
   morph,
 }: Props) => (
-  <Link
-    href={`/recept/${slug}`}
-    prefetch={true}
-    transitionTypes={[openRecipe]}
-  >
+  <Link href={`/recept/${slug}`} prefetch={true} transitionTypes={[openRecipe]}>
     <div className="group relative flex h-48 flex-col overflow-hidden rounded-md text-white duration-150 ease-in-out active:scale-95 active:opacity-75 md:h-64">
       <div className="z-10 mt-auto p-5">
         <h1 className="text-xl leading-6 font-semibold">{title}</h1>

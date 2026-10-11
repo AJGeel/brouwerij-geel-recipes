@@ -23,7 +23,7 @@ export const dictionary = [
 
 export const getRandomWord = (
   currentWord?: string,
-  randomWords = dictionary
+  randomWords = dictionary,
 ) => {
   const options = randomWords.filter((item) => item !== (currentWord ?? ""));
 
