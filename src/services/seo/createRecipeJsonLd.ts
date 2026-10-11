@@ -1,10 +1,9 @@
 import type { Recipe, WithContext } from "schema-dts";
 
 import { websiteUrl } from "@/config";
-import { extractRecipeSteps } from "@/services/markdown/extractRecipeSteps";
+import { createRecipeDescription } from "@/services/markdown/content/createRecipeDescription";
+import { extractRecipeSteps } from "@/services/markdown/content/extractRecipeSteps";
 import type { RecipeMetadata } from "@/services/markdown/types";
-
-import { createRecipeDescription } from "../markdown/createRecipeDescription";
 
 type Props = {
   slug: string;

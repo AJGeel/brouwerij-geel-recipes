@@ -4,10 +4,10 @@ import RecipeOverview from "@/components/RecipeOverview";
 import Reveal from "@/components/Reveal";
 import PageTransition from "@/components/transitions/PageTransition";
 import { ViewOptions } from "@/components/ViewOptions/ViewOptions";
-import { scanAllRecipes } from "@/services/markdown";
-import { groupRecipes } from "@/services/markdown/groupRecipes";
-import { createSearchText } from "@/services/markdown/searchRecipes";
-import { loadTaxonomy } from "@/services/markdown/taxonomy";
+import { groupRecipes } from "@/services/markdown/collection/groupRecipes";
+import { createSearchText } from "@/services/markdown/collection/searchRecipes";
+import { scanAllRecipes } from "@/services/markdown/load/scanAllRecipes";
+import { loadTaxonomy } from "@/services/markdown/load/taxonomy";
 import { getRandomWord } from "@/services/ui/getRandomWord";
 import { formatDurationString } from "@/utils/duration/formatDurationString";
 

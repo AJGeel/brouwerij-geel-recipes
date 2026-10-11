@@ -3,7 +3,7 @@ import { milliseconds } from "date-fns/milliseconds";
 import { parseDuration } from "@/utils/duration/parseDuration";
 
 import { groupModes } from "./groupRecipes";
-import type { RecipeMetadata } from "./types";
+import type { RecipeMetadata } from "../types";
 
 /**
  * `willekeurig` keeps the order as given, which is shuffled when scanning.

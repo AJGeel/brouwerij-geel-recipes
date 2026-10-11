@@ -1,6 +1,6 @@
 import { sortMap } from "@/utils/sortMap";
 
-import type { MarkdownRecipe } from "./types";
+import type { MarkdownRecipe } from "../types";
 
 const accumulatorFn = (
   inputArray: string[],

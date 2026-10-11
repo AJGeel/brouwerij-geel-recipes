@@ -1,5 +1,5 @@
-import type { Taxonomy } from "./taxonomy";
-import type { MarkdownRecipe } from "./types";
+import type { Taxonomy } from "../load/taxonomy";
+import type { MarkdownRecipe } from "../types";
 
 export const groupModes = ["bier", "maaltijd"] as const;
 export type GroupMode = (typeof groupModes)[number];

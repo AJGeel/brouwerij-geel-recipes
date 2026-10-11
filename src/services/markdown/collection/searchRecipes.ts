@@ -1,4 +1,4 @@
-import type { RecipeMetadata } from "./types";
+import type { RecipeMetadata } from "../types";
 
 const normalize = (value: string) =>
   value
