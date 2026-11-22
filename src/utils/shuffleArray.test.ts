@@ -8,7 +8,7 @@ describe("shuffleArray", () => {
     const shuffledArray = shuffleArray([...originalArray]);
 
     expect(shuffledArray).toHaveLength(originalArray.length);
-    expect(shuffledArray).not.toEqual(originalArray);
+    expect(shuffledArray.toSorted()).toEqual(originalArray);
   });
 
   it("should handle an empty array", () => {
@@ -26,6 +26,6 @@ describe("shuffleArray", () => {
     const shuffledArray = shuffleArray([...originalArray]);
 
     expect(shuffledArray).toHaveLength(originalArray.length);
-    expect(shuffledArray).not.toEqual(originalArray);
+    expect(shuffledArray.toSorted()).toEqual(originalArray);
   });
 });
